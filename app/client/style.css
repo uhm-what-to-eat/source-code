@@ -44,3 +44,8 @@ footer, footer a {
 #hours {
   white-space: pre-line;
 }
+
+.green-submit {
+  background-color: rgb(2,71,49);
+  color: white;
+}
