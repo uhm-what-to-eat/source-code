@@ -56,7 +56,7 @@ const SignUp = ({ location }) => {
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <Row>
-                  <Col xs={3}>
+                  <Col xs={4}>
                     <SelectField name="type" showInlineError placeholder="Choose role" />
                   </Col>
                 </Row>
