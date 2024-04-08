@@ -28,6 +28,14 @@ const CampusCenter = () => {
     name: 'Campus Center Food Court', image: '../images/FoodCourt.jpg', location: 'Campus Center', hours: 'Mon-Fri 7am-2pm',
   }, {
     name: 'Subway', image: '../images/Subway.jpg', location: 'Campus Center', hours: 'Mon & Fri 8am-5pm\nTue-Thu 8am-6pm',
+  }, {
+    name: 'B\'RITO BOWL', image: '../images/BRITO.jpg', location: 'Campus Center', hours: 'Mon-Fri 10am-2pm',
+  }, {
+    name: 'Ding Tea', image: '../images/DingTea.png', location: 'Campus Center 1st Floor', hours: 'Mon-Fri 10am-6pm',
+  }, {
+    name: 'Jamba Juice', image: '../images/JambaJuice.jpg', location: 'Campus Center', hours: 'Mon-Fri 8am-4pm',
+  }, {
+    name: 'Starbucks', image: '../images/Starbucks.jpg', location: 'Campus Center', hours: 'Mon-Thu 6am-10pm\nFri 6am-5pm',
   }];
   return (ready ? (
     <Container className="py-3">
@@ -46,6 +54,9 @@ const CampusCenter = () => {
           </Button>
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/ft">Food Trucks</Nav.Link>
+          </Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
           </Button>
         </Col>
       </Row>

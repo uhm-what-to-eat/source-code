@@ -27,7 +27,13 @@ const ParadisePalms = () => {
   const places = [{
     name: 'Panda Express', image: '../images/PandaExpress.jpg', location: 'Paradise Palms', hours: 'Mon-Fri 10am-4:30pm',
   }, {
-    name: 'L&L Hawaiian Barbecue', image: '../images/L&L.jpg', location: 'Campus Center', hours: 'Mon-Fri 10am-4:30pm',
+    name: 'L&L Hawaiian Barbecue', image: '../images/L&L.jpg', location: 'Paradise Palms', hours: 'Mon-Fri 10am-4:30pm',
+  }, {
+    name: 'Dunkin\' Donuts', image: '../images/DunkinDonuts.jpg', location: 'Paradise Palms', hours: 'Mon-Fri 7am-4:30pm',
+  }, {
+    name: 'Holoholo Grill', image: '../images/Holoholo.jpg', location: 'Paradise Palms', hours: 'Mon-Fri 8am-3:00pm',
+  }, {
+    name: 'Lasoon', image: '../images/Lasoon.jpg', location: 'Paradise Palms', hours: 'Mon-Fri 10am-4:30pm',
   }];
   return (ready ? (
     <Container className="py-3">
@@ -46,6 +52,9 @@ const ParadisePalms = () => {
           <Button variant="success" className="m-1" disabled>Paradise Palms</Button>
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/ft">Food Trucks</Nav.Link>
+          </Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
           </Button>
         </Col>
       </Row>

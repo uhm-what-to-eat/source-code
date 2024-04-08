@@ -8,7 +8,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import PlaceToEat from '../../components/PlaceToEat';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const FoodTrucks = () => {
+const ParadisePalms = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -25,14 +25,14 @@ const FoodTrucks = () => {
     };
   }, []);
   const places = [{
-    name: 'Soul Fusion', image: '../images/SoulFusion.jpg', location: 'Paradise Palms', hours: 'Mon, Wed, Thu, Fri 10am-2:00pm',
+    name: 'BA-LE', image: '../images/BA-LE.jpg', location: 'Hemenway Hall', hours: 'Mon-Thu 10am-8pm\nFri 10am-9pm',
   }];
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center py-3">
         <Col>
           <Col className="text-center">
-            <h2 className="fw-bold">Food Trucks</h2>
+            <h2 className="fw-bold">Hemenway Hall</h2>
           </Col>
         </Col>
       </Row>
@@ -44,10 +44,10 @@ const FoodTrucks = () => {
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/pp">Paradise Palms</Nav.Link>
           </Button>
-          <Button variant="success" className="m-1" disabled>Food Trucks</Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
+            <Nav.Link as={NavLink} to="/ft">Food Trucks</Nav.Link>
           </Button>
+          <Button variant="success" className="m-1" disabled>Hemenway Hall</Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
@@ -57,4 +57,4 @@ const FoodTrucks = () => {
   ) : <LoadingSpinner />);
 };
 
-export default FoodTrucks;
+export default ParadisePalms;

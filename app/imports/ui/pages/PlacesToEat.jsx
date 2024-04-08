@@ -43,6 +43,9 @@ const PlacesToEat = () => {
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/ft">Food Trucks</Nav.Link>
           </Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
+          </Button>
         </Col>
       </Row>
     </Container>
