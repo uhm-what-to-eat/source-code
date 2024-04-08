@@ -6,7 +6,7 @@
   --matr-navbar-bg: #ECECEC;
   --matr-navbar-bg-rgb: 2, 71, 49;
   --matr-navbar-text-color: white;
-  --matr-navbar-highlight-text: black;
+  --matr-navbar-highlight-text: orange;
 }
 
 /* Change bootstrap variable values.
@@ -14,6 +14,21 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  background-size: cover;
+  background: fixed center url("images/landing-page.jpg");
+}
+
+#landing-page h1,
+#landing-page h2 {
+  font-family: AppleGothic, sans-serif;
+}
+
+#landing-page h1{
+  font-weight: bold;
+}
+
+.link {
+  color: rgb(2, 71, 49);
 }
 
 body .navbar {
@@ -32,7 +47,7 @@ body .navbar {
 /* Define custom styles */
 .gray-background {
   background-color: var(--matr-navbar-bg);
-  color: var(--bs-dark);
+  color: var(--bs-light);
   padding-top: 10px;
   padding-bottom: 20px;
 }
