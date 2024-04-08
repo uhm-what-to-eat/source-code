@@ -46,7 +46,7 @@ const SignUp = ({ location }) => {
   return (
     <Container id="signup-page" className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={4}>
           <Col className="text-center">
             <h2>Register your account</h2>
           </Col>
