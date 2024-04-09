@@ -4,10 +4,25 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  "defaultMenuItems": [
+    { "name": "Item 1", "vendor": "Vendor A", "description": "Description 1", "cost": 10, "vegan": true, "available": false,"calories": 75  },
+    { "name": "Item 2", "vendor": "Vendor B", "description": "Description 2", "cost": 15, "vegan": false, "available": true, "calories": 75 }
+  ],
+
+  "defaultVendors": [
+    {
+      "name": "Panda Express Test", "address": "2560 McCarthy Mall Paradise Palms, Honolulu, HI 96822",
+      "description": "Panda Express is an American fast food restaurant chain that specializes in American Chinese cuisine.",
+      "hours": "10:00AM - 4:30PM",
+      "logo": "https://cdn.cookielaw.org/logos/fbcad385-5bbd-48ba-97d4-e5bcabcd10b9/67c1852a-0424-4c45-ae27-c587b2b01745/573a432a-97c1-4b6f-b44e-1911f400a20f/1200px-Panda_Express_logo.svg.png",
+      "owner": "vendor@foo.com"
+    },
+    {
+      "name": "Panda Express", "address": "2560 McCarthy Mall Paradise Palms, Honolulu, HI 96822",
+      "description": "Panda Express is an American fast food restaurant chain that specializes in American Chinese cuisine.",
+      "hours": "10:00AM - 4:30PM",
+      "logo": "https://delmarhighlandstowncenter.com/wp-content/uploads/2020/09/DMHTC_Listing_Feature_PandaExpresslogo.jpg",
+      "owner": "pandaexpress@foo.com"
+    }
   ]
 }

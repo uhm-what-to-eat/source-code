@@ -6,7 +6,7 @@ import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { Stuffs } from '../../api/stuff/Stuff';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the Stuff documents. Use <Vendor> to render each row. */
 const PlacesToEat = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready } = useTracker(() => {

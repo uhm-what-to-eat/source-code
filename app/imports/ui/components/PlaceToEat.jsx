@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, Card, Row } from 'react-bootstrap';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Stuff table. See pages/ListVendors.jsx. */
 const PlaceToEat = ({ place }) => (
   <Card className="h-100">
     <Card.Header className="text-center">
