@@ -11,11 +11,6 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
-  "monti": {
-    "appId": "Hxzjaj8Bmtrp6iz7m",
-    "appSecret": "84fd7101-de91-4b49-8001-53d739dc0307"
-  },
-
   "defaultCCVendors": [{
     "name": "Campus Center Food Court", "image": "../images/FoodCourt.jpg", "location": "Campus Center", "hours": "Mon-Fri 7am-2pm"
   }, {
@@ -52,5 +47,10 @@
 
   "defaultRDVendors": [{
     "name": "Hale Aloha Cafe", "image": "../images/HaleAlohaCafe.jpg", "location": "Hale Aloha Towers", "hours": "Brunch: Sat & Sun 10:30am-1:30pm\nDinner: Daily 5pm-8pm"
-  }]
+  }],
+
+  "monti": {
+    "appId": "Hxzjaj8Bmtrp6iz7m",
+    "appSecret": "84fd7101-de91-4b49-8001-53d739dc0307"
+  }
 }
