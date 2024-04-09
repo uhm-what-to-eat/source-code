@@ -8,7 +8,7 @@ const Footer = () => (
     <Container>
       <Row>
         <Col xs={3}>
-          <Row><Image src="images/landing-page-log-in.png" style={{ height: '100px', width: '100px' }} /></Row>
+          <Row><Image src="images/landing-page-log-in.png" style={{ height: '35%', width: '35%' }} /></Row>
           <Row style={{ paddingTop: '20px' }}>
             <strong>Finding your foody desires.</strong>
           </Row>
