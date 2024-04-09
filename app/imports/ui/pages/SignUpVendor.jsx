@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
-import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Card, Col, Container, Row, Form } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField, TextField, SelectField } from 'uniforms-bootstrap5';
 
 const SignUp = ({ location }) => {
   const [error, setError] = useState('');
@@ -14,13 +14,21 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
+    storeName: String,
+    storeLocation: {
+      type: String,
+      allowedValues: ['Campus Center', 'North Hall', 'South Hall', 'East Wing', 'West Wing'],
+      defaultValue: 'Campus Center',
+    },
+    storeHours: String,
+    // Note: File handling is not included in SimpleSchema, but we'll add a placeholder for UI purposes
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
-  /* Handle SignUpUser submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
-    Accounts.createUser({ email, username: email, password, type: 'Vendor' }, (err) => {
+    const { email, password, storeName, storeLocation, storeHours } = doc;
+    // Assuming the file upload handling and MongoDB insertion logic will be implemented here or in the Accounts.createUser callback
+    Accounts.createUser({ email, username: email, password, profile: { storeName, storeLocation, storeHours, type: 'Vendor' } }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -30,17 +38,15 @@ const SignUp = ({ location }) => {
     });
   };
 
-  /* Display the signup form. Redirect to add page after successful registration and login. */
   const { from } = location?.state || { from: { pathname: '/add' } };
-  // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
     return <Navigate to={from} />;
   }
   return (
     <Container id="signup-page" className="py-3">
       <Row className="justify-content-center">
-        <Col xs={4}>
-          <Col className="text-center">
+        <Col xs={12} md={6}>
+          <Col className="text-center mb-4">
             <h2>Register your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
@@ -48,19 +54,23 @@ const SignUp = ({ location }) => {
               <Card.Body>
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
+                <TextField name="storeName" placeholder="Store Name" />
+                <SelectField name="storeLocation" />
+                <TextField name="storeHours" placeholder="Store Hours (e.g., Mon-Fri 9am-5pm)" />
+                <Form.Group controlId="formFile" className="mb-3">
+                  <Form.Label>Store Image</Form.Label>
+                  <Form.Control type="file" disabled /> {/* Disabled for now */}
+                </Form.Group>
                 <ErrorsField />
                 <SubmitField inputClassName="green-submit" />
               </Card.Body>
             </Card>
           </AutoForm>
           <Alert variant="light">
-            Already have an account? Login
-            {' '}
-            <Link to="/signin">here</Link>
+            Already have an account? Login{' '}
+            <Link to="/signin">here</Link>.
           </Alert>
-          {error === '' ? (
-            ''
-          ) : (
+          {error && (
             <Alert variant="danger">
               <Alert.Heading>Registration was not successful</Alert.Heading>
               {error}
@@ -72,15 +82,14 @@ const SignUp = ({ location }) => {
   );
 };
 
-/* Ensure that the React Router location object is available in case we need to redirect. */
 SignUp.propTypes = {
   location: PropTypes.shape({
-    state: PropTypes.string,
+    state: PropTypes.object,
   }),
 };
 
 SignUp.defaultProps = {
-  location: { state: '' },
+  location: { state: {} },
 };
 
 export default SignUp;
