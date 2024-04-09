@@ -21,6 +21,7 @@ import CampusCenter from '../pages/places/CampusCenter';
 import ParadisePalms from '../pages/places/ParadisePalms';
 import FoodTrucks from '../pages/places/FoodTrucks';
 import HemenwayHall from '../pages/places/HemenwayHall';
+import ResidentialDining from '../pages/places/ResidentialDining';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/pp" element={<ProtectedRoute><ParadisePalms /></ProtectedRoute>} />
           <Route path="/ft" element={<ProtectedRoute><FoodTrucks /></ProtectedRoute>} />
           <Route path="/hh" element={<ProtectedRoute><HemenwayHall /></ProtectedRoute>} />
+          <Route path="/rd" element={<ProtectedRoute><ResidentialDining /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />

@@ -3,40 +3,27 @@ import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Stuffs } from '../../../api/stuff/Stuff';
+import { CCVendors } from '../../../api/ccvendor/CCVendors';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import PlaceToEat from '../../components/PlaceToEat';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const CampusCenter = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready } = useTracker(() => {
+  const { ready, ccvendor } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    // Get access to CCVendors documents.
+    const subscription = Meteor.subscribe(CCVendors.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    const ccvendorItems = CCVendors.collection.find({}).fetch();
     return {
-      stuffs: stuffItems,
+      ccvendor: ccvendorItems,
       ready: rdy,
     };
   }, []);
-  const places = [{
-    name: 'Campus Center Food Court', image: '../images/FoodCourt.jpg', location: 'Campus Center', hours: 'Mon-Fri 7am-2pm',
-  }, {
-    name: 'Subway', image: '../images/Subway.jpg', location: 'Campus Center', hours: 'Mon & Fri 8am-5pm\nTue-Thu 8am-6pm',
-  }, {
-    name: 'B\'RITO BOWL', image: '../images/BRITO.jpg', location: 'Campus Center', hours: 'Mon-Fri 10am-2pm',
-  }, {
-    name: 'Ding Tea', image: '../images/DingTea.png', location: 'Campus Center 1st Floor', hours: 'Mon-Fri 10am-6pm',
-  }, {
-    name: 'Jamba Juice', image: '../images/JambaJuice.jpg', location: 'Campus Center', hours: 'Mon-Fri 8am-4pm',
-  }, {
-    name: 'Starbucks', image: '../images/Starbucks.jpg', location: 'Campus Center', hours: 'Mon-Thu 6am-10pm\nFri 6am-5pm',
-  }];
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center py-3">
@@ -58,10 +45,13 @@ const CampusCenter = () => {
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
           </Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/rd">Residential Dining</Nav.Link>
+          </Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
-        {places.map((place, index) => (<Col key={index}><PlaceToEat place={place} /></Col>))}
+        {ccvendor.map((place) => (<Col key={place._id}><PlaceToEat place={place} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
