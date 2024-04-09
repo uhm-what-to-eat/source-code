@@ -17,7 +17,7 @@ const SignUp = ({ location }) => {
     storeName: String,
     storeLocation: {
       type: String,
-      allowedValues: ['Campus Center', 'North Hall', 'South Hall', 'East Wing', 'West Wing'],
+      allowedValues: ['Campus Center', 'Paradise Palms', 'Hemenway Hall', 'Residential Dining', 'Food Trucks'],
       defaultValue: 'Campus Center',
     },
     storeHours: String,
@@ -56,7 +56,7 @@ const SignUp = ({ location }) => {
                 <TextField name="password" placeholder="Password" type="password" />
                 <TextField name="storeName" placeholder="Store Name" />
                 <SelectField name="storeLocation" />
-                <TextField name="storeHours" placeholder="Store Hours (e.g., Mon-Fri 9am-5pm)" />
+                <TextField name="storeHours" placeholder="Store Hours (e.g., Mon-Fri 9am-5pm\n Sat-Sun 9am-4pm)" />
                 <Form.Group controlId="formFile" className="mb-3">
                   <Form.Label>Store Image</Form.Label>
                   <Form.Control type="file" disabled /> {/* Disabled for now */}
