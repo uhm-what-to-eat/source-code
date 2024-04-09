@@ -10,7 +10,8 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
-import SignUp from '../pages/SignUp';
+import SignUpUser from '../pages/SignUpUser';
+import SignUpVendor from '../pages/SignUpVendor';
 import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
@@ -36,7 +37,8 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signupuser" element={<SignUpUser />} />
+          <Route path="/signupvendor" element={<SignUpVendor />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><PlacesToEat /></ProtectedRoute>} />
