@@ -16,7 +16,7 @@ const Landing = () => (
       <Col xs={4}>
         <Image src="images/landing-page-sign-in-logo.png" width="150px" />
         <h1>Want to see Manoa&apos;s Biggest Munches?</h1>
-        <h2><Link to="/signup" className="link">Sign Up Now Here!</Link></h2>
+        <h2><Link to="/signupuser" className="link">Sign Up Now Here!</Link></h2>
       </Col>
       <Col xs={4}>
         <Image src="images/landing-page-log-in.png" width="150px" />
@@ -26,7 +26,7 @@ const Landing = () => (
       <Col xs={4}>
         <Image src="images/landing-page-vendor.png" width="150px" />
         <h1>Do You Want To Sell?</h1>
-        <h2><Link to="/signup" className="link">Become A Vendor Here!</Link></h2>
+        <h2><Link to="/signupvendor" className="link">Become A Vendor Here!</Link></h2>
       </Col>
 
     </Row>
