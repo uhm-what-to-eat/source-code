@@ -41,9 +41,9 @@ const SignIn = () => {
   }
   // Otherwise return the Login form.
   return (
-    <Container id="signin-page" className="py-3">
+    <Container className="py-3 signin-page">
       <Row className="justify-content-center">
-        <Col xs={4}>
+        <Col xs={3}>
           <Col className="text-center">
             <h2>Login to your account</h2>
             <p>Start searching for your foody desires!</p>
@@ -54,14 +54,14 @@ const SignIn = () => {
                 <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
                 <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
                 <ErrorsField />
-                <SubmitField id="signin-form-submit" />
+                <SubmitField inputClassName="green-submit" />
               </Card.Body>
             </Card>
           </AutoForm>
           <Alert variant="black">
             <Row className="text-center">
-              <p><strong>New to UHM.. What To Eat?</strong>   <Link to="/signup">Click here to Register</Link>
-              </p>
+              <p><strong>New to UHM.. What To Eat?</strong></p>
+              <Link to="/signup">Register Now!</Link>
             </Row>
           </Alert>
           {error === '' ? (
