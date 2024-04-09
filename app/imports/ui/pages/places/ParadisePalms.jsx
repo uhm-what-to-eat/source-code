@@ -3,32 +3,27 @@ import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Stuffs } from '../../../api/stuff/Stuff';
+import { PPVendors } from '../../../api/ppvendor/PPVendors';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import PlaceToEat from '../../components/PlaceToEat';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ParadisePalms = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready } = useTracker(() => {
+  const { ready, ppvendor } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    const subscription = Meteor.subscribe(PPVendors.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    const ppvendorItems = PPVendors.collection.find({}).fetch();
     return {
-      stuffs: stuffItems,
+      ppvendor: ppvendorItems,
       ready: rdy,
     };
   }, []);
-  const places = [{
-    name: 'Panda Express', image: '../images/PandaExpress.jpg', location: 'Paradise Palms', hours: 'Mon-Fri 10am-4:30pm',
-  }, {
-    name: 'L&L Hawaiian Barbecue', image: '../images/L&L.jpg', location: 'Campus Center', hours: 'Mon-Fri 10am-4:30pm',
-  }];
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center py-3">
@@ -47,10 +42,16 @@ const ParadisePalms = () => {
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/ft">Food Trucks</Nav.Link>
           </Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
+          </Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/rd">Residential Dining</Nav.Link>
+          </Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
-        {places.map((place, index) => (<Col key={index}><PlaceToEat place={place} /></Col>))}
+        {ppvendor.map((place) => (<Col key={place._id}><PlaceToEat place={place} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);

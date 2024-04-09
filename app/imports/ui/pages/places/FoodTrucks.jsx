@@ -3,30 +3,27 @@ import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Stuffs } from '../../../api/stuff/Stuff';
+import { FTVendors } from '../../../api/ftvendor/FTVendors';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import PlaceToEat from '../../components/PlaceToEat';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const FoodTrucks = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready } = useTracker(() => {
+  const { ready, ftvendor } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    const subscription = Meteor.subscribe(FTVendors.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    // Get the FTVendors documents
+    const ftvendorItems = FTVendors.collection.find({}).fetch();
     return {
-      stuffs: stuffItems,
+      ftvendor: ftvendorItems,
       ready: rdy,
     };
   }, []);
-  const places = [{
-    name: 'Soul Fusion', image: '../images/SoulFusion.jpg', location: 'Paradise Palms', hours: 'Mon, Wed, Thu, Fri 10am-2:00pm',
-  }];
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center py-3">
@@ -45,10 +42,16 @@ const FoodTrucks = () => {
             <Nav.Link as={NavLink} to="/pp">Paradise Palms</Nav.Link>
           </Button>
           <Button variant="success" className="m-1" disabled>Food Trucks</Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
+          </Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/rd">Residential Dining</Nav.Link>
+          </Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
-        {places.map((place, index) => (<Col key={index}><PlaceToEat place={place} /></Col>))}
+        {ftvendor.map((place) => (<Col key={place._id}><PlaceToEat place={place} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
