@@ -23,6 +23,8 @@
     "name": "Jamba Juice", "image": "../images/JambaJuice.jpg", "location": "Campus Center", "hours": "Mon-Fri 8am-4pm"
   }, {
     "name": "Starbucks", "image": "../images/Starbucks.jpg", "location": "Campus Center", "hours": "Mon-Thu 6am-10pm\nFri 6am-5pm"
+  }, {
+    "name": "The Bean Counter", "image": "../images/Starbucks.jpg", "location": "Shilder", "hours": "M-T 7:30am-6pm, F 7:30-4pm"
   }],
 
   "defaultPPVendors": [{
@@ -38,7 +40,19 @@
   }],
 
   "defaultFTVendors": [{
-    "name": "Soul Fusion", "image": "../images/SoulFusion.jpg", "location": "Paradise Palms", "hours": "Mon, Wed, Thu, Fri 10am-2:00pm"
+    "name": "Soul Fusion", "image": "../images/SoulFusion.jpg", "location": "Food Truck Row", "hours": "Mon, Wed, Thu, Fri 10am-2:00pm"
+  }, {
+    "name": "Evisuya", "image": "../images/Evisuya-menu.jpg", "location": "Food Truck Row", "hours": "Mon, Wed, Thu, Fri 10am-2:00pm"
+  }, {
+    "name": "HI Cravings", "image": "../images/Cravings.jpg", "location": "Food Truck Row", "hours": "Mon, Wed 10am-2:00pm"
+  }, {
+    "name": "Happy Belly Eatery", "image": "../images/Happy-Belly-Eatery.jpg", "location": "Food Truck Row", "hours": "Mon 10am-2:00pm"
+  }, {
+    "name": "HOLOHOLO Bistro", "image": "../images/Holoholo-bistro.png", "location": "Food Truck Row", "hours": "Wed 10am-2:00pm"
+  },{
+    "name": "SAMA SAMA", "image": "../images/Sama-sama.png", "location": "Food Truck Row", "hours": "Tue,Wed,Thu 10am-2:00pm"
+  }, {
+    "name": "VEGGIE DOGS", "image": "../images/Veggie-Dogs.png", "location": "Food Truck Row", "hours": "Mon, Tue 10am-2:00pm"
   }],
 
   "defaultHHVendors": [{
