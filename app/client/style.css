@@ -68,3 +68,19 @@ footer, footer a {
 .signin-page {
   background-image: url("images/sign-in-background.jpg");
 }
+
+.border-right {
+  border-right: 1px solid white;
+}
+
+#subscribe-button {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  }
+
+#big-white-links {
+  font-size: 25px;
+  color: white;
+}
+
