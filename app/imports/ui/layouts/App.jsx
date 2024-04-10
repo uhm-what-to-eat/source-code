@@ -6,7 +6,6 @@ import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
@@ -23,6 +22,8 @@ import ParadisePalms from '../pages/places/ParadisePalms';
 import FoodTrucks from '../pages/places/FoodTrucks';
 import HemenwayHall from '../pages/places/HemenwayHall';
 import ResidentialDining from '../pages/places/ResidentialDining';
+import PlacesToEatAdmin from '../pages/PlacesToEatAdmin';
+import CampusCenterAdmin from '../pages/places/CampusCenterAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -51,7 +52,8 @@ const App = () => {
           <Route path="/rd" element={<ProtectedRoute><ResidentialDining /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
+          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><PlacesToEatAdmin /></AdminProtectedRoute>} />
+          <Route path="/adminCC" element={<ProtectedRoute ready={ready}><CampusCenterAdmin /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
