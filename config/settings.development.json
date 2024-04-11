@@ -31,58 +31,256 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
-  "defaultCCVendors": [{
-    "name": "Campus Center Food Court", "image": "../images/FoodCourt.jpg", "location": "Campus Center", "hours.monday": "7am-2pm", "hours.tuesday": "7am-2pm", "hours.wednesday": "7am-2pm", "hours.thursday": "7am-2pm", "hours.friday": "7am-2pm", "owner": "foodcourt@foo.com"
-  }, {
-    "name": "Subway", "image": "../images/Subway.jpg", "location": "Campus Center", "hours.monday": "8am-5pm", "hours.tuesday": "8am-6pm", "hours.wednesday": "Closed", "hours.thursday": "8am-6pm", "hours.friday": "8am-6pm", "owner": "subway@foo.com"
-  }, {
-    "name": "B'RITO BOWL", "image": "../images/BRITO.jpg", "location": "Campus Center", "hours.monday": "10am-2pm", "hours.tuesday": "10am-2pm", "hours.wednesday": "10am-2pm", "hours.thursday": "10am-2pm", "hours.friday": "10am-2pm", "owner": "britobowl@foo.com"
-  }, {
-    "name": "Ding Tea", "image": "../images/DingTea.png", "location": "Campus Center 1st Floor", "hours.monday": "10am-6pm", "hours.tuesday": "10am-6pm", "hours.wednesday": "10am-6pm", "hours.thursday": "10am-6pm", "hours.friday": "10am-6pm", "owner": "dingtea@foo.com"
-  }, {
-    "name": "Jamba Juice", "image": "../images/JambaJuice.jpg", "location": "Campus Center", "hours.monday": "8am-4pm", "hours.tuesday": "8am-4pm", "hours.wednesday": "8am-4pm", "hours.thursday": "8am-4pm", "hours.friday": "8am-4pm", "owner": "jambajuice@foo.com"
-  }, {
-    "name": "Starbucks", "image": "../images/Starbucks.jpg", "location": "Campus Center", "hours.monday": "6am-10pm", "hours.tuesday": "6am-10pm", "hours.wednesday": "6am-10pm", "hours.thursday": "6am-10pm", "hours.friday": "6am-5pm", "owner": "starbucks@foo.com"
-  }, {
-    "name": "The Bean Counter", "image": "../images/Bean-Counter.png", "location": "Shilder", "hours.monday": "7:30am-6pm", "hours.tuesday": "7:30am-6pm", "hours.wednesday": "7:30am-6pm", "hours.thursday": "7:30am-6pm", "hours.friday": "7:30am-4pm", "owner": "thebeancounter@foo.com"
-  }],
 
-  "defaultPPVendors": [{
-    "name": "Panda Express", "image": "../images/PandaExpress.jpg", "location": "Paradise Palms", "hours.monday": "10am-4:30pm", "hours.tuesday": "10am-4:30pm", "hours.wednesday": "10am-4:30pm", "hours.thursday": "10am-4:30pm", "hours.friday": "10am-4:30pm", "owner": "pandaexpress@foo.com"
-  }, {
-    "name": "L&L Hawaiian Barbecue", "image": "../images/L&L.jpg", "location": "Paradise Palms", "hours.monday": "7am-4:30pm", "hours.tuesday": "7am-4:30pm", "hours.wednesday": "7am-4:30pm", "hours.thursday": "7am-4:30pm", "hours.friday": "7am-4:30pm", "owner": "l&l@foo.com"
-  }, {
-    "name": "Dunkin' Donuts", "image": "../images/DunkinDonuts.jpg", "location": "Paradise Palms", "hours.monday": "7am-4:30pm", "hours.tuesday": "7am-4:30pm", "hours.wednesday": "7am-4:30pm", "hours.thursday": "7am-4:30pm", "hours.friday": "7am-4:30pm", "owner": "dunkindonuts@foo.com"
-  }, {
-    "name": "Holoholo Grill", "image": "../images/Holoholo.jpg", "location": "Paradise Palms", "hours.monday": "8am-3pm", "hours.tuesday": "8am-3pm", "hours.wednesday": "8am-3pm", "hours.thursday": "8am-3pm", "hours.friday": "8am-3pm", "owner": "holohologrill@foo.com"
-  }, {
-    "name": "Lasoon", "image": "../images/Lasoon.jpg", "location": "Paradise Palms", "hours.monday": "10am-4:30pm", "hours.tuesday": "10am-4:30pm", "hours.wednesday": "10am-4:30pm", "hours.thursday": "10am-4:30pm", "hours.friday": "10am-4:30pm", "owner": "lasoon@foo.com"
-  }],
+  "defaultCCVendors": [
+    {
+      "name": "Campus Center Food Court",
+      "image": "../images/FoodCourt.jpg",
+      "location": "Campus Center",
+      "monday": "Campus Center",
+      "monday": "7am-2pm",
+      "tuesday": "7am-2pm",
+      "wednesday": "7am-2pm",
+      "thursday": "7am-2pm",
+      "friday": "7am-2pm",
+      "owner": "foodcourt@foo.com"
+    },
+    {
+      "name": "Subway",
+      "image": "../images/Subway.jpg",
+      "location": "Campus Center",
+      "monday": "8am-5pm",
+      "tuesday": "8am-6pm",
+      "wednesday": "8am-6pm",
+      "thursday": "8am-6pm",
+      "friday": "8am-5pm",
+      "owner": "subway@foo.com"
+    },
+    {
+      "name": "B'RITO BOWL",
+      "image": "../images/BRITO.jpg",
+      "location": "Campus Center",
+      "monday": "10am-2pm",
+      "tuesday": "10am-2pm",
+      "wednesday": "10am-2pm",
+      "thursday": "10am-2pm",
+      "friday": "10am-2pm",
+      "owner": "britobowl@foo.com"
+    },
+    {
+      "name": "Ding Tea",
+      "image": "../images/DingTea.png",
+      "location": "Campus Center 1st Floor",
+      "monday": "10am-6pm",
+      "tuesday": "10am-6pm",
+      "wednesday": "10am-6pm",
+      "thursday": "10am-6pm",
+      "friday": "10am-6pm",
+      "owner": "dingtea@foo.com"
+    },
+    {
+      "name": "Jamba Juice",
+      "image": "../images/JambaJuice.jpg",
+      "location": "Campus Center",
+      "monday": "8am-4pm",
+      "tuesday": "8am-4pm",
+      "wednesday": "8am-4pm",
+      "thursday": "8am-4pm",
+      "friday": "8am-4pm",
+      "owner": "jambajuice@foo.com"
+    },
+    {
+      "name": "Starbucks",
+      "image": "../images/Starbucks.jpg",
+      "location": "Campus Center",
+      "monday": "6am-10pm",
+      "tuesday": "6am-10pm",
+      "wednesday": "6am-10pm",
+      "thursday": "6am-10pm",
+      "friday": "6am-5pm",
+      "owner": "starbucks@foo.com"
+    },
+    {
+      "name": "The Bean Counter",
+      "image": "../images/Bean-Counter.png",
+      "location": "Shilder",
+      "monday": "7:30am-6pm",
+      "tuesday": "7:30am-6pm",
+      "wednesday": "7:30am-6pm",
+      "thursday": "7:30am-6pm",
+      "friday": "7:30am-4pm",
+      "owner": "thebeancounter@foo.com"
+    }
+  ],
 
-  "defaultFTVendors": [{
-    "name": "Soul Fusion", "image": "../images/SoulFusion.jpg", "location": "Food Truck Row", "hours.monday": "10am-2pm", "hours.tuesday": "Closed", "hours.wednesday": "10am-2pm", "hours.thursday": "10am-2pm", "hours.friday": "10am-2pm", "owner": "soulfusion@foo.com"
-  }, {
-    "name": "Evisuya", "image": "../images/Evisuya-menu.jpg", "location": "Food Truck Row", "hours.monday": "10am-2pm", "hours.tuesday": "10am-2pm", "hours.wednesday": "Closed", "hours.thursday": "10am-2pm", "hours.friday": "10am-2pm", "owner": "evisuya@foo.com"
-  }, {
-    "name": "HI Cravings", "image": "../images/Cravings.jpg", "location": "Food Truck Row", "hours.monday": "10am-2pm", "hours.tuesday": "Closed", "hours.wednesday": "10am-2pm", "hours.thursday": "Closed", "hours.friday": "Closed", "owner": "hicravings@foo.com"
-  }, {
-    "name": "Happy Belly Eatery", "image": "../images/Happy-Belly-Eatery.jpg", "location": "Food Truck Row","hours.monday": "10am-2pm", "hours.tuesday": "Closed", "hours.wednesday": "Closed", "hours.thursday": "Closed", "hours.friday": "Closed", "owner": "happybellyeatery@foo.com"
-  }, {
-    "name": "HOLOHOLO Bistro", "image": "../images/Holoholo-bistro.png", "location": "Food Truck Row", "hours.monday": "Closed", "hours.tuesday": "Closed", "hours.wednesday": "10am-2pm", "hours.thursday": "Closed", "hours.friday": "Closed", "owner": "holoholobistro@foo.com"
-  },{
-    "name": "SAMA SAMA", "image": "../images/Sama-sama.png", "location": "Food Truck Row", "hours.monday": "Closed", "hours.tuesday": "10am-2pm", "hours.wednesday": "Closed", "hours.thursday": "10am-2pm", "hours.friday": "Closed", "owner": "samasama@foo.com"
-  }, {
-    "name": "VEGGIE DOGS", "image": "../images/Veggie-Dogs.png", "location": "Food Truck Row", "hours.monday": "10am-2pm", "hours.tuesday": "10am-2pm", "hours.wednesday": "Closed", "hours.thursday": "Closed", "hours.friday": "Closed", "owner": "veggiedogs@foo.com"
-  }],
 
-  "defaultHHVendors": [{
-    "name": "BA-LE", "image": "../images/BA-LE.jpg", "location": "Hemenway Hall", "hours.monday": "10am-8pm", "hours.tuesday": "10am-8pm", "hours.wednesday": "10am-8pm", "hours.thursday": "10am-8pm", "hours.friday": "10am-9pm", "owner": "bale@foo.com"
-  }],
 
-  "defaultRDVendors": [{
-    "name": "Hale Aloha Cafe", "image": "../images/HaleAlohaCafe.jpg", "location": "Hale Aloha Towers", "hours.monday": "5pm-8pm", "hours.tuesday": "5pm-8pm", "hours.wednesday": "5pm-8pm", "hours.thursday": "5pm-8pm", "hours.friday": "5pm-8pm", "owner": "halealohacafe@foo.com"
-  }],
-  
+  "defaultPPVendors": [
+    {
+      "name": "Panda Express",
+      "image": "../images/PandaExpress.jpg",
+      "location": "Paradise Palms",
+      "monday": "10am-4:30pm",
+      "tuesday": "10am-4:30pm",
+      "wednesday": "10am-4:30pm",
+      "thursday": "10am-4:30pm",
+      "friday": "10am-4:30pm",
+      "owner": "pandaexpress@foo.com"
+    },
+    {
+      "name": "L&L Hawaiian Barbecue",
+      "image": "../images/L&L.jpg",
+      "location": "Paradise Palms",
+      "monday": "7am-4:30pm",
+      "tuesday": "7am-4:30pm",
+      "wednesday": "7am-4:30pm",
+      "thursday": "7am-4:30pm",
+      "friday": "7am-4:30pm",
+      "owner": "l&l@foo.com"
+    },
+    {
+      "name": "Dunkin' Donuts",
+      "image": "../images/DunkinDonuts.jpg",
+      "location": "Paradise Palms",
+      "monday": "7am-4:30pm",
+      "tuesday": "7am-4:30pm",
+      "wednesday": "7am-4:30pm",
+      "thursday": "7am-4:30pm",
+      "friday": "7am-4:30pm",
+      "owner": "dunkindonuts@foo.com"
+    },
+    {
+      "name": "Holoholo Grill",
+      "image": "../images/Holoholo.jpg",
+      "location": "Paradise Palms",
+      "monday": "8am-3pm",
+      "tuesday": "8am-3pm",
+      "wednesday": "8am-3pm",
+      "thursday": "8am-3pm",
+      "friday": "8am-3pm",
+      "owner": "holohologrill@foo.com"
+    },
+    {
+      "name": "Lasoon",
+      "image": "../images/Lasoon.jpg",
+      "location": "Paradise Palms",
+      "monday": "10am-4:30pm",
+      "tuesday": "10am-4:30pm",
+      "wednesday": "10am-4:30pm",
+      "thursday": "10am-4:30pm",
+      "friday": "10am-4:30pm",
+      "owner": "lasoon@foo.com"
+    }
+  ],
+
+  "defaultFTVendors": [
+    {
+      "name": "Soul Fusion",
+      "image": "../images/SoulFusion.jpg",
+      "location": "Food Truck Row",
+      "monday": "10am-2pm",
+      "tuesday": "Closed",
+      "wednesday": "10am-2pm",
+      "thursday": "10am-2pm",
+      "friday": "10am-2pm",
+      "owner": "soulfusion@foo.com"
+    },
+    {
+      "name": "Evisuya",
+      "image": "../images/Evisuya-menu.jpg",
+      "location": "Food Truck Row",
+      "monday": "10am-2pm",
+      "tuesday": "10am-2pm",
+      "wednesday": "Closed",
+      "thursday": "10am-2pm",
+      "friday": "10am-2pm",
+      "owner": "evisuya@foo.com"
+    },
+    {
+      "name": "HI Cravings",
+      "image": "../images/Cravings.jpg",
+      "location": "Food Truck Row",
+      "monday": "10am-2pm",
+      "tuesday": "Closed",
+      "wednesday": "10am-2pm",
+      "thursday": "Closed",
+      "friday": "Closed",
+      "owner": "hicravings@foo.com"
+    },
+    {
+      "name": "Happy Belly Eatery",
+      "image": "../images/Happy-Belly-Eatery.jpg",
+      "location": "Food Truck Row",
+      "monday": "10am-2pm",
+      "tuesday": "Closed",
+      "wednesday": "Closed",
+      "thursday": "Closed",
+      "friday": "Closed",
+      "owner": "happybellyeatery@foo.com"
+    },
+    {
+      "name": "HOLOHOLO Bistro",
+      "image": "../images/Holoholo-bistro.png",
+      "location": "Food Truck Row",
+      "monday": "Closed",
+      "tuesday": "Closed",
+      "wednesday": "10am-2pm",
+      "thursday": "Closed",
+      "friday": "Closed",
+      "owner": "holoholobistro@foo.com"
+    },
+    {
+      "name": "SAMA SAMA",
+      "image": "../images/Sama-sama.png",
+      "location": "Food Truck Row",
+      "monday": "Closed",
+      "tuesday": "10am-2pm",
+      "wednesday": "Closed",
+      "thursday": "10am-2pm",
+      "friday": "Closed",
+      "owner": "samasama@foo.com"
+    },
+    {
+      "name": "VEGGIE DOGS",
+      "image": "../images/Veggie-Dogs.png",
+      "location": "Food Truck Row",
+      "monday": "10am-2pm",
+      "tuesday": "10am-2pm",
+      "wednesday": "Closed",
+      "thursday": "Closed",
+      "friday": "Closed",
+      "owner": "veggiedogs@foo.com"
+    }
+  ],
+
+  "defaultHHVendors": [
+    {
+      "name": "BA-LE",
+      "image": "../images/BA-LE.jpg",
+      "location": "Hemenway Hall",
+      "monday": "10am-8pm",
+      "tuesday": "10am-8pm",
+      "wednesday": "10am-8pm",
+      "thursday": "10am-8pm",
+      "friday": "10am-9pm",
+      "owner": "bale@foo.com"
+    }
+  ],
+
+  "defaultRDVendors": [
+    {
+      "name": "Hale Aloha Cafe",
+      "image": "../images/HaleAlohaCafe.jpg",
+      "location": "Hale Aloha Towers",
+      "monday": "5pm-8pm",
+      "tuesday": "5pm-8pm",
+      "wednesday": "5pm-8pm",
+      "thursday": "5pm-8pm",
+      "friday": "5pm-8pm",
+      "owner": "halealohacafe@foo.com"
+    }
+  ],
+
   "monti": {
     "appId": "Hxzjaj8Bmtrp6iz7m",
     "appSecret": "84fd7101-de91-4b49-8001-53d739dc0307"
