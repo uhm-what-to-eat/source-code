@@ -66,5 +66,6 @@ footer, footer a {
 }
 
 .signin-page {
-  background-image: url("images/sign-in-background.jpg");
+  background: fixed center url("images/sign-in-background.jpg");
+  background-size: cover;
 }
