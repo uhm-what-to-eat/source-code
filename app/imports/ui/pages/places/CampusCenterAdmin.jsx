@@ -5,7 +5,7 @@ import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { CCVendors } from '../../../api/ccvendor/CCVendors';
 import LoadingSpinner from '../../components/LoadingSpinner';
-import PlaceToEat from '../../components/PlaceToEat';
+import PlaceToEatAdmin from '../../components/PlaceToEatAdmin';
 
 const CampusCenterAdmin = () => {
   const [adding, setAdding] = useState(false);
@@ -32,26 +32,18 @@ const CampusCenterAdmin = () => {
     });
   };
 
-  const handleRemoveVendor = (vendorId) => {
-    Meteor.call('ccvendor.remove', vendorId, (error) => {
-      if (error) {
-        console.error('Error removing vendor:', error.reason || error.message);
-      }
-    });
-  };
-
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center py-3">
         <Col>
           <Col className="text-center">
-            <h2 className="fw-bold">[Add / Remove] Campus Center</h2>
+            <h2 className="fw-bold">Add/Remove Campus Center Vendor</h2>
           </Col>
         </Col>
       </Row>
       <Row className="text-center">
         <Col>
-          <Button variant="success" className="m-1" disabled>Campus Center [Admin]</Button>
+          <Button variant="success" className="m-1" disabled>Campus Center Vendors</Button>
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/pp">Paradise Palms [Admin]</Nav.Link>
           </Button>
@@ -66,14 +58,16 @@ const CampusCenterAdmin = () => {
           </Button>
         </Col>
       </Row>
+      <Row className="text-center pt-3">
+        <Col>
+          <Button variant="primary" onClick={() => setAdding(true)}>Add Vendor</Button>
+        </Col>
+      </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
         {ccvendor.map((place) => (
           <Col key={place._id}>
             <div className="vendor-wrapper">
-              <PlaceToEat place={place} />
-              <Button variant="danger" onClick={() => handleRemoveVendor(place._id)} className="mt-2">
-                Remove
-              </Button>
+              <PlaceToEatAdmin place={place} />
             </div>
           </Col>
         ))}
