@@ -65,10 +65,6 @@ footer, footer a {
   color: white;
 }
 
-.signin-page {
-  background-image: url("images/sign-in-background.jpg");
-}
-
 .border-right {
   border-right: 1px solid white;
 }
@@ -83,4 +79,3 @@ footer, footer a {
   font-size: 25px;
   color: white;
 }
-

@@ -41,9 +41,9 @@ const SignIn = () => {
   }
   // Otherwise return the Login form.
   return (
-    <Container className="py-3 signin-page">
+    <Container>
       <Row className="justify-content-center">
-        <Col xs={3}>
+        <Col xs={4}>
           <Col className="text-center">
             <h2>Login to your account</h2>
             <p>Start searching for your foody desires!</p>
