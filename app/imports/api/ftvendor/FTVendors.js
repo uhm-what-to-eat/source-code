@@ -15,8 +15,46 @@ class FTVendorsCollection {
       name: String,
       image: String,
       location: String,
-      hours: String,
       owner: String,
+      hours: {
+        type: Object,
+        label: 'Opening hours for each day of the week',
+      },
+      'hours.monday': {
+        type: String,
+        label: 'Monday',
+        optional: true, // Optional depending on your requirements
+      },
+      'hours.tuesday': {
+        type: String,
+        label: 'Tuesday',
+        optional: true,
+      },
+      'hours.wednesday': {
+        type: String,
+        label: 'Wednesday',
+        optional: true,
+      },
+      'hours.thursday': {
+        type: String,
+        label: 'Thursday',
+        optional: true,
+      },
+      'hours.friday': {
+        type: String,
+        label: 'Friday',
+        optional: true,
+      },
+      'hours.saturday': {
+        type: String,
+        label: 'Saturday',
+        optional: true,
+      },
+      'hours.sunday': {
+        type: String,
+        label: 'Sunday',
+        optional: true,
+      },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

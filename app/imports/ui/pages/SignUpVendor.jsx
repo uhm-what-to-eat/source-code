@@ -20,7 +20,38 @@ const SignUp = ({ location }) => {
       allowedValues: ['Campus Center', 'Paradise Palms', 'Hemenway Hall', 'Residential Dining', 'Food Trucks'],
       defaultValue: 'Campus Center',
     },
-    storeHours: String,
+    storeHours: {
+      type: Object,
+      label: "Store Hours for each day of the week",
+    },
+    'storeHours.monday': {
+      type: String,
+      optional: true,
+    },
+    'storeHours.tuesday': {
+      type: String,
+      optional: true,
+    },
+    'storeHours.wednesday': {
+      type: String,
+      optional: true,
+    },
+    'storeHours.thursday': {
+      type: String,
+      optional: true,
+    },
+    'storeHours.friday': {
+      type: String,
+      optional: true,
+    },
+    'storeHours.saturday': {
+      type: String,
+      optional: true,
+    },
+    'storeHours.sunday': {
+      type: String,
+      optional: true,
+    }
     // Note: File handling is not included in SimpleSchema, but we'll add a placeholder for UI purposes
   });
   const bridge = new SimpleSchema2Bridge(schema);
@@ -56,7 +87,18 @@ const SignUp = ({ location }) => {
                 <TextField name="password" placeholder="Password" type="password" />
                 <TextField name="storeName" placeholder="Store Name" />
                 <SelectField name="storeLocation" />
-                <TextField name="storeHours" placeholder="Store Hours (e.g., Mon-Fri 9am-5pm\n Sat-Sun 9am-4pm)" />
+                <div>
+                  <label>Store Hours</label>
+                  <div className="store-hours">
+                    <TextField name="storeHours.monday" placeholder="Monday Hours" />
+                    <TextField name="storeHours.tuesday" placeholder="Tuesday Hours" />
+                    <TextField name="storeHours.wednesday" placeholder="Wednesday Hours" />
+                    <TextField name="storeHours.thursday" placeholder="Thursday Hours" />
+                    <TextField name="storeHours.friday" placeholder="Friday Hours" />
+                    <TextField name="storeHours.saturday" placeholder="Saturday Hours" />
+                    <TextField name="storeHours.sunday" placeholder="Sunday Hours" />
+                  </div>
+                </div>
                 <Form.Group controlId="formFile" className="mb-3">
                   <Form.Label>Store Image</Form.Label>
                   <Form.Control type="file" disabled /> {/* Disabled for now */}
