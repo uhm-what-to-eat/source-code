@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
@@ -7,60 +7,47 @@ import { CCVendors } from '../../../api/ccvendor/CCVendors';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import PlaceToEatAdmin from '../../components/PlaceToEatAdmin';
 
+/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const CampusCenterAdmin = () => {
-  const [adding, setAdding] = useState(false);
-  const [newVendorName, setNewVendorName] = useState('');
-
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, ccvendor } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to CCVendors documents.
     const subscription = Meteor.subscribe(CCVendors.userPublicationName);
+    // Determine if the subscription is ready
     const rdy = subscription.ready();
+    // Get the Stuff documents
     const ccvendorItems = CCVendors.collection.find({}).fetch();
     return {
       ccvendor: ccvendorItems,
       ready: rdy,
     };
   }, []);
-
-  const handleAddVendor = () => {
-    Meteor.call('ccvendor.add', newVendorName, (error) => {
-      if (error) {
-        console.error('Error adding vendor:', error.reason || error.message);
-      } else {
-        setNewVendorName('');
-        setAdding(false);
-      }
-    });
-  };
-
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center py-3">
         <Col>
           <Col className="text-center">
-            <h2 className="fw-bold">Add/Remove Campus Center Vendor</h2>
+            <h2 className="fw-bold">Campus Center</h2>
           </Col>
         </Col>
       </Row>
       <Row className="text-center">
         <Col>
-          <Button variant="success" className="m-1" disabled>Campus Center Vendors</Button>
+          <Button variant="success" className="m-1" disabled>Campus Center</Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/pp">Paradise Palms [Admin]</Nav.Link>
+            <Nav.Link as={NavLink} to="/pp">Paradise Palms</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/ft">Food Trucks [Admin]</Nav.Link>
+            <Nav.Link as={NavLink} to="/ft">Food Trucks</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/hh">Hemenway Hall [Admin]</Nav.Link>
+            <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/rd">Residential Dining [Admin]</Nav.Link>
+            <Nav.Link as={NavLink} to="/rd">Residential Dining</Nav.Link>
           </Button>
-        </Col>
-      </Row>
-      <Row className="text-center pt-3">
-        <Col>
-          <Button variant="primary" onClick={() => setAdding(true)}>Add Vendor</Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
@@ -68,33 +55,13 @@ const CampusCenterAdmin = () => {
           <Col key={place._id}>
             <div className="vendor-wrapper">
               <PlaceToEatAdmin place={place} />
+              <Row className="text-start">
+                <Col><Button variant="danger">Remove</Button></Col>
+              </Row>
             </div>
           </Col>
         ))}
       </Row>
-      {adding && (
-        <Row className="justify-content-center py-3">
-          <Col xs={12} md={6}>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter vendor name"
-              value={newVendorName}
-              onChange={(e) => setNewVendorName(e.target.value)}
-            />
-            <Button variant="primary" className="mt-2" onClick={handleAddVendor}>
-              Add Vendor
-            </Button>
-          </Col>
-        </Row>
-      )}
-      {!adding && (
-        <Row className="justify-content-center py-3">
-          <Col>
-            <Button variant="primary" onClick={() => setAdding(true)}>Add Vendor</Button>
-          </Col>
-        </Row>
-      )}
     </Container>
   ) : <LoadingSpinner />);
 };

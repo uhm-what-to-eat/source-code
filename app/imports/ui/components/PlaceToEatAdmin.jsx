@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Image, Card, Row, Col, Button } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const PlaceToEat = ({ place }) => (
+const PlaceToEatAdmin = ({ place }) => (
   <Card className="h-100">
     <Card.Header className="text-center">
       <Image src={place.image} height={150} />
@@ -44,7 +44,7 @@ const PlaceToEat = ({ place }) => (
 );
 
 // Require a document to be passed to this component.
-PlaceToEat.propTypes = {
+PlaceToEatAdmin.propTypes = {
   place: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
@@ -62,4 +62,4 @@ PlaceToEat.propTypes = {
   }).isRequired,
 };
 
-export default PlaceToEat;
+export default PlaceToEatAdmin;
