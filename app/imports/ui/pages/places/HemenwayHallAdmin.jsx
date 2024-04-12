@@ -3,24 +3,24 @@ import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { PPVendors } from '../../../api/ppvendor/PPVendors';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import { HHVendors } from '../../../api/hhvendor/HHVendors';
 import PlaceToEatAdmin from '../../components/PlaceToEatAdmin';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ParadisePalmsAdmin = () => {
+const HemenwayHallAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, ppvendor } = useTracker(() => {
+  const { ready, hhvendor } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(PPVendors.userPublicationName);
+    const subscription = Meteor.subscribe(HHVendors.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const ppvendorItems = PPVendors.collection.find({}).fetch();
+    const hhvendorItems = HHVendors.collection.find({}).fetch();
     return {
-      ppvendor: ppvendorItems,
+      hhvendor: hhvendorItems,
       ready: rdy,
     };
   }, []);
@@ -29,7 +29,7 @@ const ParadisePalmsAdmin = () => {
       <Row className="justify-content-center py-3">
         <Col>
           <Col className="text-center">
-            <h2 className="fw-bold">Paradise Palms Vendors</h2>
+            <h2 className="fw-bold">Hemenway Hall Vendors</h2>
           </Col>
         </Col>
       </Row>
@@ -38,23 +38,23 @@ const ParadisePalmsAdmin = () => {
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/adminCC">Campus Center Vendors</Nav.Link>
           </Button>
-          <Button variant="success" className="m-1" disabled>Paradise Palms Vendors</Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/adminPP">Paradise Palms Vendors</Nav.Link>
+          </Button>
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/adminFT">Food Trucks Vendors</Nav.Link>
           </Button>
-          <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/adminHH">Hemenway Hall Vendors</Nav.Link>
-          </Button>
+          <Button variant="success" className="m-1" disabled>Hemenway Hall Vendors</Button>
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/adminRD">Residential Dining Vendors</Nav.Link>
           </Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
-        {ppvendor.map((place) => (<Col key={place._id}><PlaceToEatAdmin place={place} /></Col>))}
+        {hhvendor.map((place) => (<Col key={place._id}><PlaceToEatAdmin place={place} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
 };
 
-export default ParadisePalmsAdmin;
+export default HemenwayHallAdmin;
