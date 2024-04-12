@@ -29,24 +29,24 @@ const ParadisePalmsAdmin = () => {
       <Row className="justify-content-center py-3">
         <Col>
           <Col className="text-center">
-            <h2 className="fw-bold">Paradise Palms</h2>
+            <h2 className="fw-bold">Paradise Palms Vendors</h2>
           </Col>
         </Col>
       </Row>
       <Row className="text-center">
         <Col>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/adminCC">Campus Center</Nav.Link>
+            <Nav.Link as={NavLink} to="/adminCC">Campus Center Vendors</Nav.Link>
           </Button>
-          <Button variant="success" className="m-1" disabled>Paradise Palms</Button>
+          <Button variant="success" className="m-1" disabled>Paradise Palms Vendors</Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/ft">Food Trucks</Nav.Link>
-          </Button>
-          <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
+            <Nav.Link as={NavLink} to="/ft">Food Trucks Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/rd">Residential Dining</Nav.Link>
+            <Nav.Link as={NavLink} to="/hh">Hemenway Hall Vendors</Nav.Link>
+          </Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/rd">Residential Dining Vendors</Nav.Link>
           </Button>
         </Col>
       </Row>

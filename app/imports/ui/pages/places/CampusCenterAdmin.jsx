@@ -40,7 +40,7 @@ const CampusCenterAdmin = () => {
             <Nav.Link as={NavLink} to="/adminPP">Paradise Palms Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/ft">Food Trucks Vendors</Nav.Link>
+            <Nav.Link as={NavLink} to="/adminFT">Food Trucks Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/hh">Hemenway Hall Vendors</Nav.Link>
