@@ -3,9 +3,27 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import PropTypes from 'prop-types';
 import { Image, Card, Row, Col, Button } from 'react-bootstrap';
+import { CCVendors } from '../../api/ccvendor/CCVendors';
+import { PPVendors } from '../../api/ppvendor/PPVendors';
+import { FTVendors } from '../../api/ftvendor/FTVendors';
+import { HHVendors } from '../../api/hhvendor/HHVendors';
+import { RDVendors } from '../../api/rdvendor/RDVendors';
 
+const removeVendor = (vendor) => {
+  if (CCVendors.collection.find(vendor)) {
+    CCVendors.collection.remove(vendor._id);
+  } else if (PPVendors.collection.find(vendor)) {
+    PPVendors.collection.remove(vendor._id);
+  } else if (FTVendors.collection.find(vendor)) {
+    FTVendors.collection.remove(vendor._id);
+  } else if (HHVendors.collection.find(vendor)) {
+    HHVendors.collection.remove(vendor._id);
+  } else if (RDVendors.collection.find(vendor)) {
+    RDVendors.collection.remove(vendor._id);
+  }
+};
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const PlaceToEat = ({ place }) => (
+const PlaceToEatAdmin = ({ place }) => (
   <Card className="h-100">
     <Card.Header className="text-center">
       <Image src={place.image} height={150} />
@@ -34,7 +52,7 @@ const PlaceToEat = ({ place }) => (
           <footer className="blockquote-footer">
             {place.owner}<br />
             <Row className="text-start">
-              <Col><Button variant="danger">Remove</Button></Col>
+              <Col><Button variant="danger" onClick={() => removeVendor(place)}>Remove</Button></Col>
             </Row>
           </footer>
         ) : ''}
@@ -44,7 +62,7 @@ const PlaceToEat = ({ place }) => (
 );
 
 // Require a document to be passed to this component.
-PlaceToEat.propTypes = {
+PlaceToEatAdmin.propTypes = {
   place: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
@@ -62,4 +80,4 @@ PlaceToEat.propTypes = {
   }).isRequired,
 };
 
-export default PlaceToEat;
+export default PlaceToEatAdmin;

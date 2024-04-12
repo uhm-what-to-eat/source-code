@@ -38,17 +38,22 @@ const PlacesToEatAdmin = () => {
             <Nav.Link as={NavLink} to="/adminCC">Campus Center Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/pp">Paradise Palms [Admin]</Nav.Link>
+            <Nav.Link as={NavLink} to="/adminPP">Paradise Palms Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/ft">Food Trucks [Admin]</Nav.Link>
+            <Nav.Link as={NavLink} to="/ft">Food Trucks Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/hh">Hemenway Hall [Admin]</Nav.Link>
+            <Nav.Link as={NavLink} to="/hh">Hemenway Hall Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/rd">Residential Dining [Admin]</Nav.Link>
+            <Nav.Link as={NavLink} to="/rd">Residential Dining Vendors</Nav.Link>
           </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="text-center pt-3">
+          <Button> Add Vendors</Button>
         </Col>
       </Row>
     </Container>
