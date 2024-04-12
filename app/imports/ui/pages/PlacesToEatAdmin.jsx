@@ -51,11 +51,6 @@ const PlacesToEatAdmin = () => {
           </Button>
         </Col>
       </Row>
-      <Row>
-        <Col className="text-center pt-3">
-          <Button> Add Vendors</Button>
-        </Col>
-      </Row>
     </Container>
   ) : <LoadingSpinner />);
 };

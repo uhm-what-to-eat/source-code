@@ -10,17 +10,11 @@ import { HHVendors } from '../../api/hhvendor/HHVendors';
 import { RDVendors } from '../../api/rdvendor/RDVendors';
 
 const removeVendor = (vendor) => {
-  if (CCVendors.collection.find(vendor)) {
-    CCVendors.collection.remove(vendor._id);
-  } else if (PPVendors.collection.find(vendor)) {
-    PPVendors.collection.remove(vendor._id);
-  } else if (FTVendors.collection.find(vendor)) {
-    FTVendors.collection.remove(vendor._id);
-  } else if (HHVendors.collection.find(vendor)) {
-    HHVendors.collection.remove(vendor._id);
-  } else if (RDVendors.collection.find(vendor)) {
-    RDVendors.collection.remove(vendor._id);
-  }
+  CCVendors.collection.remove(vendor._id);
+  PPVendors.collection.remove(vendor._id);
+  HHVendors.collection.remove(vendor._id);
+  RDVendors.collection.remove(vendor._id);
+  FTVendors.collection.remove(vendor._id);
 };
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const PlaceToEatAdmin = ({ place }) => (
