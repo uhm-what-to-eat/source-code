@@ -43,10 +43,10 @@ const FoodTrucksAdmin = () => {
           </Button>
           <Button variant="success" className="m-1" disabled>Food Trucks Vendors</Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/hh">Hemenway Hall Vendors</Nav.Link>
+            <Nav.Link as={NavLink} to="/adminHH">Hemenway Hall Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/rd">Residential Dining Vendors</Nav.Link>
+            <Nav.Link as={NavLink} to="/adminRD">Residential Dining Vendors</Nav.Link>
           </Button>
         </Col>
       </Row>

@@ -26,6 +26,8 @@ import PlacesToEatAdmin from '../pages/PlacesToEatAdmin';
 import CampusCenterAdmin from '../pages/places/CampusCenterAdmin';
 import ParadisePalmsAdmin from '../pages/places/ParadisePalmsAdmin';
 import FoodTrucksAdmin from '../pages/places/FoodTrucksAdmin';
+import HemenwayHallAdmin from '../pages/places/HemenwayHallAdmin';
+import ResidentialDiningAdmin from '../pages/places/ResidentialDiningAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -55,9 +57,11 @@ const App = () => {
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><PlacesToEatAdmin /></AdminProtectedRoute>} />
-          <Route path="/adminCC" element={<ProtectedRoute ready={ready}><CampusCenterAdmin /></ProtectedRoute>} />
-          <Route path="/adminPP" element={<ProtectedRoute ready={ready}><ParadisePalmsAdmin /></ProtectedRoute>} />
-          <Route path="/adminFT" element={<ProtectedRoute ready={ready}><FoodTrucksAdmin /></ProtectedRoute>} />
+          <Route path="/adminCC" element={<ProtectedRoute><CampusCenterAdmin /></ProtectedRoute>} />
+          <Route path="/adminPP" element={<ProtectedRoute><ParadisePalmsAdmin /></ProtectedRoute>} />
+          <Route path="/adminFT" element={<ProtectedRoute><FoodTrucksAdmin /></ProtectedRoute>} />
+          <Route path="/adminHH" element={<ProtectedRoute><HemenwayHallAdmin /></ProtectedRoute>} />
+          <Route path="/adminRD" element={<ProtectedRoute><ResidentialDiningAdmin /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
