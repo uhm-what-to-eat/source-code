@@ -20,6 +20,8 @@ class RDVendorsCollection {
       wednesday: String,
       thursday: String,
       friday: String,
+      saturday: String,
+      sunday: String,
       owner: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

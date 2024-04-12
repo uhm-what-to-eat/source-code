@@ -35,7 +35,7 @@ const CampusCenter = () => {
       </Row>
       <Row className="text-center">
         <Col>
-          <Button variant="success" className="m-1" disabled>Campus Center Admin</Button>
+          <Button variant="success" className="m-1" disabled>Campus Center</Button>
           <Button variant="success" className="m-1">
             <Nav.Link as={NavLink} to="/pp">Paradise Palms</Nav.Link>
           </Button>
