@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '209.38.136.229',
+      host: 'uhmwhattoeat.online',
       username: 'root',
       password: 'JJJ24esc'
     }
@@ -14,7 +14,7 @@ module.exports = {
     servers: { one: {}, },
     buildOptions: { serverOnly: true },
     env: {
-      ROOT_URL: 'http://209.38.136.229',
+      ROOT_URL: 'https://uhmwhattoeat.online',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
@@ -22,5 +22,12 @@ module.exports = {
     enableUploadProgressBar: true
   },
   mongo: { version: '5.0.5', servers: { one: {} }
+  },
+  proxy: {
+    domains: 'uhmwhattoeat.online',
+    ssl: {
+      letsEncryptEmail: 'cdc21@hawaii.edu',
+      forceSSL: true
+    }
   },
 };
