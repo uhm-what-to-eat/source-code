@@ -50,6 +50,11 @@ const FoodTrucksAdmin = () => {
           </Button>
         </Col>
       </Row>
+      <Row className="text-center pt-3">
+        <Col>
+          <Button><Nav.Link as={NavLink} to="/addFT">Add Vendor</Nav.Link></Button>
+        </Col>
+      </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
         {ftvendor.map((place) => (<Col key={place._id}><PlaceToEatAdmin place={place} /></Col>))}
       </Row>

@@ -26,26 +26,15 @@ const PlaceToEatAdmin = ({ place }) => (
       <Row className="text-center">
         <Card.Title>{place.name}</Card.Title>
         <Card.Subtitle className="py-2">{place.location}</Card.Subtitle>
-        <Card.Subtitle id="hours">{place.hours}</Card.Subtitle>
-      </Row>
-      <Row className="text-start">
-        <Col>
-          <Card.Subtitle id="monday">Monday: {place.monday}</Card.Subtitle>
-          <Card.Subtitle id="tuesday">Tuesday: {place.tuesday}</Card.Subtitle>
-          <Card.Subtitle id="wednesday">Wednesday: {place.wednesday}</Card.Subtitle>
-          <Card.Subtitle id="thursday">Thursday: {place.thursday}</Card.Subtitle>
-        </Col>
-        <Col>
-          <Card.Subtitle id="friday">Friday: {place.friday}</Card.Subtitle>
-          <Card.Subtitle id="saturday">Saturday: {place.saturday}</Card.Subtitle>
-          <Card.Subtitle id="sunday">Sunday: {place.sunday}</Card.Subtitle>
-        </Col>
+        {place.hours.split('\n').map((line, index) => (
+          <Card.Subtitle key={index}>{line}</Card.Subtitle>
+        ))}
       </Row>
       <Row className="text-center pt-3">
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <footer className="blockquote-footer">
             {place.owner}<br />
-            <Row className="text-start">
+            <Row className="text-start pt-1">
               <Col><Button variant="danger" onClick={() => removeVendor(place)}>Remove</Button></Col>
             </Row>
           </footer>
@@ -62,13 +51,6 @@ PlaceToEatAdmin.propTypes = {
     image: PropTypes.string,
     location: PropTypes.string,
     hours: PropTypes.string,
-    monday: PropTypes.string,
-    tuesday: PropTypes.string,
-    wednesday: PropTypes.string,
-    thursday: PropTypes.string,
-    friday: PropTypes.string,
-    saturday: PropTypes.string,
-    sunday: PropTypes.string,
     owner: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,

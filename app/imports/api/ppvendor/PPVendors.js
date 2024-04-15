@@ -15,13 +15,7 @@ class PPVendorsCollection {
       name: String,
       image: String,
       location: String,
-      monday: String,
-      tuesday: String,
-      wednesday: String,
-      thursday: String,
-      friday: String,
-      saturday: String,
-      sunday: String,
+      hours: String,
       owner: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
