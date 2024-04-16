@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Image } from 'react-bootstrap';
@@ -13,28 +13,52 @@ const Landing = () => {
   }), []);
 
   const { ready, placesToEat } = useTracker(() => {
-    const subscription = Meteor.subscribe(AllVendors.userPublicationName); // Assuming you have a publication set up for the aggregated collection
+    const subscription = Meteor.subscribe(AllVendors.userPublicationName);
     const rdy = subscription.ready();
-    const places = AllVendors.collection.find({}).fetch(); // Access the aggregated collection
+    const places = AllVendors.collection.find({}).fetch();
     return {
       placesToEat: places,
       ready: rdy,
     };
   }, []);
 
+  function shuffleArray(array) {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
+  }
+
+  const [placesToRender, setPlacesToRender] = useState(() => {
+    const storedPlaces = localStorage.getItem('randomPlaces');
+    return storedPlaces ? JSON.parse(storedPlaces) : [];
+  });
+
+  useEffect(() => {
+    if (!placesToRender.length && ready && placesToEat.length > 0) {
+      const shuffledPlaces = shuffleArray(placesToEat);
+      const selectedPlaces = shuffledPlaces.slice(0, 3);
+      setPlacesToRender(selectedPlaces);
+      localStorage.setItem('randomPlaces', JSON.stringify(selectedPlaces));
+    }
+  }, [ready, placesToEat, placesToRender]);
+
   const renderContent = () => {
     if (currentUser) {
       return (ready ? (
         <Container className="py-3">
-          <Row className="align-middle text-center">
-            <Col xs={4} />
-            <Col xs={4}>
-              <h1>Welcome Back {currentUser.username}!</h1>
-              <h2>Top Eats For Today: </h2>
-            </Col>
+          <Row className="align-middle text-center py-3">
+            <h1>Welcome Back {currentUser.username}!</h1>
+            <h2>Top Eats For You: </h2>
           </Row>
           <Row>
-            {placesToEat.map((place) => (<Col key={place._id}><PlaceToEat place={place} /></Col>))}
+            {placesToRender.map((place) => (
+              <Col key={place._id}>
+                <PlaceToEat place={place} />
+              </Col>
+            ))}
           </Row>
         </Container>
       ) : <LoadingSpinner />);
