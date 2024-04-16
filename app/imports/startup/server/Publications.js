@@ -6,6 +6,7 @@ import { FTVendors } from '../../api/ftvendor/FTVendors';
 import { HHVendors } from '../../api/hhvendor/HHVendors';
 import { PPVendors } from '../../api/ppvendor/PPVendors';
 import { RDVendors } from '../../api/rdvendor/RDVendors';
+import { AllVendors } from '../../api/allvendors/collection';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
@@ -37,6 +38,9 @@ Meteor.publish(RDVendors.userPublicationName, function () {
   return RDVendors.collection.find();
 });
 
+Meteor.publish(AllVendors.userPublicationName, function () {
+  return AllVendors.collection.find({});
+});
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
