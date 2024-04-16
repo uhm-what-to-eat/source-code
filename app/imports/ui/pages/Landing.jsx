@@ -1,7 +1,8 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import PlaceToEat from '../components/PlaceToEat';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { AllVendors } from '../../api/allvendors/collection';
@@ -39,7 +40,7 @@ const Landing = () => {
       ) : <LoadingSpinner />);
     }
     return (
-      <>
+      <Container id="landing-page" fluid className="py-3">
         <Row className="align-middle text-center">
           <Col xs={4} />
           <Col xs={4}>
@@ -48,9 +49,23 @@ const Landing = () => {
           </Col>
         </Row>
         <Row className="align-middle text-center row p-4">
-          {/* Render other content for non-logged-in users */}
+          <Col xs={4}>
+            <Image src="images/landing-page-sign-in-logo.png" width="150px" />
+            <h1 className="p-2">Want to see Manoa&apos;s Biggest Munches?</h1>
+            <h2><Link to="/signupuser" className="link">Sign Up Now Here!</Link></h2>
+          </Col>
+          <Col xs={4}>
+            <Image src="images/landing-page-log-in.png" width="150px" />
+            <h1 className="p-2">Already A Munch?</h1>
+            <h2><Link to="/signin" color="dark-green" className="link">Login in Here!</Link></h2>
+          </Col>
+          <Col xs={4}>
+            <Image src="images/landing-page-vendor.png" width="150px" />
+            <h1 className="p-2">Do You Want To Sell?</h1>
+            <h2><Link to="/signupvendor" className="link">Become A Vendor Here!</Link></h2>
+          </Col>
         </Row>
-      </>
+      </Container>
     );
   };
 
