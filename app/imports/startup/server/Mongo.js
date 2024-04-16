@@ -5,6 +5,7 @@ import { FTVendors } from '../../api/ftvendor/FTVendors';
 import { HHVendors } from '../../api/hhvendor/HHVendors';
 import { PPVendors } from '../../api/ppvendor/PPVendors';
 import { RDVendors } from '../../api/rdvendor/RDVendors';
+import { AllVendors } from '../../api/allvendors/collection';
 
 /* eslint-disable no-console */
 
@@ -80,4 +81,22 @@ if (RDVendors.collection.find().count() === 0) {
     console.log('Creating default RDVendors');
     Meteor.settings.defaultRDVendors.forEach(rdvendor => addRDVendors(rdvendor));
   }
+}
+
+// Function to add vendors to the AllVendors collection
+const addAllVendors = (vendors) => {
+  vendors.forEach((vendor) => {
+    console.log(`Adding: ${vendor.name}`);
+    AllVendors.collection.insert(vendor);
+  });
+};
+
+// Check if the AllVendors collection is empty, if so, add default vendors from all vendor types
+if (AllVendors.collection.find().count() === 0) {
+  // Add default vendors from each vendor type
+  addAllVendors(Meteor.settings.defaultCCVendors);
+  addAllVendors(Meteor.settings.defaultFTVendors);
+  addAllVendors(Meteor.settings.defaultHHVendors);
+  addAllVendors(Meteor.settings.defaultPPVendors);
+  addAllVendors(Meteor.settings.defaultRDVendors);
 }
