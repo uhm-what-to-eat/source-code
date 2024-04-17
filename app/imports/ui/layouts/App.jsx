@@ -36,6 +36,7 @@ import ResidentialDiningAdmin from '../pages/places/ResidentialDiningAdmin';
 import EditResidentialDining from '../pages/places/EditResidentialDining';
 import AddVendor from '../pages/AddVendor';
 import OwnedVendor from '../pages/places/OwnedVendor';
+import Menu from '../pages/Menu';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -64,6 +65,7 @@ const App = () => {
           <Route path="/rd" element={<ProtectedRoute><ResidentialDining /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditVendor /></ProtectedRoute>} />
+          <Route path="/menu/:_id" element={<ProtectedRoute><Menu /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><PlacesToEatAdmin /></AdminProtectedRoute>} />
           <Route path="/adminEdit" element={<AdminProtectedRoute ready={ready}><AdminEdit /></AdminProtectedRoute>} />
           <Route path="/adminCC" element={<ProtectedRoute><CampusCenterAdmin /></ProtectedRoute>} />
