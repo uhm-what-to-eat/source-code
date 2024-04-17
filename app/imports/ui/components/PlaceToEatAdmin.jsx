@@ -3,18 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import PropTypes from 'prop-types';
 import { Image, Card, Row, Col, Button } from 'react-bootstrap';
-import { CCVendors } from '../../api/ccvendor/CCVendors';
-import { PPVendors } from '../../api/ppvendor/PPVendors';
-import { FTVendors } from '../../api/ftvendor/FTVendors';
-import { HHVendors } from '../../api/hhvendor/HHVendors';
-import { RDVendors } from '../../api/rdvendor/RDVendors';
+import { Vendors } from '../../api/vendor/Vendors';
 
 const removeVendor = (vendor) => {
-  CCVendors.collection.remove(vendor._id);
-  PPVendors.collection.remove(vendor._id);
-  HHVendors.collection.remove(vendor._id);
-  RDVendors.collection.remove(vendor._id);
-  FTVendors.collection.remove(vendor._id);
+  Vendors.collection.remove(vendor._id);
 };
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const PlaceToEatAdmin = ({ place }) => (

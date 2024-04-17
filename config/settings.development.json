@@ -31,7 +31,7 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
-  "defaultCCVendors": [
+  "defaultVendors": [
     {
       "name": "Campus Center Food Court",
       "image": "../images/FoodCourt.jpg",
@@ -56,7 +56,7 @@
     {
       "name": "Ding Tea",
       "image": "../images/DingTea.png",
-      "location": "Campus Center 1st Floor",
+      "location": "Campus Center",
       "hours": "Mon-Fri: 10am-6pm",
       "owner": "dingtea@foo.com"
     },
@@ -77,13 +77,10 @@
     {
       "name": "The Bean Counter",
       "image": "../images/Bean-Counter.png",
-      "location": "Shidler",
+      "location": "Campus Center",
       "hours": "Mon-Thu: 7:30-6pm\nFri: 7:30am-4pm",
       "owner": "thebeancounter@foo.com"
-    }
-  ],
-
-  "defaultPPVendors": [
+    },
     {
       "name": "Panda Express",
       "image": "../images/PandaExpress.jpg",
@@ -118,10 +115,7 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 10am-4:30pm",
       "owner": "lasoon@foo.com"
-    }
-  ],
-
-  "defaultFTVendors": [
+    },
     {
       "name": "Soul Fusion",
       "image": "../images/SoulFusion.jpg",
@@ -170,24 +164,18 @@
       "location": "Food Truck Row",
       "hours": "Mon,Tue: 10am-2pm",
       "owner": "veggiedogs@foo.com"
-    }
-  ],
-
-  "defaultHHVendors": [
+    },
     {
       "name": "BA-LE",
       "image": "../images/BA-LE.jpg",
       "location": "Hemenway Hall",
       "hours": "Mon-Thu: 10am-8pm\nFri: 10am-9pm",
       "owner": "bale@foo.com"
-    }
-  ],
-
-  "defaultRDVendors": [
+    },
     {
       "name": "Hale Aloha Cafe",
       "image": "../images/HaleAlohaCafe.jpg",
-      "location": "Hale Aloha Towers",
+      "location": "Residential Dining",
       "hours": "Brunch: Sat & Sun: 10:30-1:30pm\nDinner: Daily 5pm-8pm",
       "owner": "halealohacafe@foo.com"
     }

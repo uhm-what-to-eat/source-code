@@ -3,24 +3,24 @@ import { Meteor } from 'meteor/meteor';
 import { NavLink } from 'react-router-dom';
 import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { RDVendors } from '../../../api/rdvendor/RDVendors';
+import { Vendors } from '../../../api/vendor/Vendors';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import PlaceToEatAdmin from '../../components/PlaceToEatAdmin';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ResidentialDiningAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, rdvendor } = useTracker(() => {
+  const { ready, vendor } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(RDVendors.userPublicationName);
+    // Get access to CCVendors documents.
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const rdvendorItems = RDVendors.collection.find({}).fetch();
+    const vendorItems = Vendors.collection.find({}).fetch();
     return {
-      rdvendor: rdvendorItems,
+      vendor: vendorItems,
       ready: rdy,
     };
   }, []);
@@ -52,11 +52,11 @@ const ResidentialDiningAdmin = () => {
       </Row>
       <Row className="text-center pt-3">
         <Col>
-          <Button><Nav.Link as={NavLink} to="/addRD">Add Vendor</Nav.Link></Button>
+          <Button><Nav.Link as={NavLink} to="/addVendor">Add Vendor</Nav.Link></Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
-        {rdvendor.map((place) => (<Col key={place._id}><PlaceToEatAdmin place={place} /></Col>))}
+        {vendor.filter(place => place.location === 'Residential Dining').map((place) => (<Col key={place._id}><PlaceToEatAdmin place={place} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);

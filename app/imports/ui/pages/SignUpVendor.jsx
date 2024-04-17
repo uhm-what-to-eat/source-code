@@ -22,7 +22,7 @@ const SignUp = ({ location }) => {
     },
     storeHours: {
       type: Object,
-      label: "Store Hours for each day of the week",
+      label: 'Store Hours for each day of the week',
     },
     'storeHours.monday': {
       type: String,
@@ -51,7 +51,7 @@ const SignUp = ({ location }) => {
     'storeHours.sunday': {
       type: String,
       optional: true,
-    }
+    },
     // Note: File handling is not included in SimpleSchema, but we'll add a placeholder for UI purposes
   });
   const bridge = new SimpleSchema2Bridge(schema);
@@ -88,7 +88,7 @@ const SignUp = ({ location }) => {
                 <TextField name="storeName" placeholder="Store Name" />
                 <SelectField name="storeLocation" />
                 <div>
-                  <label>Store Hours</label>
+                  Store Hours
                   <div className="store-hours">
                     <TextField name="storeHours.monday" placeholder="Monday Hours" />
                     <TextField name="storeHours.tuesday" placeholder="Tuesday Hours" />

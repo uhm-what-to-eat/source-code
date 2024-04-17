@@ -5,7 +5,7 @@ import { Col, Container, Row, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PlaceToEat from '../components/PlaceToEat';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { AllVendors } from '../../api/allvendors/collection';
+import { Vendors } from '../../api/vendor/Vendors';
 
 const Landing = () => {
   const { currentUser } = useTracker(() => ({
@@ -13,9 +13,9 @@ const Landing = () => {
   }), []);
 
   const { ready, placesToEat } = useTracker(() => {
-    const subscription = Meteor.subscribe(AllVendors.userPublicationName);
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
     const rdy = subscription.ready();
-    const places = AllVendors.collection.find({}).fetch();
+    const places = Vendors.collection.find({}).fetch();
     return {
       placesToEat: places,
       ready: rdy,

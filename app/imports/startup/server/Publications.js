@@ -1,12 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { CCVendors } from '../../api/ccvendor/CCVendors';
-import { FTVendors } from '../../api/ftvendor/FTVendors';
-import { HHVendors } from '../../api/hhvendor/HHVendors';
-import { PPVendors } from '../../api/ppvendor/PPVendors';
-import { RDVendors } from '../../api/rdvendor/RDVendors';
-import { AllVendors } from '../../api/allvendors/collection';
+import { Vendors } from '../../api/vendor/Vendors';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
@@ -18,28 +13,8 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(CCVendors.userPublicationName, function () {
-  return CCVendors.collection.find();
-});
-
-Meteor.publish(FTVendors.userPublicationName, function () {
-  return FTVendors.collection.find();
-});
-
-Meteor.publish(HHVendors.userPublicationName, function () {
-  return HHVendors.collection.find();
-});
-
-Meteor.publish(PPVendors.userPublicationName, function () {
-  return PPVendors.collection.find();
-});
-
-Meteor.publish(RDVendors.userPublicationName, function () {
-  return RDVendors.collection.find();
-});
-
-Meteor.publish(AllVendors.userPublicationName, function () {
-  return AllVendors.collection.find({});
+Meteor.publish(Vendors.userPublicationName, function () {
+  return Vendors.collection.find({});
 });
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.

@@ -51,6 +51,11 @@ const PlacesToEatAdmin = () => {
           </Button>
         </Col>
       </Row>
+      <Row className="text-center pt-3">
+        <Col>
+          <Button><Nav.Link as={NavLink} to="/addVendor">Add Vendor</Nav.Link></Button>
+        </Col>
+      </Row>
     </Container>
   ) : <LoadingSpinner />);
 };

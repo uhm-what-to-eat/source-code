@@ -4,7 +4,7 @@ import { AutoForm, ErrorsField, SelectField, TextField, LongTextField, SubmitFie
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { PPVendors } from '../../../api/ppvendor/PPVendors';
+import { Vendors } from '../../api/vendor/Vendors';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -13,7 +13,7 @@ const formSchema = new SimpleSchema({
   location: {
     type: String,
     allowedValues: ['Campus Center', 'Paradise Palms', 'Food Truck Row', 'Hemenway Hall', 'Residential Dining'],
-    defaultValue: 'Paradise Palms',
+    defaultValue: 'Campus Center',
   },
   hours: String,
   owner: String,
@@ -22,12 +22,12 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
-const AddPPVendor = () => {
+const AddVendor = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { name, image, location, hours, owner } = data;
-    PPVendors.collection.insert(
+    Vendors.collection.insert(
       { name, image, location, hours, owner },
       (error) => {
         if (error) {
@@ -46,7 +46,7 @@ const AddPPVendor = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
-          <Col className="text-center"><h2>Add Paradise Palms Vendor</h2></Col>
+          <Col className="text-center"><h2>Add Vendor</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
@@ -72,4 +72,4 @@ const AddPPVendor = () => {
   );
 };
 
-export default AddPPVendor;
+export default AddVendor;
