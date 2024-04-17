@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useParams } from 'react-router';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Vendors } from '../../api/vendor/Vendors';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -27,9 +27,9 @@ const Menu = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
+        <Col>
           <Col className="text-center">
-            <h2>{`${vendor.name} Menu`}</h2>
+            <h1>{`${vendor.name}'s Menu!`}</h1>
           </Col>
         </Col>
       </Row>

@@ -22,6 +22,7 @@ class VendorsCollection {
       },
       hours: String,
       owner: String,
+      menuImage: String,
       // Add fields from VendorsCollection
       // Ensure there are no field name conflicts
       // Adjust field names if necessary
