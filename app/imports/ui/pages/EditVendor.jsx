@@ -1,4 +1,5 @@
 import React from 'react';
+import { Roles } from 'meteor/alanning:roles';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
@@ -54,9 +55,11 @@ const EditVendor = () => {
                 <Row>
                   <LongTextField name="hours" />
                 </Row>
-                <Row>
-                  <TextField name="owner" />
-                </Row>
+                {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                  <Row>
+                    <TextField name="owner" />
+                  </Row>
+                ) : ''}
                 <SubmitField className="pb-3" />
                 <ErrorsField />
               </Card.Body>

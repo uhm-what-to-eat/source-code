@@ -1,6 +1,4 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import PropTypes from 'prop-types';
 import { Image, Card, Row, Col, Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
@@ -20,16 +18,14 @@ const PlaceToEatAdmin = ({ place }) => (
         ))}
       </Row>
       <Row className="text-center pt-3">
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <footer className="blockquote-footer">
-            {place.owner}<br />
-            <Row className="text-start pt-1">
-              <Col>
-                <Button variant="danger"><Nav.Link as={NavLink} to={`/edit/${place._id}`}>Edit</Nav.Link></Button>
-              </Col>
-            </Row>
-          </footer>
-        ) : ''}
+        <footer className="blockquote-footer">
+          {place.owner}<br />
+          <Row className="text-start pt-1">
+            <Col>
+              <Button variant="danger"><Nav.Link as={NavLink} to={`/edit/${place._id}`}>Edit</Nav.Link></Button>
+            </Col>
+          </Row>
+        </footer>
       </Row>
     </Card.Body>
   </Card>
