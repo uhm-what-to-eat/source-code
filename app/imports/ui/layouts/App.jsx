@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
+import EditVendor from '../pages/EditVendor';
 import NotFound from '../pages/NotFound';
 import SignUpUser from '../pages/SignUpUser';
 import SignUpVendor from '../pages/SignUpVendor';
@@ -23,11 +23,17 @@ import FoodTrucks from '../pages/places/FoodTrucks';
 import HemenwayHall from '../pages/places/HemenwayHall';
 import ResidentialDining from '../pages/places/ResidentialDining';
 import PlacesToEatAdmin from '../pages/PlacesToEatAdmin';
+import AdminEdit from '../pages/AdminEdit';
 import CampusCenterAdmin from '../pages/places/CampusCenterAdmin';
+import EditCampusCenter from '../pages/places/EditCampusCenter';
 import ParadisePalmsAdmin from '../pages/places/ParadisePalmsAdmin';
+import EditParadisePalms from '../pages/places/EditParadisePalms';
 import FoodTrucksAdmin from '../pages/places/FoodTrucksAdmin';
+import EditFoodTrucks from '../pages/places/EditFoodTrucks';
 import HemenwayHallAdmin from '../pages/places/HemenwayHallAdmin';
+import EditHemenwayHall from '../pages/places/EditHemenwayHall';
 import ResidentialDiningAdmin from '../pages/places/ResidentialDiningAdmin';
+import EditResidentialDining from '../pages/places/EditResidentialDining';
 import AddVendor from '../pages/AddVendor';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -56,13 +62,19 @@ const App = () => {
           <Route path="/hh" element={<ProtectedRoute><HemenwayHall /></ProtectedRoute>} />
           <Route path="/rd" element={<ProtectedRoute><ResidentialDining /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
+          <Route path="/edit/:_id" element={<ProtectedRoute><EditVendor /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><PlacesToEatAdmin /></AdminProtectedRoute>} />
+          <Route path="/adminEdit" element={<AdminProtectedRoute ready={ready}><AdminEdit /></AdminProtectedRoute>} />
           <Route path="/adminCC" element={<ProtectedRoute><CampusCenterAdmin /></ProtectedRoute>} />
+          <Route path="/editCC" element={<ProtectedRoute><EditCampusCenter /></ProtectedRoute>} />
           <Route path="/adminPP" element={<ProtectedRoute><ParadisePalmsAdmin /></ProtectedRoute>} />
+          <Route path="/editPP" element={<ProtectedRoute><EditParadisePalms /></ProtectedRoute>} />
           <Route path="/adminFT" element={<ProtectedRoute><FoodTrucksAdmin /></ProtectedRoute>} />
+          <Route path="/editFT" element={<ProtectedRoute><EditFoodTrucks /></ProtectedRoute>} />
           <Route path="/adminHH" element={<ProtectedRoute><HemenwayHallAdmin /></ProtectedRoute>} />
+          <Route path="/editHH" element={<ProtectedRoute><EditHemenwayHall /></ProtectedRoute>} />
           <Route path="/adminRD" element={<ProtectedRoute><ResidentialDiningAdmin /></ProtectedRoute>} />
+          <Route path="/editRD" element={<ProtectedRoute><EditResidentialDining /></ProtectedRoute>} />
           <Route path="/addVendor" element={<ProtectedRoute><AddVendor /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
