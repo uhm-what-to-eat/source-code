@@ -84,7 +84,7 @@ const Landing = () => {
             <h2><Link to="/signupuser" className="link">Sign Up Now Here!</Link></h2>
           </Col>
           <Col xs={4}>
-            <Image src="images/vendor-image-removedbg.png" width="120px" />
+            <Image src="images/pixelcut-export.png" width="120px" />
             <h1 className="p-2">Do You Want To Sell?</h1>
             <h2><Link to="/signupvendor" className="link">Become A Vendor Here!</Link></h2>
           </Col>
