@@ -32,7 +32,7 @@ const Menu = () => {
             <h1>{`${vendor.name}'s Menu!`}</h1>
           </Col>
         </Col>
-        <Image src={`${vendor.menuImage}`} style={{ paddingTop: '20px' }} />
+        <Image src={`${vendor.menuImage}`} style={{ paddingTop: '20px', paddingBottom: '20px' }} />
       </Row>
     </Container>
   ) : <LoadingSpinner />);
