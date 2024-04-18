@@ -74,17 +74,17 @@ const Landing = () => {
         </Row>
         <Row className="align-middle text-center row p-4">
           <Col xs={4}>
-            <Image src="images/landing-page-sign-in-logo.png" width="150px" />
+            <Image src="images/campusmap-removedbg.png" width="200px" />
             <h1 className="p-2">Want to see Manoa&apos;s Biggest Munches?</h1>
             <h2><Link to="/signupuser" className="link">Sign Up Now Here!</Link></h2>
           </Col>
           <Col xs={4}>
-            <Image src="images/landing-page-log-in.png" width="150px" />
+            <Image src="images/landing-page-log-in-removedbg.png" width="140px" />
             <h1 className="p-2">Already A Munch?</h1>
             <h2><Link to="/signin" color="dark-green" className="link">Login in Here!</Link></h2>
           </Col>
           <Col xs={4}>
-            <Image src="images/landing-page-vendor.png" width="150px" />
+            <Image src="images/vendor-image-removedbg.png" width="140px" />
             <h1 className="p-2">Do You Want To Sell?</h1>
             <h2><Link to="/signupvendor" className="link">Become A Vendor Here!</Link></h2>
           </Col>
