@@ -3,21 +3,25 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import PlaceToEat from '../components/PlaceToEat';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Vendors } from '../../api/vendor/Vendors';
+import PlaceToEatEdit from '../components/PlaceToEatEdit';
 
 const Landing = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user(),
   }), []);
 
-  const { ready, placesToEat } = useTracker(() => {
+  const { ready, placesToEat, vendor } = useTracker(() => {
     const subscription = Meteor.subscribe(Vendors.userPublicationName);
     const rdy = subscription.ready();
     const places = Vendors.collection.find({}).fetch();
+    const vendorItems = Vendors.collection.find({}).fetch();
     return {
       placesToEat: places,
+      vendor: vendorItems,
       ready: rdy,
     };
   }, []);
@@ -47,6 +51,28 @@ const Landing = () => {
 
   const renderContent = () => {
     if (currentUser) {
+      if (Roles.userIsInRole(currentUser, 'vendor')) {
+        return (ready ? (
+          <Container className="py-3">
+            <Row className="align-middle text-center py-3">
+              <h1>Welcome Back {currentUser.username}!</h1>
+              <h2>VENDORSSSS </h2>
+            </Row>
+            <Row className="justify-content-center py-3">
+              <Col>
+                <Col className="text-center">
+                  <h2 className="fw-bold">Your Vendors</h2>
+                </Col>
+              </Col>
+            </Row>
+            <Row xs={1} md={2} lg={3} className="g-4 py-4">
+              if(currentUser.email === vendor.owner){
+              {vendor.map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
+            }
+            </Row>
+          </Container>
+        ) : <LoadingSpinner />);
+      }
       return (ready ? (
         <Container className="py-3">
           <Row className="align-middle text-center py-3">
@@ -62,6 +88,7 @@ const Landing = () => {
           </Row>
         </Container>
       ) : <LoadingSpinner />);
+
     }
     return (
       <Container id="landing-page" fluid className="py-3">
@@ -84,7 +111,7 @@ const Landing = () => {
             <h2><Link to="/signupuser" className="link">Sign Up Now Here!</Link></h2>
           </Col>
           <Col xs={4}>
-            <Image src="images/vendor-image-removedbg.png" width="120px" />
+            <Image src="images/pixelcut-export.png" width="120px" />
             <h1 className="p-2">Do You Want To Sell?</h1>
             <h2><Link to="/signupvendor" className="link">Become A Vendor Here!</Link></h2>
           </Col>
