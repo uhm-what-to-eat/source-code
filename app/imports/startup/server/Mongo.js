@@ -1,11 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
-import { CCVendors } from '../../api/ccvendor/CCVendors';
-import { FTVendors } from '../../api/ftvendor/FTVendors';
-import { HHVendors } from '../../api/hhvendor/HHVendors';
-import { PPVendors } from '../../api/ppvendor/PPVendors';
-import { RDVendors } from '../../api/rdvendor/RDVendors';
-import { AllVendors } from '../../api/allvendors/collection';
+import { Vendors } from '../../api/vendor/Vendors';
 
 /* eslint-disable no-console */
 
@@ -23,80 +18,15 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
-const addCCVendors = (ccvendor) => {
-  console.log(` Adding: ${ccvendor.name}`);
-  CCVendors.collection.insert(ccvendor);
-};
-
-if (CCVendors.collection.find().count() === 0) {
-  if (Meteor.settings.defaultCCVendors) {
-    console.log('Creating default CCVendors');
-    Meteor.settings.defaultCCVendors.forEach(ccvendor => addCCVendors(ccvendor));
-  }
-}
-
-const addFTVendors = (ftvendor) => {
-  console.log(` Adding: ${ftvendor.name}`);
-  FTVendors.collection.insert(ftvendor);
-};
-
-if (FTVendors.collection.find().count() === 0) {
-  if (Meteor.settings.defaultFTVendors) {
-    console.log('Creating default FTVendors');
-    Meteor.settings.defaultFTVendors.forEach(ftvendor => addFTVendors(ftvendor));
-  }
-}
-
-const addHHVendors = (hhvendor) => {
-  console.log(` Adding: ${hhvendor.name}`);
-  HHVendors.collection.insert(hhvendor);
-};
-
-if (HHVendors.collection.find().count() === 0) {
-  if (Meteor.settings.defaultHHVendors) {
-    console.log('Creating default HHVendors');
-    Meteor.settings.defaultHHVendors.forEach(hhvendor => addHHVendors(hhvendor));
-  }
-}
-
-const addPPVendors = (ppvendor) => {
-  console.log(` Adding: ${ppvendor.name}`);
-  PPVendors.collection.insert(ppvendor);
-};
-
-if (PPVendors.collection.find().count() === 0) {
-  if (Meteor.settings.defaultPPVendors) {
-    console.log('Creating default PPVendors');
-    Meteor.settings.defaultPPVendors.forEach(ppvendor => addPPVendors(ppvendor));
-  }
-}
-
-const addRDVendors = (rdvendor) => {
-  console.log(` Adding: ${rdvendor.name}`);
-  RDVendors.collection.insert(rdvendor);
-};
-
-if (RDVendors.collection.find().count() === 0) {
-  if (Meteor.settings.defaultRDVendors) {
-    console.log('Creating default RDVendors');
-    Meteor.settings.defaultRDVendors.forEach(rdvendor => addRDVendors(rdvendor));
-  }
-}
-
 // Function to add vendors to the AllVendors collection
-const addAllVendors = (vendors) => {
+const addVendors = (vendors) => {
   vendors.forEach((vendor) => {
     console.log(`Adding: ${vendor.name}`);
-    AllVendors.collection.insert(vendor);
+    Vendors.collection.insert(vendor);
   });
 };
 
 // Check if the AllVendors collection is empty, if so, add default vendors from all vendor types
-if (AllVendors.collection.find().count() === 0) {
-  // Add default vendors from each vendor type
-  addAllVendors(Meteor.settings.defaultCCVendors);
-  addAllVendors(Meteor.settings.defaultFTVendors);
-  addAllVendors(Meteor.settings.defaultHHVendors);
-  addAllVendors(Meteor.settings.defaultPPVendors);
-  addAllVendors(Meteor.settings.defaultRDVendors);
+if (Vendors.collection.find().count() === 0) {
+  addVendors(Meteor.settings.defaultVendors);
 }

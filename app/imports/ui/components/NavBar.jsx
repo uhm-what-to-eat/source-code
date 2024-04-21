@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
-import { Container, Nav, Navbar, NavDropdown, Image, Row } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 import { BoxArrowRight, PersonFill, PersonPlusFill, PersonVcard } from 'react-bootstrap-icons';
 
 const NavBar = () => {
@@ -30,10 +30,16 @@ const NavBar = () => {
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Add/Remove Vendors</Nav.Link>
             ) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/adminEdit">Edit Vendors</Nav.Link>
+            ) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
+              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/vendorStuff">Your Vendors</Nav.Link>
+            ) : ''}
           </Nav>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <NavDropdown id="login-dropdown" title="Login">
+              <NavDropdown id="login-dropdown" title="Login" align="end">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
                   <PersonFill style={{ marginRight: '5px' }} />
                   Sign

@@ -5,7 +5,7 @@ import { Col, Container, Row, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PlaceToEat from '../components/PlaceToEat';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { AllVendors } from '../../api/allvendors/collection';
+import { Vendors } from '../../api/vendor/Vendors';
 
 const Landing = () => {
   const { currentUser } = useTracker(() => ({
@@ -13,9 +13,9 @@ const Landing = () => {
   }), []);
 
   const { ready, placesToEat } = useTracker(() => {
-    const subscription = Meteor.subscribe(AllVendors.userPublicationName);
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
     const rdy = subscription.ready();
-    const places = AllVendors.collection.find({}).fetch();
+    const places = Vendors.collection.find({}).fetch();
     return {
       placesToEat: places,
       ready: rdy,
@@ -74,17 +74,17 @@ const Landing = () => {
         </Row>
         <Row className="align-middle text-center row p-4">
           <Col xs={4}>
-            <Image src="images/landing-page-sign-in-logo.png" width="150px" />
-            <h1 className="p-2">Want to see Manoa&apos;s Biggest Munches?</h1>
-            <h2><Link to="/signupuser" className="link">Sign Up Now Here!</Link></h2>
-          </Col>
-          <Col xs={4}>
-            <Image src="images/landing-page-log-in.png" width="150px" />
+            <Image src="images/landing-page-log-in-removedbg.png" width="120px" />
             <h1 className="p-2">Already A Munch?</h1>
             <h2><Link to="/signin" color="dark-green" className="link">Login in Here!</Link></h2>
           </Col>
           <Col xs={4}>
-            <Image src="images/landing-page-vendor.png" width="150px" />
+            <Image src="images/Eat-Play-Stay-Hawaii-Logo-removebg.png" width="160px" />
+            <h1 className="p-2">Want to see Manoa&apos;s Biggest Munches?</h1>
+            <h2><Link to="/signupuser" className="link">Sign Up Now Here!</Link></h2>
+          </Col>
+          <Col xs={4}>
+            <Image src="images/pixelcut-export.png" width="120px" />
             <h1 className="p-2">Do You Want To Sell?</h1>
             <h2><Link to="/signupvendor" className="link">Become A Vendor Here!</Link></h2>
           </Col>

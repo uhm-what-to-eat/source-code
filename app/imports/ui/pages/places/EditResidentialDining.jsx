@@ -5,10 +5,10 @@ import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Vendors } from '../../../api/vendor/Vendors';
 import LoadingSpinner from '../../components/LoadingSpinner';
-import PlaceToEatAdmin from '../../components/PlaceToEatAdmin';
+import PlaceToEatEdit from '../../components/PlaceToEatEdit';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ParadisePalmsAdmin = () => {
+const EditResidentialDining = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, vendor } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -29,37 +29,32 @@ const ParadisePalmsAdmin = () => {
       <Row className="justify-content-center py-3">
         <Col>
           <Col className="text-center">
-            <h2 className="fw-bold">Paradise Palms Vendors</h2>
+            <h2 className="fw-bold">Edit Residential Dining Vendors</h2>
           </Col>
         </Col>
       </Row>
       <Row className="text-center">
         <Col>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/adminCC">Campus Center Vendors</Nav.Link>
-          </Button>
-          <Button variant="success" className="m-1" disabled>Paradise Palms Vendors</Button>
-          <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/adminFT">Food Trucks Vendors</Nav.Link>
+            <Nav.Link as={NavLink} to="/editCC">Edit Campus Center Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/adminHH">Hemenway Hall Vendors</Nav.Link>
+            <Nav.Link as={NavLink} to="/editPP">Paradise Palms Vendors</Nav.Link>
           </Button>
           <Button variant="success" className="m-1">
-            <Nav.Link as={NavLink} to="/adminRD">Residential Dining Vendors</Nav.Link>
+            <Nav.Link as={NavLink} to="/editFT">Food Trucks Vendors</Nav.Link>
           </Button>
-        </Col>
-      </Row>
-      <Row className="text-center pt-3">
-        <Col>
-          <Button><Nav.Link as={NavLink} to="/addVendor">Add Vendor</Nav.Link></Button>
+          <Button variant="success" className="m-1">
+            <Nav.Link as={NavLink} to="/editHH">Hemenway Hall Vendors</Nav.Link>
+          </Button>
+          <Button variant="success" className="m-1" disabled>Residential Dining</Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
-        {vendor.filter(place => place.location === 'Paradise Palms').map((place) => (<Col key={place._id}><PlaceToEatAdmin place={place} /></Col>))}
+        {vendor.filter(place => place.location === 'Residential Dining').map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
 };
 
-export default ParadisePalmsAdmin;
+export default EditResidentialDining;

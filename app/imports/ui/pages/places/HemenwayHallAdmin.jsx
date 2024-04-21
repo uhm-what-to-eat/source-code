@@ -4,23 +4,23 @@ import { NavLink } from 'react-router-dom';
 import { Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../../components/LoadingSpinner';
-import { HHVendors } from '../../../api/hhvendor/HHVendors';
+import { Vendors } from '../../../api/vendor/Vendors';
 import PlaceToEatAdmin from '../../components/PlaceToEatAdmin';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const HemenwayHallAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, hhvendor } = useTracker(() => {
+  const { ready, vendor } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(HHVendors.userPublicationName);
+    // Get access to CCVendors documents.
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const hhvendorItems = HHVendors.collection.find({}).fetch();
+    const vendorItems = Vendors.collection.find({}).fetch();
     return {
-      hhvendor: hhvendorItems,
+      vendor: vendorItems,
       ready: rdy,
     };
   }, []);
@@ -52,11 +52,11 @@ const HemenwayHallAdmin = () => {
       </Row>
       <Row className="text-center pt-3">
         <Col>
-          <Button><Nav.Link as={NavLink} to="/addHH">Add Vendor</Nav.Link></Button>
+          <Button><Nav.Link as={NavLink} to="/addVendor">Add Vendor</Nav.Link></Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4 py-4">
-        {hhvendor.map((place) => (<Col key={place._id}><PlaceToEatAdmin place={place} /></Col>))}
+        {vendor.filter(place => place.location === 'Hemenway Hall').map((place) => (<Col key={place._id}><PlaceToEatAdmin place={place} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
