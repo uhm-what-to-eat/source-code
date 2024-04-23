@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
-import { Alert, Card, Col, Container, Row, Form } from 'react-bootstrap';
+import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField } from 'uniforms-bootstrap5';
@@ -67,18 +67,15 @@ const SignUp = ({ location }) => {
                   <Col><SelectField name="storeLocation" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="storeImage" /></Col>
+                  <Col><TextField name="storeImage" placeholder="Optional" /></Col>
                   <Col><TextField name="storeMenu" placeholder="'N/A' for no image" /></Col>
                 </Row>
                 <Row>
                   <LongTextField name="storeHours" placeholder="e.g. Mon-Fri 2-4pm" />
                 </Row>
-                <Form.Group controlId="formFile" className="mb-3">
-                  <Form.Label>Store Image</Form.Label>
-                  <Form.Control type="file" disabled /> {/* Disabled for now */}
-                </Form.Group>
                 <SubmitField inputClassName="green-submit" />
                 <ErrorsField />
+                <h6 className="pt-3">Email UHMwhattoeat@hawaii.edu with your image file if you do not have a URL.</h6>
               </Card.Body>
             </Card>
           </AutoForm>
