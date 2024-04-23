@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
+// import { Vendors } from '../../api/vendor/Vendors';
 
 /* eslint-disable no-console */
 
@@ -20,6 +21,10 @@ const createUser = (email, password, role) => {
     Roles.addUsersToRoles(userID, 'vendor');
   }
 };
+// function addVendor({ email, password, storeName, image, storeLocation, storeMenu, storeHours }) {
+//   createUser(email, password, 'vendor');
+//   Vendors.collection.insert({ storeName, image, storeLocation, storeHours, owner: email, storeMenu });
+// }
 
 // When running app for first time, pass a settings file to set up a default user account.
 if (Meteor.users.find().count() === 0) {
@@ -30,3 +35,5 @@ if (Meteor.users.find().count() === 0) {
     console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }
 }
+
+export default createUser;

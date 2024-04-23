@@ -6,6 +6,9 @@ import { Alert, Card, Col, Container, Row, Form } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField } from 'uniforms-bootstrap5';
+import { Meteor } from 'meteor/meteor';
+import { addVendorsMethod } from '../../startup/both/Methods';
+// import createUser from '../startup/server/Accounts'; // Replace './path/to/createUserFile' with the actual path to your createUser file
 
 const SignUp = ({ location }) => {
   const [error, setError] = useState('');
@@ -28,9 +31,10 @@ const SignUp = ({ location }) => {
   const bridge = new SimpleSchema2Bridge(schema);
 
   const submit = (doc) => {
-    const { email, password, storeName, storeLocation, storeHours } = doc;
+    const { email, password, storeName, storeImage, storeLocation, storeMenu, storeHours } = doc;
+    // console.log(storeHours);
     // Assuming the file upload handling and MongoDB insertion logic will be implemented here or in the Accounts.createUser callback
-    Accounts.createUser({ email, username: email, password, profile: { storeName, storeLocation, storeHours, type: 'Vendor' } }, (err) => {
+    Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         setError(err.reason);
       } else {
@@ -38,9 +42,10 @@ const SignUp = ({ location }) => {
         setRedirectToRef(true);
       }
     });
+    Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu });
   };
 
-  const { from } = location?.state || { from: { pathname: '/add' } };
+  const { from } = location?.state || { from: { pathname: '/' } };
   if (redirectToReferer) {
     return <Navigate to={from} />;
   }
