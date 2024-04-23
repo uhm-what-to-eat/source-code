@@ -17,6 +17,7 @@ const formSchema = new SimpleSchema({
   },
   hours: String,
   owner: String,
+  menuImage: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -26,9 +27,9 @@ const AddVendor = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, image, location, hours, owner } = data;
+    const { name, image, location, hours, owner, menuImage } = data;
     Vendors.collection.insert(
-      { name, image, location, hours, owner },
+      { name, image, location, hours, owner, menuImage },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -57,6 +58,9 @@ const AddVendor = () => {
                 </Row>
                 <Row>
                   <LongTextField name="hours" />
+                </Row>
+                <Row>
+                  <TextField name="menuImage" />
                 </Row>
                 <Row>
                   <TextField name="owner" />

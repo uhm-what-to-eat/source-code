@@ -33,8 +33,8 @@ const EditVendor = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, image, location, hours, owner } = data;
-    Vendors.collection.update(_id, { $set: { name, image, location, hours, owner } }, (error) => (error ?
+    const { name, image, location, hours, owner, menuImage } = data;
+    Vendors.collection.update(_id, { $set: { name, image, location, hours, owner, menuImage } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -54,6 +54,9 @@ const EditVendor = () => {
                 </Row>
                 <Row>
                   <LongTextField name="hours" />
+                </Row>
+                <Row>
+                  <TextField name="menuImage" />
                 </Row>
                 {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
                   <Row>
