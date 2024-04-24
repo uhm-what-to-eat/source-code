@@ -25,7 +25,7 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">Places To Eat</Nav.Link>,
+              <Nav.Link id="navbar-places-to-eat" as={NavLink} to="/list" key="list">Places To Eat</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Add/Remove Vendors</Nav.Link>
@@ -34,7 +34,7 @@ const NavBar = () => {
               <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/adminEdit">Edit Vendors</Nav.Link>
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/vendorStuff">Your Vendors</Nav.Link>
+              <Nav.Link id="navbar-your-vendor" as={NavLink} to="/vendorStuff">Your Vendors</Nav.Link>
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">
@@ -50,7 +50,7 @@ const NavBar = () => {
                   Sign
                   up User
                 </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signupvendor">
+                <NavDropdown.Item id="login-dropdown-sign-up-vendor" as={NavLink} to="/signupvendor">
                   <PersonVcard style={{ marginRight: '5px' }} />
                   Sign
                   up Vendor

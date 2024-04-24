@@ -24,7 +24,7 @@ const PlacesToEat = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="places-to-eat-page">
       <Row className="justify-content-center py-3">
         <Col>
           <Col className="text-center">
@@ -34,19 +34,19 @@ const PlacesToEat = () => {
       </Row>
       <Row className="text-center">
         <Col>
-          <Button variant="success" className="m-1">
+          <Button variant="success" className="m-1" id="campus-center">
             <Nav.Link as={NavLink} to="/cc">Campus Center</Nav.Link>
           </Button>
-          <Button variant="success" className="m-1">
+          <Button variant="success" className="m-1" id="paradise-palms">
             <Nav.Link as={NavLink} to="/pp">Paradise Palms</Nav.Link>
           </Button>
-          <Button variant="success" className="m-1">
+          <Button variant="success" className="m-1" id="food-trucks">
             <Nav.Link as={NavLink} to="/ft">Food Trucks</Nav.Link>
           </Button>
-          <Button variant="success" className="m-1">
+          <Button variant="success" className="m-1" id="hemenway-hall">
             <Nav.Link as={NavLink} to="/hh">Hemenway Hall</Nav.Link>
           </Button>
-          <Button variant="success" className="m-1">
+          <Button variant="success" className="m-1" id="residential-dining">
             <Nav.Link as={NavLink} to="/rd">Residential Dining</Nav.Link>
           </Button>
         </Col>
