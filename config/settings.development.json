@@ -22,7 +22,8 @@
     { "email":  "veggiedogs@foo.com", "password":  "changeme", "role": "vendor" },
     { "email":  "bale@foo.com", "password":  "changeme", "role": "vendor" },
     { "email":  "halealohacafe@foo.com", "password":  "changeme", "role": "vendor" },
-    { "email":  "gatewaycafe@foo.com", "password": "changeme", "role":  "vendor"}
+    { "email":  "gatewaycafe@foo.com", "password": "changeme", "role":  "vendor"},
+    { "email":  "Krazydogs@foo.com", "password": "changeme", "role":  "vendor"}
   ],
 
   "defaultData": [
@@ -176,6 +177,14 @@
       "hours": "Tue,Wed,Thu: 8am-4pm",
       "owner": "samasama@foo.com",
       "menuImage": "../images/SamaSama-Menu.png"
+    },
+    {
+      "name": "Krazy Dogs",
+      "image": "../images/Krazy.png",
+      "location": "Food Truck Row",
+      "hours": "Wed,Thu,Fri 10am-2pm",
+      "owner": "Krazydogs@foo.com",
+      "menuImage": "../images/Krazy-menu.png"
     },
     {
       "name": "VEGGIE DOGS",
