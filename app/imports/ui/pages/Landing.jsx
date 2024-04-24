@@ -14,17 +14,27 @@ const Landing = () => {
     currentUser: Meteor.user(),
   }), []);
 
-  const { ready, placesToEat, vendor } = useTracker(() => {
-    const subscription = Meteor.subscribe(Vendors.userPublicationName);
-    const rdy = subscription.ready();
+  const { ready, placesToEat, vendor, vendorReady } = useTracker(() => {
+    const userSubscription = Meteor.subscribe(Vendors.userPublicationName);
+    const userSubscriptionReady = userSubscription.ready();
+    let vendorData = [];
+    let vendorSubscriptionReady = false;
+
+    if (Roles.userIsInRole(currentUser, 'vendor')) {
+      const vendorSubscription = Meteor.subscribe(Vendors.vendorPublicationName);
+      vendorSubscriptionReady = vendorSubscription.ready();
+      vendorData = Vendors.collection.find({}).fetch();
+    }
+
     const places = Vendors.collection.find({}).fetch();
-    const vendorItems = Vendors.collection.find({}).fetch();
+
     return {
+      ready: userSubscriptionReady,
       placesToEat: places,
-      vendor: vendorItems,
-      ready: rdy,
+      vendor: vendorData,
+      vendorReady: vendorSubscriptionReady,
     };
-  }, []);
+  }, [currentUser]);
 
   function shuffleArray(array) {
     const shuffledArray = [...array];
@@ -52,11 +62,10 @@ const Landing = () => {
   const renderContent = () => {
     if (currentUser) {
       if (Roles.userIsInRole(currentUser, 'vendor')) {
-        return (ready ? (
+        return (vendorReady ? (
           <Container className="py-3">
             <Row className="align-middle text-center py-3">
               <h1>Welcome Back {currentUser.username}!</h1>
-              <h2>VENDORSSSS </h2>
             </Row>
             <Row className="justify-content-center py-3">
               <Col>
@@ -66,9 +75,13 @@ const Landing = () => {
               </Col>
             </Row>
             <Row xs={1} md={2} lg={3} className="g-4 py-4">
-              if(currentUser.email === vendor.owner){
-              {vendor.map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
-            }
+              {vendor.map((place) => (
+                <React.Fragment key={place._id}>
+                  {currentUser.emails[0].address === place.owner ? (
+                    <Col><PlaceToEatEdit place={place} /></Col>
+                  ) : null}
+                </React.Fragment>
+              ))}
             </Row>
           </Container>
         ) : <LoadingSpinner />);
