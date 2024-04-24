@@ -26,9 +26,9 @@ const AddVendor = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, image, location, hours, owner } = data;
+    const { name, image, location, hours, owner, menu } = data;
     Vendors.collection.insert(
-      { name, image, location, hours, owner },
+      { name, image, location, hours, owner, menu },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

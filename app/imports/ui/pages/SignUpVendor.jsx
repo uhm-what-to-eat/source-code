@@ -45,7 +45,7 @@ const SignUp = ({ location }) => {
     Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu });
   };
 
-  const { from } = location?.state || { from: { pathname: '/' } };
+  const { from } = location?.state || { from: { pathname: '/home' } };
   if (redirectToReferer) {
     return <Navigate to={from} />;
   }
