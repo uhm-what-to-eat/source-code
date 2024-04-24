@@ -14,8 +14,8 @@ Meteor.methods({
         Roles.createRole('vendor', { unlessExists: true });
         Roles.addUsersToRoles(this.userId, 'vendor');
         // Insert the vendor data into the Vendors collection
-        const vendorId = Vendors.collection.insert({ storeName, image, storeLocation, storeHours, owner, storeMenu });
-        return vendorId; // Optionally return the ID of the inserted document
+        Vendors.collection.insert({ name: storeName, image: image, location: storeLocation, hours: storeHours, owner: owner, menuImage: storeMenu });
+        // console.log(vendorId); // Optionally return the ID of the inserted document
       } catch (error) {
         throw new Meteor.Error('vendor-insertion-failed', 'Failed to insert vendor data');
       }
