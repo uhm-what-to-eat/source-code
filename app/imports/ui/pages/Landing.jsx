@@ -3,24 +3,38 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import PlaceToEat from '../components/PlaceToEat';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Vendors } from '../../api/vendor/Vendors';
+import PlaceToEatEdit from '../components/PlaceToEatEdit';
 
 const Landing = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user(),
   }), []);
 
-  const { ready, placesToEat } = useTracker(() => {
-    const subscription = Meteor.subscribe(Vendors.userPublicationName);
-    const rdy = subscription.ready();
+  const { ready, placesToEat, vendor, vendorReady } = useTracker(() => {
+    const userSubscription = Meteor.subscribe(Vendors.userPublicationName);
+    const userSubscriptionReady = userSubscription.ready();
+    let vendorData = [];
+    let vendorSubscriptionReady = false;
+
+    if (Roles.userIsInRole(currentUser, 'vendor')) {
+      const vendorSubscription = Meteor.subscribe(Vendors.vendorPublicationName);
+      vendorSubscriptionReady = vendorSubscription.ready();
+      vendorData = Vendors.collection.find({}).fetch();
+    }
+
     const places = Vendors.collection.find({}).fetch();
+
     return {
+      ready: userSubscriptionReady,
       placesToEat: places,
-      ready: rdy,
+      vendor: vendorData,
+      vendorReady: vendorSubscriptionReady,
     };
-  }, []);
+  }, [currentUser]);
 
   function shuffleArray(array) {
     const shuffledArray = [...array];
@@ -47,6 +61,31 @@ const Landing = () => {
 
   const renderContent = () => {
     if (currentUser) {
+      if (Roles.userIsInRole(currentUser, 'vendor')) {
+        return (vendorReady ? (
+          <Container className="py-3">
+            <Row className="align-middle text-center py-3">
+              <h1>Welcome Back {currentUser.username}!</h1>
+            </Row>
+            <Row className="justify-content-center py-3">
+              <Col>
+                <Col className="text-center">
+                  <h2 className="fw-bold">Your Vendors</h2>
+                </Col>
+              </Col>
+            </Row>
+            <Row xs={1} md={2} lg={3} className="g-4 py-4">
+              {vendor.map((place) => (
+                <React.Fragment key={place._id}>
+                  {currentUser.emails[0].address === place.owner ? (
+                    <Col><PlaceToEatEdit place={place} /></Col>
+                  ) : null}
+                </React.Fragment>
+              ))}
+            </Row>
+          </Container>
+        ) : <LoadingSpinner />);
+      }
       return (ready ? (
         <Container className="py-3">
           <Row className="align-middle text-center py-3">
@@ -62,6 +101,7 @@ const Landing = () => {
           </Row>
         </Container>
       ) : <LoadingSpinner />);
+
     }
     return (
       <Container id="landing-page" fluid className="py-3">
