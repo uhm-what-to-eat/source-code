@@ -23,7 +23,8 @@
     { "email":  "bale@foo.com", "password":  "changeme", "role": "vendor" },
     { "email":  "halealohacafe@foo.com", "password":  "changeme", "role": "vendor" },
     { "email":  "gatewaycafe@foo.com", "password": "changeme", "role":  "vendor"},
-    { "email":  "Krazydogs@foo.com", "password": "changeme", "role":  "vendor"}
+    { "email":  "Krazydogs@foo.com", "password": "changeme", "role":  "vendor"},
+    { "email":  "crepe@foo.com", "password": "changeme", "role":  "vendor"}
   ],
 
   "defaultData": [
@@ -40,7 +41,7 @@
       "location": "Campus Center",
       "hours": "Mon-Fri: 7am-2pm",
       "owner": "foodcourt@foo.com",
-      "menuImage": "../images/cc-food.jpg"
+      "menuImage": "../images/Unava.png"
     },
     {
       "name": "Subway",
@@ -80,7 +81,7 @@
       "location": "Campus Center",
       "hours": "Mon-Thu: 6am-10pm\nFri: 6am-5pm",
       "owner": "starbucks@foo.com",
-      "menuImage": "../images/Starbucks-menu.jpg"
+      "menuImage": "../images/Star-Menu.png"
     },
     {
       "name": "The Bean Counter",
@@ -120,7 +121,7 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 8am-3pm",
       "owner": "holohologrill@foo.com",
-      "menuImage": "../images/Holo-Bistro.png"
+      "menuImage": "../images/Holoholo-Menu.png"
     },
     {
       "name": "Lasoon",
@@ -200,7 +201,7 @@
       "location": "Hemenway Hall",
       "hours": "Mon-Thu: 10am-8pm\nFri: 10am-9pm",
       "owner": "bale@foo.com",
-      "menuImage": "../images/BA-LE.jpg"
+      "menuImage": "../images/Bale-Menu.png"
     },
     {
       "name": "Hale Aloha Cafe",
@@ -208,7 +209,7 @@
       "location": "Residential Dining",
       "hours": "Brunch: Sat & Sun: 10:30-1:30pm\nDinner: Daily 5pm-8pm",
       "owner": "halealohacafe@foo.com",
-      "menuImage": "../images/HaleAlohaCafe.jpg"
+      "menuImage": "../images/Hale-Menu.png"
     },
     {
       "name": "Gateway Cafe",
@@ -216,7 +217,15 @@
       "location": "Residential Dining",
       "hours": "Breakfast: Mon-Fri 7am-10am\nLunch: Mon-Fri 11am-2pm\nDinner: Mon-Thu 5pm-7:30pm",
       "owner": "gatewaycafe@foo.com",
-      "menuImage": "../images/HaleAlohaCafe.jpg"
+      "menuImage": "../images/Gate-Menu.png"
+    },
+    {
+      "name": "Le Crepe Cafe",
+      "image": "../images/Le-Crepe.png",
+      "location": "Paradise Palms",
+      "hours": "Mon-Fri 8am-3pm",
+      "owner": "crepe@foo.com",
+      "menuImage": "../images/Le-Crepe-Menu.png"
     }
   ],
 
