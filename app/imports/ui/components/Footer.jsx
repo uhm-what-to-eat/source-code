@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row, Nav, Image, Button } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaPinterest, FaInstagram } from 'react-icons/fa';
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
-
+/** Test */
 const Footer = () => (
   <footer className="mt-auto py-3 bg-light">
     <Container>
