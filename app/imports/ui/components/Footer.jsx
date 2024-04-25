@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row, Nav, Image, Button } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaPinterest, FaInstagram } from 'react-icons/fa';
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
+
 const Footer = () => (
   <footer className="mt-auto py-3 bg-light">
     <Container>
@@ -18,13 +19,13 @@ const Footer = () => (
           <Row style={{ paddingTop: '20px', marginRight: '20px' }}>
             <div style={{ display: 'flex', alignItems: 'center' }}> {/* Use a container with flex display */}
               <input type="text" placeholder="Enter Email Address" style={{ width: '200px', marginRight: '10px' }} /> {/* Input field */}
-              <Button id="subscribe-button" style={{ fontSize: '14px', padding: '5px 10px' }}>Subscribe!</Button>
+              <Button variant="success" style={{ fontSize: '14px', padding: '5px 10px' }}>Subscribe!</Button>
             </div>
           </Row>
         </Col>
         <Col xs={5}>
           <Container className="text-center">
-            <Row style={{ paddingTop: '40px' }} className="text-center">
+            <Row style={{ paddingTop: '50px' }} className="text-center">
               <Col>
                 <Nav className="me-auto">
                   <Nav.Link id="big-white-links"><FaFacebook /></Nav.Link>
@@ -35,7 +36,7 @@ const Footer = () => (
               </Col>
               <Col>
                 Contact Us <br />
-                <strong>8081234567</strong>
+                <Button variant="success" style={{ fontSize: '14px', padding: '5px 10px' }}>808-123-4567</Button>
               </Col>
             </Row>
           </Container>
