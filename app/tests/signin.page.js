@@ -20,6 +20,14 @@ class SigninPage {
     await testController.click('#signin-form-submit input.btn.btn-primary');
     await navBar.isLoggedIn(testController, username);
   }
+
+  async signinVendor(testController, username, password) {
+    await this.isDisplayed(testController);
+    await testController.typeText('.signin-vendor-form-email', username);
+    await testController.typeText('.signin-vendor-form-password', password);
+    await testController.click('.signin-vendor-form-submit input.btn.btn-primary');
+    await navBar.isLoggedIn(testController, username);
+  }
 }
 
 export const signinPage = new SigninPage();

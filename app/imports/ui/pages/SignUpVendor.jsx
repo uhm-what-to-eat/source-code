@@ -45,7 +45,7 @@ const SignUp = ({ location }) => {
     Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu });
   };
 
-  const { from } = location?.state || { from: { pathname: '/' } };
+  const { from } = location?.state || { from: { pathname: '/home' } };
   if (redirectToReferer) {
     return <Navigate to={from} />;
   }
@@ -60,20 +60,20 @@ const SignUp = ({ location }) => {
             <Card>
               <Card.Body>
                 <Row>
-                  <TextField name="email" placeholder="E-mail address" />
-                  <TextField name="password" placeholder="Password" type="password" />
+                  <TextField id="signup-vendor-form-email" name="email" placeholder="E-mail address" />
+                  <TextField id="signup-vendor-form-password" name="password" placeholder="Password" type="password" />
                   <ErrorsField />
-                  <Col><TextField name="storeName" /></Col>
-                  <Col><SelectField name="storeLocation" /></Col>
+                  <Col><TextField id="signup-vendor-form-name" name="storeName" /></Col>
+                  <Col><SelectField id="signup-vendor-form-location" name="storeLocation" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="storeImage" placeholder="Optional" /></Col>
-                  <Col><TextField name="storeMenu" placeholder="'N/A' for no image" /></Col>
+                  <Col><TextField id="signup-vendor-form-image" name="storeImage" placeholder="Optional" /></Col>
+                  <Col><TextField id="signup-vendor-form-menu" name="storeMenu" placeholder="'N/A' for no image" /></Col>
                 </Row>
                 <Row>
-                  <LongTextField name="storeHours" placeholder="e.g. Mon-Fri 2-4pm" />
+                  <LongTextField id="signup-vendor-form-hours" name="storeHours" placeholder="e.g. Mon-Fri 2-4pm" />
                 </Row>
-                <SubmitField inputClassName="green-submit" />
+                <SubmitField id="signup-vendor-form-submit" />
                 <ErrorsField />
                 <h6 className="pt-3">Email UHMwhattoeat@hawaii.edu with your image file if you do not have a URL.</h6>
               </Card.Body>

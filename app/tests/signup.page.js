@@ -20,6 +20,21 @@ class SignupPage {
     await testController.click('#signup-form-submit input.btn.btn-primary');
     await navBar.isLoggedIn(testController, username);
   }
+
+  async signupVendor(testController, username, password, name, location, image, menu, hours) {
+    await this.isDisplayed(testController);
+    await testController.typeText('#signup-vendor-form-email', username);
+    await testController.typeText('#signup-vendor-form-password', password);
+    await testController.typeText('#signup-vendor-form-name', name);
+    await testController
+      .click('#signup-vendor-form-location') // Click to open the dropdown
+      .click(Selector('option').withText(location));
+    await testController.typeText('#signup-vendor-form-image', image);
+    await testController.typeText('#signup-vendor-form-menu', menu);
+    await testController.typeText('#signup-vendor-form-hours', hours);
+    await testController.click('#signup-vendor-form-submit input.btn.btn-primary');
+    await navBar.isLoggedIn(testController, username);
+  }
 }
 
 export const signupPage = new SignupPage();
