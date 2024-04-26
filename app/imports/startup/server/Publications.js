@@ -24,6 +24,14 @@ Meteor.publish(Vendors.vendorPublicationName, function () {
   }
   return this.ready();
 });
+
+Meteor.publish(this.favoritePublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Vendors.collection.find({ favorites: username });
+  }
+  return this.ready();
+});
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {

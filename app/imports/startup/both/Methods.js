@@ -24,4 +24,38 @@ Meteor.methods({
   },
 });
 
-export { addVendorsMethod };
+const addToFavorites = 'favorite.add';
+
+Meteor.methods({
+  'favorite.add'({ vendorId, username }) {
+    if (Meteor.isServer) {
+      try {
+        console.log('adding favorite');
+        console.log(vendorId, username);
+        Vendors.collection.update({ _id: vendorId }, { $addToSet: { favorites: username } });
+      } catch (error) {
+        throw new Meteor.Error('adding to favorite failed');
+      }
+    }
+    return null;
+  },
+});
+
+const removeFromFavorites = 'favorite.remove';
+
+Meteor.methods({
+  'favorite.remove'({ vendorId, userId }) {
+    if (Meteor.isServer) {
+      try {
+        console.log('removing favorite');
+        console.log(vendorId, userId);
+        Vendors.collection.update({ _id: vendorId }, { $pull: { favorites: userId } });
+      } catch (error) {
+        throw new Meteor.Error('adding to favorite failed');
+      }
+    }
+    return null;
+  },
+});
+
+export { addVendorsMethod, addToFavorites, removeFromFavorites };
