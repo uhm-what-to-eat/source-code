@@ -12,7 +12,7 @@ const credentials = { username: 'john@foo.com', password: 'changeme' };
 
 const credentialsVendor = { username: 'subway@foo.com', password: 'changeme' };
 
-const signUp = { username: 'joshua@foo.com', password: 'changeme' };
+// const signUp = { username: 'joshua@foo.com', password: 'changeme' };
 
 const signUpVendor = { username: 'testvendor@foo.com', password: 'changeme', name: 'test shop', location: 'Paradise Palms', image: 'N/A', menu: 'N/A test', hours: 'Mon-Fri 12-8pm' };
 
