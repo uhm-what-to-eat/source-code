@@ -44,12 +44,12 @@ Meteor.methods({
 const removeFromFavorites = 'favorite.remove';
 
 Meteor.methods({
-  'favorite.remove'({ vendorId, userId }) {
+  'favorite.remove'({ vendorId, username }) {
     if (Meteor.isServer) {
       try {
         console.log('removing favorite');
-        console.log(vendorId, userId);
-        Vendors.collection.update({ _id: vendorId }, { $pull: { favorites: userId } });
+        console.log(vendorId, username);
+        Vendors.collection.update({ _id: vendorId }, { $pull: { favorites: username } });
       } catch (error) {
         throw new Meteor.Error('adding to favorite failed');
       }

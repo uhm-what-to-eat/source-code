@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -6,7 +6,6 @@ import { Image, Card, Row, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { Star, StarFill } from 'react-bootstrap-icons';
 import { addToFavorites, removeFromFavorites } from '../../startup/both/Methods';
-import { Vendors } from '../../api/vendor/Vendors';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const PlaceToEat = ({ place }) => {
@@ -15,18 +14,18 @@ const PlaceToEat = ({ place }) => {
   }), []);
 
   const handleStarClick = () => {
-    if (Vendors.collection.find({ _id: place._id, favorites: currentUser.username }) === 'null') {
+    if (!place.favorites.includes(currentUser.username)) {
       Meteor.call(addToFavorites, { vendorId: place._id, username: currentUser.username });
     } else {
-      console.log(Vendors.collection.find({ _id: place._id, favorites: currentUser.username }));
       Meteor.call(removeFromFavorites, { vendorId: place._id, username: currentUser.username });
     }
   };
+  const isFavorited = place.favorites.includes(currentUser.username);
 
   return (
     <Card className="h-100">
       <Container className="py-1" onClick={handleStarClick}>
-        <Star />
+        {isFavorited ? <StarFill /> : <Star />}
       </Container>
       <Nav.Link as={NavLink} to={`/menu/${place._id}`}>
         <Card.Header className="text-center">
@@ -53,6 +52,7 @@ PlaceToEat.propTypes = {
     location: PropTypes.string,
     hours: PropTypes.string,
     owner: PropTypes.string,
+    favorites: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };

@@ -41,7 +41,8 @@
       "location": "Campus Center",
       "hours": "Mon-Fri: 7am-2pm",
       "owner": "foodcourt@foo.com",
-      "menuImage": "../images/Unava.png"
+      "menuImage": "../images/Unava.png",
+      "favorites": []
     },
     {
       "name": "Subway",
@@ -49,7 +50,8 @@
       "location": "Campus Center",
       "hours": "Mon & Fri: 8am-5pm\nTue-Thu: 8am-6pm",
       "owner": "subway@foo.com",
-      "menuImage": "../images/Subway-menu.jpg"
+      "menuImage": "../images/Subway-menu.jpg",
+      "favorites": []
     },
     {
       "name": "B'RITO BOWL",
@@ -57,7 +59,8 @@
       "location": "Campus Center",
       "hours": "Mon-Fri: 10am-2pm",
       "owner": "britobowl@foo.com",
-      "menuImage": "../images/B'RITO-menu.jpg"
+      "menuImage": "../images/B'RITO-menu.jpg",
+      "favorites": []
     },
     {
       "name": "Ding Tea",
@@ -65,7 +68,8 @@
       "location": "Campus Center",
       "hours": "Mon-Fri: 10am-6pm",
       "owner": "dingtea@foo.com",
-      "menuImage": "../images/Ding-Tea-menu.jpg"
+      "menuImage": "../images/Ding-Tea-menu.jpg",
+      "favorites": []
     },
     {
       "name": "Jamba Juice",
@@ -73,7 +77,8 @@
       "location": "Campus Center",
       "hours": "Mon-Fri: 8am-4pm",
       "owner": "jambajuice@foo.com",
-      "menuImage": "../images/Jamba-menu.jpg"
+      "menuImage": "../images/Jamba-menu.jpg",
+      "favorites": []
     },
     {
       "name": "Starbucks",
@@ -81,7 +86,8 @@
       "location": "Campus Center",
       "hours": "Mon-Thu: 6am-10pm\nFri: 6am-5pm",
       "owner": "starbucks@foo.com",
-      "menuImage": "../images/Star-Menu.png"
+      "menuImage": "../images/Star-Menu.png",
+      "favorites": []
     },
     {
       "name": "The Bean Counter",
@@ -89,7 +95,8 @@
       "location": "Campus Center",
       "hours": "Mon-Thu: 7:30-6pm\nFri: 7:30am-4pm",
       "owner": "thebeancounter@foo.com",
-      "menuImage": "../images/Bean-Menu.png"
+      "menuImage": "../images/Bean-Menu.png",
+      "favorites": []
     },
     {
       "name": "Panda Express",
@@ -97,7 +104,8 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 10am-4:30pm",
       "owner": "pandaexpress@foo.com",
-      "menuImage": "../images/Panda-Menu.png"
+      "menuImage": "../images/Panda-Menu.png",
+      "favorites": []
     },
     {
       "name": "L&L Hawaiian Barbecue",
@@ -105,7 +113,8 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 7am-4:30pm",
       "owner": "l&l@foo.com",
-      "menuImage": "../images/LL-Menu.png"
+      "menuImage": "../images/LL-Menu.png",
+      "favorites": []
     },
     {
       "name": "Dunkin' Donuts",
@@ -113,7 +122,8 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 7am-4:30pm",
       "owner": "dunkindonuts@foo.com",
-      "menuImage": "../images/Dunkin-Menu.png"
+      "menuImage": "../images/Dunkin-Menu.png",
+      "favorites": []
     },
     {
       "name": "Holoholo Grill",
@@ -121,7 +131,8 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 8am-3pm",
       "owner": "holohologrill@foo.com",
-      "menuImage": "../images/Holoholo-Menu.png"
+      "menuImage": "../images/Holoholo-Menu.png",
+      "favorites": []
     },
     {
       "name": "Lasoon",
@@ -129,7 +140,8 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 10am-4:30pm",
       "owner": "lasoon@foo.com",
-      "menuImage": "../images/Lasoon-Menu.png"
+      "menuImage": "../images/Lasoon-Menu.png",
+      "favorites": []
     },
     {
       "name": "Soul Fusion",
@@ -137,7 +149,8 @@
       "location": "Food Truck Row",
       "hours": "Mon,Wed,Thu,Fri: 10am-2pm",
       "owner": "soulfusion@foo.com",
-      "menuImage": "../images/Soul-menu.png"
+      "menuImage": "../images/Soul-menu.png",
+      "favorites": []
     },
     {
       "name": "Evisuya",
@@ -145,7 +158,8 @@
       "location": "Food Truck Row",
       "hours": "Mon,Tue,Thu,Fri: 10am-2pm",
       "owner": "evisuya@foo.com",
-      "menuImage": "../images/Evisuya-Menu.png"
+      "menuImage": "../images/Evisuya-Menu.png",
+      "favorites": []
     },
     {
       "name": "HI Cravings",
@@ -153,7 +167,8 @@
       "location": "Food Truck Row",
       "hours": "Mon,Wed: 8am-4pm",
       "owner": "hicravings@foo.com",
-      "menuImage": "../images/HI-Menu.png"
+      "menuImage": "../images/HI-Menu.png",
+      "favorites": []
     },
     {
       "name": "Happy Belly Eatery",
@@ -161,7 +176,8 @@
       "location": "Food Truck Row",
       "hours": "Mon: 10am-2pm",
       "owner": "happybellyeatery@foo.com",
-      "menuImage": "../images/Happy-Menu.png"
+      "menuImage": "../images/Happy-Menu.png",
+      "favorites": []
     },
     {
       "name": "HOLOHOLO Bistro",
@@ -169,7 +185,8 @@
       "location": "Food Truck Row",
       "hours": "Wed: 10am-2pm",
       "owner": "holoholobistro@foo.com",
-      "menuImage": "../images/Holo-Bistro-menu.png"
+      "menuImage": "../images/Holo-Bistro-menu.png",
+      "favorites": []
     },
     {
       "name": "SAMA SAMA",
@@ -177,7 +194,8 @@
       "location": "Food Truck Row",
       "hours": "Tue,Wed,Thu: 8am-4pm",
       "owner": "samasama@foo.com",
-      "menuImage": "../images/SamaSama-Menu.png"
+      "menuImage": "../images/SamaSama-Menu.png",
+      "favorites": []
     },
     {
       "name": "Krazy Dogs",
@@ -185,7 +203,8 @@
       "location": "Food Truck Row",
       "hours": "Wed,Thu,Fri 10am-2pm",
       "owner": "Krazydogs@foo.com",
-      "menuImage": "../images/Krazy-menu.png"
+      "menuImage": "../images/Krazy-menu.png",
+      "favorites": []
     },
     {
       "name": "VEGGIE DOGS",
@@ -193,7 +212,8 @@
       "location": "Food Truck Row",
       "hours": "Mon,Tue: 10am-2pm",
       "owner": "veggiedogs@foo.com",
-      "menuImage": "../images/Vigge-Menu.png"
+      "menuImage": "../images/Vigge-Menu.png",
+      "favorites": []
     },
     {
       "name": "BA-LE",
@@ -201,7 +221,8 @@
       "location": "Hemenway Hall",
       "hours": "Mon-Thu: 10am-8pm\nFri: 10am-9pm",
       "owner": "bale@foo.com",
-      "menuImage": "../images/Bale-Menu.png"
+      "menuImage": "../images/Bale-Menu.png",
+      "favorites": []
     },
     {
       "name": "Hale Aloha Cafe",
@@ -209,7 +230,8 @@
       "location": "Residential Dining",
       "hours": "Brunch: Sat & Sun: 10:30-1:30pm\nDinner: Daily 5pm-8pm",
       "owner": "halealohacafe@foo.com",
-      "menuImage": "../images/Hale-Menu.png"
+      "menuImage": "../images/Hale-Menu.png",
+      "favorites": []
     },
     {
       "name": "Gateway Cafe",
@@ -217,7 +239,8 @@
       "location": "Residential Dining",
       "hours": "Breakfast: Mon-Fri 7am-10am\nLunch: Mon-Fri 11am-2pm\nDinner: Mon-Thu 5pm-7:30pm",
       "owner": "gatewaycafe@foo.com",
-      "menuImage": "../images/Gate-Menu.png"
+      "menuImage": "../images/Gate-Menu.png",
+      "favorites": []
     },
     {
       "name": "Le Crepe Cafe",
@@ -225,7 +248,8 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri 8am-3pm",
       "owner": "crepe@foo.com",
-      "menuImage": "../images/Le-Crepe-Menu.png"
+      "menuImage": "../images/Le-Crepe-Menu.png",
+      "favorites": []
     }
   ],
 

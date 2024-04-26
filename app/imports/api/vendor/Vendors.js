@@ -25,7 +25,6 @@ class VendorsCollection {
       menuImage: String,
       favorites: {
         type: Array,
-        optional: true,
       },
       'favorites.$': String,
     });
