@@ -52,7 +52,7 @@ PlaceToEat.propTypes = {
     location: PropTypes.string,
     hours: PropTypes.string,
     owner: PropTypes.string,
-    favorites: PropTypes.string,
+    favorites: PropTypes.arrayOf(PropTypes.string),
     _id: PropTypes.string,
   }).isRequired,
 };

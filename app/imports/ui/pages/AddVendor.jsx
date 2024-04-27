@@ -29,7 +29,7 @@ const AddVendor = () => {
   const submit = (data, formRef) => {
     const { name, image, location, hours, owner, menuImage } = data;
     Vendors.collection.insert(
-      { name, image, location, hours, owner, menuImage },
+      { name, image, location, hours, owner, menuImage, favorites: [] },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

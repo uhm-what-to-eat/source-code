@@ -14,50 +14,31 @@ const Landing = () => {
     currentUser: Meteor.user(),
   }), []);
 
-  const { ready, placesToEat, vendor, vendorReady } = useTracker(() => {
+  const { ready, vendor, vendorReady, ownedVendor } = useTracker(() => {
     const userSubscription = Meteor.subscribe(Vendors.userPublicationName);
     const userSubscriptionReady = userSubscription.ready();
+
+    const vendorSubscription = Meteor.subscribe(Vendors.vendorPublicationName);
+    const vendorSubscriptionReady = vendorSubscription.ready();
+
     let vendorData = [];
-    let vendorSubscriptionReady = false;
+    let ownedVendorData = [];
 
-    if (Roles.userIsInRole(currentUser, 'vendor')) {
-      const vendorSubscription = Meteor.subscribe(Vendors.vendorPublicationName);
-      vendorSubscriptionReady = vendorSubscription.ready();
+    if (vendorSubscriptionReady) {
       vendorData = Vendors.collection.find({}).fetch();
+      // Fetch owned vendors only if the current user is a vendor
+      if (currentUser && Roles.userIsInRole(currentUser, 'vendor')) {
+        ownedVendorData = Vendors.collection.find({}).fetch();
+      }
     }
-
-    const places = Vendors.collection.find({}).fetch();
 
     return {
       ready: userSubscriptionReady,
-      placesToEat: places,
       vendor: vendorData,
       vendorReady: vendorSubscriptionReady,
+      ownedVendor: ownedVendorData,
     };
   }, [currentUser]);
-
-  function shuffleArray(array) {
-    const shuffledArray = [...array];
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-    }
-    return shuffledArray;
-  }
-
-  const [placesToRender, setPlacesToRender] = useState(() => {
-    const storedPlaces = localStorage.getItem('randomPlaces');
-    return storedPlaces ? JSON.parse(storedPlaces) : [];
-  });
-
-  useEffect(() => {
-    if (!placesToRender.length && ready && placesToEat.length > 0) {
-      const shuffledPlaces = shuffleArray(placesToEat);
-      const selectedPlaces = shuffledPlaces.slice(0, 3);
-      setPlacesToRender(selectedPlaces);
-      localStorage.setItem('randomPlaces', JSON.stringify(selectedPlaces));
-    }
-  }, [ready, placesToEat, placesToRender]);
 
   const renderContent = () => {
     if (currentUser) {
@@ -75,12 +56,10 @@ const Landing = () => {
               </Col>
             </Row>
             <Row xs={1} md={2} lg={3} className="g-4 py-4">
-              {vendor.map((place) => (
-                <React.Fragment key={place._id}>
-                  {currentUser.emails[0].address === place.owner ? (
-                    <Col><PlaceToEatEdit place={place} /></Col>
-                  ) : null}
-                </React.Fragment>
+              {ownedVendor.map((place) => (
+                <Col key={place._id}>
+                  <PlaceToEatEdit place={place} />
+                </Col>
               ))}
             </Row>
           </Container>
@@ -92,8 +71,8 @@ const Landing = () => {
             <h1>Welcome Back {currentUser.username}!</h1>
             <h2>Top Eats For You: </h2>
           </Row>
-          <Row>
-            {placesToRender.map((place) => (
+          <Row xs={1} md={2} lg={3} className="g-4 py-4">
+            {vendor.map((place) => (
               <Col key={place._id}>
                 <PlaceToEat place={place} />
               </Col>
