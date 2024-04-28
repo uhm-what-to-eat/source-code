@@ -7,43 +7,47 @@ import { Roles } from 'meteor/alanning:roles';
 import PlaceToEat from '../components/PlaceToEat';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Vendors } from '../../api/vendor/Vendors';
-import PlaceToEatEdit from '../components/PlaceToEatEdit';
+import { randomizeVendors } from '../../startup/both/Methods';
 
 const Landing = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user(),
   }), []);
 
-  const { ready, vendor, vendorReady, ownedVendor } = useTracker(() => {
-    const userSubscription = Meteor.subscribe(Vendors.userPublicationName);
-    const userSubscriptionReady = userSubscription.ready();
+  const { ready, vendor } = useTracker(() => {
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
+    const rdy = subscription.ready();
 
-    const vendorSubscription = Meteor.subscribe(Vendors.vendorPublicationName);
-    const vendorSubscriptionReady = vendorSubscription.ready();
-
-    let vendorData = [];
-    let ownedVendorData = [];
-
-    if (vendorSubscriptionReady) {
-      vendorData = Vendors.collection.find({}).fetch();
-      // Fetch owned vendors only if the current user is a vendor
-      if (currentUser && Roles.userIsInRole(currentUser, 'vendor')) {
-        ownedVendorData = Vendors.collection.find({}).fetch();
-      }
-    }
+    const vendorItems = Vendors.collection.find({}).fetch();
 
     return {
-      ready: userSubscriptionReady,
-      vendor: vendorData,
-      vendorReady: vendorSubscriptionReady,
-      ownedVendor: ownedVendorData,
+      vendor: vendorItems,
+      ready: rdy,
+      cleanup: () => subscription.stop(), // Cleanup function to stop the subscription
     };
   }, [currentUser]);
+
+  const [randomVendors, setRandomVendors] = useState([]);
+
+  useEffect(() => {
+    // Initialize random vendors only once when the component mounts
+    if (vendor.length > 0 && randomVendors.length === 0) {
+      const subscription = Meteor.subscribe(Vendors.userPublicationName);
+      Meteor.call(randomizeVendors, { vendors: vendor, amount: 3 }, (error, randomized) => {
+        if (!error) {
+          setRandomVendors(randomized);
+        } else {
+          console.error('Error randomizing vendors:', error);
+        }
+        return () => subscription.stop();
+      });
+    }
+  }, [vendor, randomVendors]);
 
   const renderContent = () => {
     if (currentUser) {
       if (Roles.userIsInRole(currentUser, 'vendor')) {
-        return (vendorReady ? (
+        return (ready ? (
           <Container className="py-3">
             <Row className="align-middle text-center py-3">
               <h1>Welcome Back {currentUser.username}!</h1>
@@ -51,16 +55,12 @@ const Landing = () => {
             <Row className="justify-content-center py-3">
               <Col>
                 <Col className="text-center">
-                  <h2 className="fw-bold">Your Vendors</h2>
+                  <h2 className="fw-bold">Top Eats For You:</h2>
                 </Col>
               </Col>
             </Row>
             <Row xs={1} md={2} lg={3} className="g-4 py-4">
-              {ownedVendor.map((place) => (
-                <Col key={place._id}>
-                  <PlaceToEatEdit place={place} />
-                </Col>
-              ))}
+              {randomVendors.map((place) => (<Col key={place._id}><PlaceToEat place={place} /></Col>))}
             </Row>
           </Container>
         ) : <LoadingSpinner />);
@@ -69,10 +69,10 @@ const Landing = () => {
         <Container className="py-3">
           <Row className="align-middle text-center py-3">
             <h1>Welcome Back {currentUser.username}!</h1>
-            <h2>Top Eats For You: </h2>
+            <h2>Top Eats For You:</h2>
           </Row>
           <Row xs={1} md={2} lg={3} className="g-4 py-4">
-            {vendor.map((place) => (
+            {randomVendors.map((place) => (
               <Col key={place._id}>
                 <PlaceToEat place={place} />
               </Col>

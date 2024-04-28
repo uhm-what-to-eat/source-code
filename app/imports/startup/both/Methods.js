@@ -14,7 +14,7 @@ Meteor.methods({
         Roles.createRole('vendor', { unlessExists: true });
         Roles.addUsersToRoles(this.userId, 'vendor');
         // Insert the vendor data into the Vendors collection
-        Vendors.collection.insert({ name: storeName, image: image, location: storeLocation, hours: storeHours, owner: owner, menuImage: storeMenu });
+        Vendors.collection.insert({ name: storeName, image: image, location: storeLocation, hours: storeHours, owner: owner, menuImage: storeMenu, favorites: [] });
         // console.log(vendorId); // Optionally return the ID of the inserted document
       } catch (error) {
         throw new Meteor.Error('vendor-insertion-failed', 'Failed to insert vendor data');
@@ -58,4 +58,26 @@ Meteor.methods({
   },
 });
 
-export { addVendorsMethod, addToFavorites, removeFromFavorites };
+const randomizeVendors = 'randomize.vendors';
+
+Meteor.methods({
+  'randomize.vendors'({ vendors, amount }) {
+    if (Meteor.isServer) {
+      try {
+        const randomizedVendors = [];
+        while (randomizedVendors.length < amount) {
+          const randomIndex = Math.floor(Math.random() * vendors.length);
+          if (!randomizedVendors.includes(vendors[randomIndex])) {
+            randomizedVendors.push(vendors[randomIndex]);
+          }
+        }
+        return randomizedVendors;
+      } catch (error) {
+        throw new Meteor.Error('randomizing failed');
+      }
+    }
+    return null;
+  },
+});
+
+export { addVendorsMethod, addToFavorites, removeFromFavorites, randomizeVendors };

@@ -13,11 +13,11 @@ const Favorites = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to CCVendors documents.
-    const subscription = Meteor.subscribe(Vendors.favoritePublicationName);
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const vendorItems = Vendors.collection.find({}).fetch();
+    const vendorItems = Vendors.collection.find({ favorites: Meteor.user().username }).fetch();
     return {
       vendor: vendorItems,
       ready: rdy,

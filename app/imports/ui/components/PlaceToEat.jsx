@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -13,14 +13,27 @@ const PlaceToEat = ({ place }) => {
     currentUser: Meteor.user(),
   }), []);
 
+  const [isFavorited, setIsFavorited] = useState(place.favorites.includes(currentUser?.username));
+
   const handleStarClick = () => {
-    if (!place.favorites.includes(currentUser.username)) {
-      Meteor.call(addToFavorites, { vendorId: place._id, username: currentUser.username });
+    if (!isFavorited) {
+      Meteor.call(addToFavorites, { vendorId: place._id, username: currentUser.username }, (error) => {
+        if (!error) {
+          setIsFavorited(true);
+        } else {
+          console.error('Error adding to favorites:', error);
+        }
+      });
     } else {
-      Meteor.call(removeFromFavorites, { vendorId: place._id, username: currentUser.username });
+      Meteor.call(removeFromFavorites, { vendorId: place._id, username: currentUser.username }, (error) => {
+        if (!error) {
+          setIsFavorited(false);
+        } else {
+          console.error('Error removing from favorites:', error);
+        }
+      });
     }
   };
-  const isFavorited = place.favorites.includes(currentUser.username);
 
   return (
     <Card className="h-100">

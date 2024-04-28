@@ -8,16 +8,19 @@ import PlaceToEatEdit from '../../components/PlaceToEatEdit';
 
 /* Renders a table containing all of the Campus Center documents. */
 const OwnedVendor = () => {
+  const { currentUser } = useTracker(() => ({
+    currentUser: Meteor.user(),
+  }), []);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, vendor } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Vendor documents.
-    const subscription = Meteor.subscribe(Vendors.vendorPublicationName);
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Vendor documents
-    const vendorItems = Vendors.collection.find({}).fetch();
+    const vendorItems = Vendors.collection.find({ owner: currentUser.username }).fetch();
     return {
       vendor: vendorItems,
       ready: rdy,
