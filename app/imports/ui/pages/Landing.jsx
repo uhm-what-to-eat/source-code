@@ -5,6 +5,7 @@ import { Col, Container, Row, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import PlaceToEat from '../components/PlaceToEat';
+import PlaceToEatEdit from '../components/PlaceToEatEdit';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Vendors } from '../../api/vendor/Vendors';
 import { randomizeVendors } from '../../startup/both/Methods';
@@ -55,12 +56,12 @@ const Landing = () => {
             <Row className="justify-content-center py-3">
               <Col>
                 <Col className="text-center">
-                  <h2 className="fw-bold">Top Eats For You:</h2>
+                  <h2 className="fw-bold">Your Vendors:</h2>
                 </Col>
               </Col>
             </Row>
             <Row xs={1} md={2} lg={3} className="g-4 py-4">
-              {randomVendors.map((place) => (<Col key={place._id}><PlaceToEat place={place} /></Col>))}
+              {vendor.filter((place) => place.owner === currentUser.username).map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
             </Row>
           </Container>
         ) : <LoadingSpinner />);
