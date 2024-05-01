@@ -253,6 +253,104 @@
     }
   ],
 
+  "defaultMenuItems": [
+    {
+      "vendorName": "Campus Center Food Court",
+      "menuItems": [ {"itemName": "Soda", "price":  "1.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Subway",
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "B'RITO BOWL",
+      "menuItems": [ {"itemName": "Soda", "price":  "3.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Ding Tea",
+      "menuItems": [ {"itemName": "Soda", "price":  "4.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Jamba Juice",
+      "menuItems": [ {"itemName": "Soda", "price":  "5.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Starbucks",
+      "menuItems": [ {"itemName": "Soda", "price":  "6.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "The Bean Counter",
+      "menuItems": [ {"itemName": "Soda", "price":  "7.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Panda Express",
+      "menuItems": [ {"itemName": "Soda", "price":  "8.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "L&L Hawaiian Barbecue",
+      "menuItems": [ {"itemName": "Soda", "price":  "9.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Dunkin' Donuts",
+      "menuItems": [ {"itemName": "Soda", "price":  "10.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Holoholo Grill",
+      "menuItems": [ {"itemName": "Soda", "price":  "11.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Lasoon",
+      "menuItems": [ {"itemName": "Soda", "price":  "12.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Soul Fusion",
+      "menuItems": [ {"itemName": "Soda", "price":  "13.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Evisuya",
+      "menuItems": [ {"itemName": "Soda", "price":  "14.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "HI Craving",
+      "menuItems": [ {"itemName": "Soda", "price":  "14.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Happy Belly Eatery",
+      "menuItems": [ {"itemName": "Soda", "price":  "15.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "HOLOHOLO Bistro",
+      "menuItems": [ {"itemName": "Soda", "price":  "16.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "SAMA SAMA",
+      "menuItems": [ {"itemName": "Soda", "price":  "17.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Krazy Dogs",
+      "menuItems": [ {"itemName": "Soda", "price":  "18.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "VEGGIE DOGS",
+      "menuItems": [ {"itemName": "Soda", "price":  "19.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "BA-LE",
+      "menuItems": [ {"itemName": "Soda", "price":  "20.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Hale Aloha Cafe",
+      "menuItems": [ {"itemName": "Soda", "price":  "21.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },{
+      "vendorName": "Gateway Cafe",
+      "menuItems": [ {"itemName": "Soda", "price":  "22.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
+    {
+      "vendorName": "Le Crepe Cafe",
+      "menuItems": [ {"itemName": "Soda", "price":  "23.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    }
+  ],
+
   "monti": {
     "appId": "Hxzjaj8Bmtrp6iz7m",
     "appSecret": "84fd7101-de91-4b49-8001-53d739dc0307"
