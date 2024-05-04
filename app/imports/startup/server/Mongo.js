@@ -23,7 +23,6 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
-
 function addTypes(category) {
   Types.collection.update({ name: category }, { $set: { name: category } }, { upsert: true });
 }
@@ -34,7 +33,6 @@ const addMenuItems = (menus) => {
     MenuItems.collection.insert(menu);
   });
 };
-
 
 // Function to add vendors to the AllVendors collection
 const addVendors = (vendors) => {
