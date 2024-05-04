@@ -23,6 +23,23 @@ class VendorsCollection {
       hours: String,
       owner: String,
       menuImage: String,
+
+      // Add fields from VendorsCollection
+      // Ensure there are no field name conflicts
+      // Adjust field names if necessary
+      // Here I'm assuming that there won't be conflicts and all fields are the same
+      category: {
+        type: Array,
+        optional: false,
+        minCount: 1,
+        maxCount: 3,
+      },
+      'category.$':
+        {
+          type: String,
+          allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite'],
+        },
+
       favorites: {
         type: Array,
       },

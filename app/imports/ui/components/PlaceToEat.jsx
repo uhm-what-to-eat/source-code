@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Image, Card, Row, Nav, Badge } from 'react-bootstrap';
 import { Image, Card, Row, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { Star, StarFill } from 'react-bootstrap-icons';
@@ -37,6 +38,21 @@ const PlaceToEat = ({ place }) => {
 
   return (
     <Card className="h-100">
+      <Card.Header className="text-center">
+        <Image src={place.image} height={150} />
+      </Card.Header>
+      <Card.Body>
+        <Row className="text-center">
+          <Card.Title>{place.name}</Card.Title>
+          <Card.Subtitle className="py-2">{place.location}</Card.Subtitle>
+          {place.hours.split('\n').map((line, index) => (
+            <Card.Subtitle key={index}>{line}</Card.Subtitle>
+          ))}
+          <Card.Text>
+            {place.category.map((category, index) => <Badge key={index} bg="success" style={{ marginRight: '5px', marginBottom: '5px' }}>{category}</Badge>)}
+          </Card.Text>
+        </Row>
+      </Card.Body>
       <Container className="py-1" onClick={handleStarClick}>
         {isFavorited ? <StarFill /> : <Star />}
       </Container>
@@ -67,6 +83,7 @@ PlaceToEat.propTypes = {
     owner: PropTypes.string,
     favorites: PropTypes.arrayOf(PropTypes.string),
     _id: PropTypes.string,
+    category: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
 
