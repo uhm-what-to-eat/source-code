@@ -5,64 +5,50 @@ import { Col, Container, Row, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import PlaceToEat from '../components/PlaceToEat';
+import PlaceToEatEdit from '../components/PlaceToEatEdit';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Vendors } from '../../api/vendor/Vendors';
-import PlaceToEatEdit from '../components/PlaceToEatEdit';
+import { randomizeVendors } from '../../startup/both/Methods';
 
 const Landing = () => {
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user(),
   }), []);
 
-  const { ready, placesToEat, vendor, vendorReady } = useTracker(() => {
-    const userSubscription = Meteor.subscribe(Vendors.userPublicationName);
-    const userSubscriptionReady = userSubscription.ready();
-    let vendorData = [];
-    let vendorSubscriptionReady = false;
+  const { ready, vendor } = useTracker(() => {
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
+    const rdy = subscription.ready();
 
-    if (Roles.userIsInRole(currentUser, 'vendor')) {
-      const vendorSubscription = Meteor.subscribe(Vendors.vendorPublicationName);
-      vendorSubscriptionReady = vendorSubscription.ready();
-      vendorData = Vendors.collection.find({}).fetch();
-    }
-
-    const places = Vendors.collection.find({}).fetch();
+    const vendorItems = Vendors.collection.find({}).fetch();
 
     return {
-      ready: userSubscriptionReady,
-      placesToEat: places,
-      vendor: vendorData,
-      vendorReady: vendorSubscriptionReady,
+      vendor: vendorItems,
+      ready: rdy,
+      cleanup: () => subscription.stop(), // Cleanup function to stop the subscription
     };
   }, [currentUser]);
 
-  function shuffleArray(array) {
-    const shuffledArray = [...array];
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-    }
-    return shuffledArray;
-  }
-
-  const [placesToRender, setPlacesToRender] = useState(() => {
-    const storedPlaces = localStorage.getItem('randomPlaces');
-    return storedPlaces ? JSON.parse(storedPlaces) : [];
-  });
+  const [randomVendors, setRandomVendors] = useState([]);
 
   useEffect(() => {
-    if (!placesToRender.length && ready && placesToEat.length > 0) {
-      const shuffledPlaces = shuffleArray(placesToEat);
-      const selectedPlaces = shuffledPlaces.slice(0, 3);
-      setPlacesToRender(selectedPlaces);
-      localStorage.setItem('randomPlaces', JSON.stringify(selectedPlaces));
+    // Initialize random vendors only once when the component mounts
+    if (vendor.length > 0 && randomVendors.length === 0) {
+      const subscription = Meteor.subscribe(Vendors.userPublicationName);
+      Meteor.call(randomizeVendors, { vendors: vendor, amount: 3 }, (error, randomized) => {
+        if (!error) {
+          setRandomVendors(randomized);
+        } else {
+          console.error('Error randomizing vendors:', error);
+        }
+        return () => subscription.stop();
+      });
     }
-  }, [ready, placesToEat, placesToRender]);
+  }, [vendor, randomVendors]);
 
   const renderContent = () => {
     if (currentUser) {
       if (Roles.userIsInRole(currentUser, 'vendor')) {
-        return (vendorReady ? (
+        return (ready ? (
           <Container className="py-3">
             <Row className="align-middle text-center py-3">
               <h1>Welcome Back {currentUser.username}!</h1>
@@ -70,18 +56,12 @@ const Landing = () => {
             <Row className="justify-content-center py-3">
               <Col>
                 <Col className="text-center">
-                  <h2 className="fw-bold">Your Vendors</h2>
+                  <h2 className="fw-bold">Your Vendors:</h2>
                 </Col>
               </Col>
             </Row>
             <Row xs={1} md={2} lg={3} className="g-4 py-4">
-              {vendor.map((place) => (
-                <React.Fragment key={place._id}>
-                  {currentUser.emails[0].address === place.owner ? (
-                    <Col><PlaceToEatEdit place={place} /></Col>
-                  ) : null}
-                </React.Fragment>
-              ))}
+              {vendor.filter((place) => place.owner === currentUser.username).map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
             </Row>
           </Container>
         ) : <LoadingSpinner />);
@@ -90,10 +70,10 @@ const Landing = () => {
         <Container className="py-3">
           <Row className="align-middle text-center py-3">
             <h1>Welcome Back {currentUser.username}!</h1>
-            <h2>Top Eats For You: </h2>
+            <h2>Top Eats For You:</h2>
           </Row>
-          <Row>
-            {placesToRender.map((place) => (
+          <Row xs={1} md={2} lg={3} className="g-4 py-4">
+            {randomVendors.map((place) => (
               <Col key={place._id}>
                 <PlaceToEat place={place} />
               </Col>

@@ -1,8 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Vendors } from '../../api/vendor/Vendors';
+
 import { Types } from '../../api/type/types';
 import { VendorCategories } from '../../api/vendor/VendorCategories';
+
+import { MenuItems } from '../../api/menu/MenuItems';
 
 /* eslint-disable no-console */
 
@@ -20,9 +23,18 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
+
 function addTypes(category) {
   Types.collection.update({ name: category }, { $set: { name: category } }, { upsert: true });
 }
+
+const addMenuItems = (menus) => {
+  menus.forEach((menu) => {
+    console.log(`Adding: ${menu.vendorName}'s menu`);
+    MenuItems.collection.insert(menu);
+  });
+};
+
 
 // Function to add vendors to the AllVendors collection
 const addVendors = (vendors) => {
@@ -39,4 +51,8 @@ const addVendors = (vendors) => {
 // Check if the AllVendors collection is empty, if so, add default vendors from all vendor types
 if (Vendors.collection.find().count() === 0) {
   addVendors(Meteor.settings.defaultVendors);
+}
+
+if (MenuItems.collection.find().count() === 0) {
+  addMenuItems(Meteor.settings.defaultMenuItems);
 }

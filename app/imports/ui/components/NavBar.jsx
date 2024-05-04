@@ -27,11 +27,14 @@ const NavBar = () => {
             {currentUser ? ([
               <Nav.Link id="navbar-places-to-eat" as={NavLink} to="/list" key="list">Places To Eat</Nav.Link>,
             ]) : ''}
+            {currentUser ? ([
+              <Nav.Link id="navbar-favorites" as={NavLink} to="/favorite" key="favorites">Favorites</Nav.Link>,
+            ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Add/Remove Vendors</Nav.Link>
+              <Nav.Link id="add/remove-vendors-admin-nav" as={NavLink} to="/admin" key="admin">Add/Remove Vendors</Nav.Link>
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/adminEdit">Edit Vendors</Nav.Link>
+              <Nav.Link id="edit-vendors-admin-nav" as={NavLink} to="/adminEdit">Edit Vendors</Nav.Link>
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
               <Nav.Link id="navbar-your-vendor" as={NavLink} to="/vendorStuff">Your Vendors</Nav.Link>

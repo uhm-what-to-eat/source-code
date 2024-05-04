@@ -23,6 +23,7 @@ class VendorsCollection {
       hours: String,
       owner: String,
       menuImage: String,
+
       // Add fields from VendorsCollection
       // Ensure there are no field name conflicts
       // Adjust field names if necessary
@@ -38,6 +39,11 @@ class VendorsCollection {
           type: String,
           allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite'],
         },
+
+      favorites: {
+        type: Array,
+      },
+      'favorites.$': String,
     });
 
     // Attach the schema to the aggregated collection
@@ -45,11 +51,13 @@ class VendorsCollection {
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.vendorPublicationName = `${this.name}.publication.vendor`;
+    this.favoritePublicationName = `${this.name}.publication.vendor`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
+
 /**
- * The singleton instance of the RDVendorsCollection.
+ * The singleton instance of the VendorsCollection.
  * @type {VendorsCollection}
  */
 // Instantiate the aggregated collection

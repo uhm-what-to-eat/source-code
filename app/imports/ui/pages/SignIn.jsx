@@ -51,10 +51,10 @@ const SignIn = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <TextField id="signin-form-email" class="signin-vendor-form-email" name="email" placeholder="E-mail address" />
-                <TextField id="signin-form-password" class="signin-vendor-form-password" name="password" placeholder="Password" type="password" />
+                <TextField id="signin-form-email" className="signin-vendor-form-email" name="email" placeholder="E-mail address" />
+                <TextField id="signin-form-password" className="signin-vendor-form-password" name="password" placeholder="Password" type="password" />
                 <ErrorsField />
-                <SubmitField id="signin-form-submit" class="signin-vendor-form-submit" />
+                <SubmitField id="signin-form-submit" className="signin-vendor-form-submit" />
               </Card.Body>
             </Card>
           </AutoForm>
