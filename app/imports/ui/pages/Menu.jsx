@@ -53,7 +53,7 @@ const Menu = () => {
           </Row>
           <Row>
             <Col>
-              <h1>Vendor/Admin Recommended Items:</h1>
+              <h1>Recommended Items:</h1>
             </Col>
           </Row>
           <Row className="pb-2">
