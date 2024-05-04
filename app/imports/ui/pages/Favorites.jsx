@@ -6,23 +6,23 @@ import { Vendors } from '../../api/vendor/Vendors';
 import LoadingSpinner from '../components/LoadingSpinner';
 import PlaceToEat from '../components/PlaceToEat';
 
-/* Renders a table containing all of the Campus Center documents. */
 const Favorites = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, vendor } = useTracker(() => {
-    // Note that this subscription will get cleaned up
-    // when your component is unmounted or deps change.
-    // Get access to CCVendors documents.
     const subscription = Meteor.subscribe(Vendors.userPublicationName);
-    // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Stuff documents
-    const vendorItems = Vendors.collection.find({ favorites: Meteor.user().username }).fetch();
+
+    let vendorItems = [];
+    const user = Meteor.user();
+    if (user) {
+      vendorItems = Vendors.collection.find({ favorites: user.username }).fetch();
+    }
+
     return {
       vendor: vendorItems,
       ready: rdy,
     };
   }, []);
+
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center py-3">

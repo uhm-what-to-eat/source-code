@@ -37,21 +37,6 @@ const PlaceToEat = ({ place }) => {
 
   return (
     <Card className="h-100">
-      <Card.Header className="text-center">
-        <Image src={place.image} height={150} />
-      </Card.Header>
-      <Card.Body>
-        <Row className="text-center">
-          <Card.Title>{place.name}</Card.Title>
-          <Card.Subtitle className="py-2">{place.location}</Card.Subtitle>
-          {place.hours.split('\n').map((line, index) => (
-            <Card.Subtitle key={index}>{line}</Card.Subtitle>
-          ))}
-          <Card.Text>
-            {place.category.map((category, index) => <Badge key={index} bg="success" style={{ marginRight: '5px', marginBottom: '5px' }}>{category}</Badge>)}
-          </Card.Text>
-        </Row>
-      </Card.Body>
       <Container className="py-1" onClick={handleStarClick}>
         {isFavorited ? <StarFill /> : <Star />}
       </Container>
@@ -65,6 +50,9 @@ const PlaceToEat = ({ place }) => {
             <Card.Subtitle className="py-2">{place.location}</Card.Subtitle>
             {place.hours.split('\n').map((line, index) => (<Card.Subtitle key={index}>{line}</Card.Subtitle>
             ))}
+            <Card.Text>
+              {place.category.map((category, index) => <Badge key={index} bg="success" style={{ marginRight: '5px', marginBottom: '5px' }}>{category}</Badge>)}
+            </Card.Text>
           </Row>
         </Card.Body>
       </Nav.Link>
