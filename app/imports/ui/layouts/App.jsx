@@ -36,6 +36,7 @@ import ResidentialDiningAdmin from '../pages/places/ResidentialDiningAdmin';
 import EditResidentialDining from '../pages/places/EditResidentialDining';
 import AddVendor from '../pages/AddVendor';
 import AddMenuItem from '../pages/AddMenuItem';
+import EditMenuItem from '../pages/EditMenuItem';
 import OwnedVendor from '../pages/places/OwnedVendor';
 import Menu from '../pages/Menu';
 import Favorites from '../pages/Favorites';
@@ -82,6 +83,7 @@ const App = () => {
           <Route path="/editRD" element={<ProtectedRoute><EditResidentialDining /></ProtectedRoute>} />
           <Route path="/addVendor" element={<ProtectedRoute><AddVendor /></ProtectedRoute>} />
           <Route path="/addMenuItem/:_id" element={<ProtectedRoute><AddMenuItem /></ProtectedRoute>} />
+          <Route path="/editMenuItem/:_id/:index" element={<ProtectedRoute><EditMenuItem /></ProtectedRoute>} />
           <Route path="/vendorStuff" element={<ProtectedRoute><OwnedVendor /></ProtectedRoute>} />
           <Route path="/favorite" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />

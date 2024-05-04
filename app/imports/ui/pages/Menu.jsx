@@ -40,7 +40,7 @@ const Menu = () => {
     };
   }, [_id, currentUser]);
   const renderContent = () => {
-    if (Roles.userIsInRole(currentUser, 'vendor') || Roles.userIsInRole(currentUser, 'admin')) {
+    if ((Roles.userIsInRole(currentUser, 'vendor') && vendor.owner === currentUser.username) || Roles.userIsInRole(currentUser, 'admin')) {
       return (ready && menuReady ? (
         <Container className="py-3">
           <Row className="justify-content-center">
@@ -63,8 +63,8 @@ const Menu = () => {
           </Row>
           <ul>
             {menu.menuItems.map((item) => (
-              <li key={item._id} className="py-1">{`${item.itemName}: ${item.price}`}
-                <Button variant="danger" className="mx-1 btn-sm"><Nav.Link as={NavLink} to={`/editMenuItem/${menu._id}/${item}`}>Edit</Nav.Link></Button>/
+              <li key={item._id} className="py-1">{`${item.itemName}: $${item.price}`}
+                <Button variant="danger" className="mx-1 btn-sm"><Nav.Link as={NavLink} to={`/editMenuItem/${menu._id}/${menu.menuItems.indexOf(item)}`}>Edit</Nav.Link></Button>
                 <Button variant="danger" className="mx-1 btn-sm" onClick={() => removeMenuItem(menu, item)}>Remove</Button>
               </li>
             ))}
@@ -89,7 +89,7 @@ const Menu = () => {
         </Row>
         <ul>
           {menu.menuItems.map((item) => (
-            <li>{`${item.itemName}: ${item.price}`}</li>
+            <li>{`${item.itemName}: $${item.price}`}</li>
           ))}
         </ul>
       </Container>

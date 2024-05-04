@@ -25,7 +25,7 @@ const AddMenuItem = () => {
     const newItem = { itemName, price };
     MenuItems.collection.update(
       _id,
-      { menu: newItem },
+      { $push: { menuItems: newItem } },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
