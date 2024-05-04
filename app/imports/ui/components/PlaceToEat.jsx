@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, Card, Row, Nav } from 'react-bootstrap';
+import { Image, Card, Row, Nav, Badge } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -17,6 +17,9 @@ const PlaceToEat = ({ place }) => (
           {place.hours.split('\n').map((line, index) => (
             <Card.Subtitle key={index}>{line}</Card.Subtitle>
           ))}
+          <Card.Text>
+            {place.category.map((category, index) => <Badge key={index} bg="success" style={{ marginRight: '5px', marginBottom: '5px' }}>{category}</Badge>)}
+          </Card.Text>
         </Row>
       </Card.Body>
     </Card>
@@ -32,6 +35,7 @@ PlaceToEat.propTypes = {
     hours: PropTypes.string,
     owner: PropTypes.string,
     _id: PropTypes.string,
+    category: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
 
