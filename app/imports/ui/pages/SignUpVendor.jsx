@@ -8,9 +8,8 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { addVendorsMethod } from '../../startup/both/Methods';
-// import createUser from '../startup/server/Accounts'; // Replace './path/to/createUserFile' with the actual path to your createUser file
 
-const SignUp = ({ location }) => {
+const SignUpVendor = () => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
 
@@ -26,14 +25,12 @@ const SignUp = ({ location }) => {
       defaultValue: 'Campus Center',
     },
     storeHours: String,
-    // Note: File handling is not included in SimpleSchema, but we'll add a placeholder for UI purposes
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   const submit = (doc) => {
     const { email, password, storeName, storeImage, storeLocation, storeMenu, storeHours } = doc;
     // console.log(storeHours);
-    // Assuming the file upload handling and MongoDB insertion logic will be implemented here or in the Accounts.createUser callback
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         setError(err.reason);
@@ -44,10 +41,8 @@ const SignUp = ({ location }) => {
     });
     Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu });
   };
-
-  const { from } = location?.state || { from: { pathname: '/home' } };
   if (redirectToReferer) {
-    return <Navigate to={from} />;
+    return <Navigate to="/" />;
   }
   return (
     <Container id="signup-page" className="py-3">
@@ -98,18 +93,15 @@ const SignUp = ({ location }) => {
   );
 };
 
-SignUp.propTypes = {
+SignUpVendor.propTypes = {
   location: PropTypes.shape({
     state: PropTypes.shape({
-      from: PropTypes.shape({
-        pathname: PropTypes.string,
-      }),
     }),
   }),
 };
 
-SignUp.defaultProps = {
+SignUpVendor.defaultProps = {
   location: { state: {} },
 };
 
-export default SignUp;
+export default SignUpVendor;

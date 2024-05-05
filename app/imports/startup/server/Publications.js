@@ -2,6 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Vendors } from '../../api/vendor/Vendors';
+import { Types } from '../../api/type/types';
+import { VendorCategories } from '../../api/vendor/VendorCategories';
+import { MenuItems } from '../../api/menu/MenuItems';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
@@ -24,6 +27,11 @@ Meteor.publish(Vendors.vendorPublicationName, function () {
   }
   return this.ready();
 });
+
+Meteor.publish(MenuItems.userPublicationName, function () {
+  return MenuItems.collection.find({});
+});
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
@@ -41,3 +49,7 @@ Meteor.publish(null, function () {
   }
   return this.ready();
 });
+
+// publishes cateogories for each vendor
+Meteor.publish(Types.userPublicationName, () => Types.collection.find());
+Meteor.publish(VendorCategories.userPublicationName, () => VendorCategories.collection.find());

@@ -35,8 +35,11 @@ import EditHemenwayHall from '../pages/places/EditHemenwayHall';
 import ResidentialDiningAdmin from '../pages/places/ResidentialDiningAdmin';
 import EditResidentialDining from '../pages/places/EditResidentialDining';
 import AddVendor from '../pages/AddVendor';
+import AddMenuItem from '../pages/AddMenuItem';
+import EditMenuItem from '../pages/EditMenuItem';
 import OwnedVendor from '../pages/places/OwnedVendor';
 import Menu from '../pages/Menu';
+import Favorites from '../pages/Favorites';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -79,7 +82,10 @@ const App = () => {
           <Route path="/adminRD" element={<ProtectedRoute><ResidentialDiningAdmin /></ProtectedRoute>} />
           <Route path="/editRD" element={<ProtectedRoute><EditResidentialDining /></ProtectedRoute>} />
           <Route path="/addVendor" element={<ProtectedRoute><AddVendor /></ProtectedRoute>} />
+          <Route path="/addMenuItem/:_id" element={<ProtectedRoute><AddMenuItem /></ProtectedRoute>} />
+          <Route path="/editMenuItem/:_id/:index" element={<ProtectedRoute><EditMenuItem /></ProtectedRoute>} />
           <Route path="/vendorStuff" element={<ProtectedRoute><OwnedVendor /></ProtectedRoute>} />
+          <Route path="/favorite" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
