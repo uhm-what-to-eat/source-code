@@ -9,12 +9,6 @@ class VendorsCollection {
     // Define the Mongo collection for the aggregated collection
     this.collection = new Mongo.Collection(this.name);
 
-    // Define menu schema for menuItems
-    const MenuItemSchema = new SimpleSchema({
-      itemName: String,
-      price: String,
-    });
-
     // Define the schema for the aggregated collection
     this.schema = new SimpleSchema({
       // Define the fields from individual collections
@@ -49,11 +43,6 @@ class VendorsCollection {
         type: Array,
       },
       'favorites.$': String,
-
-      menuItems: {
-        type: Array,
-      },
-      'menuItems.$': MenuItemSchema,
     });
 
     // Attach the schema to the aggregated collection

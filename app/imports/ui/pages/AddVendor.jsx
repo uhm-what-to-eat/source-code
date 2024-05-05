@@ -1,16 +1,10 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, SelectField, TextField, LongTextField, SubmitField, ListItemField, ListField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SelectField, TextField, LongTextField, SubmitField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Vendors } from '../../api/vendor/Vendors';
-
-// Define menu schema for menuItems
-const MenuItemSchema = new SimpleSchema({
-  itemName: String,
-  price: String,
-});
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -34,10 +28,6 @@ const formSchema = new SimpleSchema({
       type: String,
       allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite', 'N/A'],
     },
-  menuItems: {
-    type: Array,
-  },
-  'menuItems.$': MenuItemSchema,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -47,9 +37,9 @@ const AddVendor = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, image, location, hours, owner, menuImage, category, menuItems } = data;
+    const { name, image, location, hours, owner, menuImage, category } = data;
     Vendors.collection.insert(
-      { name, image, location, hours, owner, menuImage, favorites: [], category, menuItems },
+      { name, image, location, hours, owner, menuImage, favorites: [], category },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -88,15 +78,6 @@ const AddVendor = () => {
                 <Row>
                   <TextField name="owner" />
                 </Row>
-                <h6 className="pt-3">Include Your 3 Best Selling Items!</h6>
-                <ListField name="menuItems" initialCount={3}>
-                  <ListItemField name="$">
-                    <Row>
-                      <Col><TextField id="signup-vendor-form-itemName" name="itemName" placeholder="Item Name" /></Col>
-                      <Col><TextField id="signup-vendor-form-price" name="price" placeholder="Price" /></Col>
-                    </Row>
-                  </ListItemField>
-                </ListField>
                 <SubmitField className="pb-3" />
                 <ErrorsField />
               </Card.Body>

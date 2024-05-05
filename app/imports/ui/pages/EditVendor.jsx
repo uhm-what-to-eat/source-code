@@ -2,7 +2,7 @@ import React from 'react';
 import { Roles } from 'meteor/alanning:roles';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, ListField, ListItemField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -33,8 +33,8 @@ const EditVendor = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, image, location, hours, owner, menuImage, category, menuItems } = data;
-    Vendors.collection.update(_id, { $set: { name, image, location, hours, owner, menuImage, category, menuItems } }, (error) => (error ?
+    const { name, image, location, hours, owner, menuImage, category } = data;
+    Vendors.collection.update(_id, { $set: { name, image, location, hours, owner, menuImage, category } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -66,15 +66,6 @@ const EditVendor = () => {
                     <TextField name="owner" />
                   </Row>
                 ) : ''}
-                <h6 className="pt-3">Include Your 3 Best Selling Items!</h6>
-                <ListField name="menuItems" initialCount={3}>
-                  <ListItemField name="$">
-                    <Row>
-                      <Col><TextField id="signup-vendor-form-itemName" name="itemName" placeholder="Item Name" /></Col>
-                      <Col><TextField id="signup-vendor-form-price" name="price" placeholder="Price" /></Col>
-                    </Row>
-                  </ListItemField>
-                </ListField>
                 <SubmitField className="pb-3" />
                 <ErrorsField />
               </Card.Body>
