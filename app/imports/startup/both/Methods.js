@@ -5,8 +5,8 @@ import { Vendors } from '../../api/vendor/Vendors';
 const addVendorsMethod = 'Vendors.add';
 
 Meteor.methods({
-  'Vendors.add'({ storeName, image, storeLocation, storeHours, owner, storeMenu, storeCategories }) {
-    console.log(storeName, storeHours, image, owner, storeMenu, storeLocation, storeCategories);
+  'Vendors.add'({ storeName, image, storeLocation, storeHours, owner, storeMenu, storeCategories, menuItems }) {
+    console.log(storeName, storeHours, image, owner, storeMenu, storeLocation, storeCategories, menuItems);
     if (Meteor.isServer) {
       try {
         // console.log(this.userId);
@@ -14,7 +14,7 @@ Meteor.methods({
         Roles.createRole('vendor', { unlessExists: true });
         Roles.addUsersToRoles(this.userId, 'vendor');
         // Insert the vendor data into the Vendors collection
-        Vendors.collection.insert({ name: storeName, image: image, location: storeLocation, hours: storeHours, owner: owner, menuImage: storeMenu, favorites: [], category: storeCategories });
+        Vendors.collection.insert({ name: storeName, image: image, location: storeLocation, hours: storeHours, owner: owner, menuImage: storeMenu, favorites: [], category: storeCategories, menuItems: menuItems });
         // console.log(vendorId); // Optionally return the ID of the inserted document
       } catch (error) {
         throw new Meteor.Error('vendor-insertion-failed', 'Failed to insert vendor data');

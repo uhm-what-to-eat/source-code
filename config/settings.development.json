@@ -43,7 +43,8 @@
       "owner": "foodcourt@foo.com",
       "menuImage": "../images/Unava.png",
       "category": ["American", "Asian", "Lunch"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "1.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Subway",
@@ -53,7 +54,8 @@
       "owner": "subway@foo.com",
       "menuImage": "../images/Subway-menu.jpg",
       "category": ["American", "Lunch"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "B'RITO BOWL",
@@ -63,7 +65,8 @@
       "owner": "britobowl@foo.com",
       "menuImage": "../images/B'RITO-menu.jpg",
       "category": ["Mexican", "Lunch", "Vegan"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Ding Tea",
@@ -73,7 +76,8 @@
       "owner": "dingtea@foo.com",
       "menuImage": "../images/Ding-Tea-menu.jpg",
       "category": ["Tea", "Drinks", "Boba"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Jamba Juice",
@@ -83,7 +87,8 @@
       "owner": "jambajuice@foo.com",
       "menuImage": "../images/Jamba-menu.jpg",
       "category": ["Smoothies", "Drinks"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Starbucks",
@@ -93,7 +98,8 @@
       "owner": "starbucks@foo.com",
       "menuImage": "../images/Star-Menu.png",
       "category": ["Coffee", "Drinks", "Breakfast"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "The Bean Counter",
@@ -103,7 +109,8 @@
       "owner": "thebeancounter@foo.com",
       "menuImage": "../images/Bean-Menu.png",
       "category": ["Coffee", "Drinks", "Tea"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Panda Express",
@@ -113,7 +120,8 @@
       "owner": "pandaexpress@foo.com",
       "menuImage": "../images/Panda-Menu.png",
       "category": ["Asian", "Lunch"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "L&L Hawaiian Barbecue",
@@ -123,7 +131,8 @@
       "owner": "l&l@foo.com",
       "menuImage": "../images/LL-Menu.png",
       "category": ["Hawaiian", "Lunch"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Dunkin' Donuts",
@@ -133,7 +142,8 @@
       "owner": "dunkindonuts@foo.com",
       "menuImage": "../images/Dunkin-Menu.png",
       "category": ["Coffee", "Breakfast", "Quick Bite"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Holoholo Grill",
@@ -143,7 +153,8 @@
       "owner": "holohologrill@foo.com",
       "menuImage": "../images/Holoholo-Menu.png",
       "category": ["Lunch", "Coffee", "Quick Bite"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Lasoon",
@@ -153,8 +164,9 @@
       "owner": "lasoon@foo.com",
       "menuImage": "../images/Lasoon-Menu.png",
       "category": ["Indian", "Lunch"],
-      "favorites": []
-},
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+    },
     {
       "name": "Soul Fusion",
       "image": "../images/SoulFusion.jpg",
@@ -163,7 +175,8 @@
       "owner": "soulfusion@foo.com",
       "menuImage": "../images/Soul-menu.png",
       "category": ["Lunch", "American", "Asian"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Evisuya",
@@ -173,7 +186,8 @@
       "owner": "evisuya@foo.com",
       "menuImage": "../images/Evisuya-Menu.png",
       "category": ["Asian", "Lunch", "Quick Bite"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "HI Cravings",
@@ -183,7 +197,8 @@
       "owner": "hicravings@foo.com",
       "menuImage": "../images/HI-Menu.png",
       "category": ["Hawaiian", "Lunch", "Quick Bite"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Happy Belly Eatery",
@@ -193,7 +208,8 @@
       "owner": "happybellyeatery@foo.com",
       "menuImage": "../images/Happy-Menu.png",
       "category": ["Vegan", "Lunch", "Quick Bite"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "HOLOHOLO Bistro",
@@ -203,7 +219,8 @@
       "owner": "holoholobistro@foo.com",
       "menuImage": "../images/Holo-Bistro-menu.png",
       "category": ["Lunch", "Hawaiian", "Quick Bite"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "SAMA SAMA",
@@ -213,7 +230,8 @@
       "owner": "samasama@foo.com",
       "menuImage": "../images/SamaSama-Menu.png",
       "category": ["Drinks", "Tea", "Boba"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Krazy Dogs",
@@ -223,7 +241,8 @@
       "owner": "Krazydogs@foo.com",
       "menuImage": "../images/Krazy-menu.png",
       "category": ["American", "Lunch", "Quick Bite"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "VEGGIE DOGS",
@@ -233,7 +252,8 @@
       "owner": "veggiedogs@foo.com",
       "menuImage": "../images/Vigge-Menu.png",
       "category": ["Vegan", "Lunch", "Quick Bite"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "BA-LE",
@@ -243,7 +263,8 @@
       "owner": "bale@foo.com",
       "menuImage": "../images/Bale-Menu.png",
       "category": ["Asian", "Lunch", "Drinks"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Hale Aloha Cafe",
@@ -253,7 +274,8 @@
       "owner": "halealohacafe@foo.com",
       "menuImage": "../images/Hale-Menu.png",
       "category": ["Breakfast", "Lunch"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Gateway Cafe",
@@ -263,7 +285,8 @@
       "owner": "gatewaycafe@foo.com",
       "menuImage": "../images/Gate-Menu.png",
       "category": ["Breakfast", "Lunch"],
-      "favorites": []
+      "favorites": [],
+      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     },
     {
       "name": "Le Crepe Cafe",
@@ -273,108 +296,10 @@
       "owner": "crepe@foo.com",
       "menuImage": "../images/Le-Crepe-Menu.png",
       "category": ["Breakfast", "Lunch", "Drinks"],
-      "favorites": []
-    }
-  ],
-
-  "defaultMenuItems": [
-    {
-      "vendorName": "Campus Center Food Court",
-      "menuItems": [ {"itemName": "Soda", "price":  "1.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Subway",
+      "favorites": [],
       "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "B'RITO BOWL",
-      "menuItems": [ {"itemName": "Soda", "price":  "3.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Ding Tea",
-      "menuItems": [ {"itemName": "Soda", "price":  "4.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Jamba Juice",
-      "menuItems": [ {"itemName": "Soda", "price":  "5.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Starbucks",
-      "menuItems": [ {"itemName": "Soda", "price":  "6.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "The Bean Counter",
-      "menuItems": [ {"itemName": "Soda", "price":  "7.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Panda Express",
-      "menuItems": [ {"itemName": "Soda", "price":  "8.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "L&L Hawaiian Barbecue",
-      "menuItems": [ {"itemName": "Soda", "price":  "9.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Dunkin' Donuts",
-      "menuItems": [ {"itemName": "Soda", "price":  "10.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Holoholo Grill",
-      "menuItems": [ {"itemName": "Soda", "price":  "11.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Lasoon",
-      "menuItems": [ {"itemName": "Soda", "price":  "12.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Soul Fusion",
-      "menuItems": [ {"itemName": "Soda", "price":  "13.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Evisuya",
-      "menuItems": [ {"itemName": "Soda", "price":  "14.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "HI Craving",
-      "menuItems": [ {"itemName": "Soda", "price":  "14.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Happy Belly Eatery",
-      "menuItems": [ {"itemName": "Soda", "price":  "15.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "HOLOHOLO Bistro",
-      "menuItems": [ {"itemName": "Soda", "price":  "16.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "SAMA SAMA",
-      "menuItems": [ {"itemName": "Soda", "price":  "17.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Krazy Dogs",
-      "menuItems": [ {"itemName": "Soda", "price":  "18.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "VEGGIE DOGS",
-      "menuItems": [ {"itemName": "Soda", "price":  "19.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "BA-LE",
-      "menuItems": [ {"itemName": "Soda", "price":  "20.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Hale Aloha Cafe",
-      "menuItems": [ {"itemName": "Soda", "price":  "21.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },{
-      "vendorName": "Gateway Cafe",
-      "menuItems": [ {"itemName": "Soda", "price":  "22.99" }, {"itemName": "Burger", "price":  "2.99"} ]
-    },
-    {
-      "vendorName": "Le Crepe Cafe",
-      "menuItems": [ {"itemName": "Soda", "price":  "23.99" }, {"itemName": "Burger", "price":  "2.99"} ]
     }
   ],
-
 
   "monti": {
     "appId": "Hxzjaj8Bmtrp6iz7m",

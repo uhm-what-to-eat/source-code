@@ -9,6 +9,12 @@ class VendorsCollection {
     // Define the Mongo collection for the aggregated collection
     this.collection = new Mongo.Collection(this.name);
 
+    // Define menu schema for menuItems
+    const MenuItemSchema = new SimpleSchema({
+      itemName: String,
+      price: String,
+    });
+
     // Define the schema for the aggregated collection
     this.schema = new SimpleSchema({
       // Define the fields from individual collections
@@ -30,20 +36,24 @@ class VendorsCollection {
       // Here I'm assuming that there won't be conflicts and all fields are the same
       category: {
         type: Array,
-        optional: false,
         minCount: 1,
         maxCount: 3,
       },
       'category.$':
         {
           type: String,
-          allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite'],
+          allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite', 'N/A'],
         },
 
       favorites: {
         type: Array,
       },
       'favorites.$': String,
+
+      menuItems: {
+        type: Array,
+      },
+      'menuItems.$': MenuItemSchema,
     });
 
     // Attach the schema to the aggregated collection

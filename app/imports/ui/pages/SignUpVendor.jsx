@@ -5,13 +5,19 @@ import { Accounts } from 'meteor/accounts-base';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField, ListItemField, ListField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { addVendorsMethod } from '../../startup/both/Methods';
 
 const SignUpVendor = () => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
+
+  // Define menu schema for menuItems
+  const MenuItemSchema = new SimpleSchema({
+    itemName: String,
+    price: String,
+  });
 
   const schema = new SimpleSchema({
     email: String,
@@ -27,20 +33,24 @@ const SignUpVendor = () => {
     storeHours: String,
     storeCategories: {
       type: Array,
-      optional: false,
       minCount: 1,
       maxCount: 3,
+      defaultValue: 'N/A',
     },
     'storeCategories.$':
       {
         type: String,
-        allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite'],
+        allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite', 'N/A'],
       },
+    menuItems: {
+      type: Array,
+    },
+    'menuItems.$': MenuItemSchema,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   const submit = (doc) => {
-    const { email, password, storeName, storeImage, storeLocation, storeMenu, storeHours, storeCategories } = doc;
+    const { email, password, storeName, storeImage, storeLocation, storeMenu, storeHours, storeCategories, menuItems } = doc;
     // console.log(storeHours);
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
@@ -50,7 +60,7 @@ const SignUpVendor = () => {
         setRedirectToRef(true);
       }
     });
-    Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu, storeCategories });
+    Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu, storeCategories, menuItems });
   };
   if (redirectToReferer) {
     return <Navigate to="/" />;
@@ -73,15 +83,24 @@ const SignUpVendor = () => {
                   <Col><SelectField id="signup-vendor-form-location" name="storeLocation" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField id="signup-vendor-form-image" name="storeImage" placeholder="Optional" /></Col>
+                  <Col><TextField id="signup-vendor-form-image" name="storeImage" placeholder="'N/A' for no image" /></Col>
                   <Col><TextField id="signup-vendor-form-menu" name="storeMenu" placeholder="'N/A' for no image" /></Col>
                 </Row>
                 <Row>
-                  <SelectField name="storeCategories" showInlineError multiple />
+                  <SelectField id="signup-vendor-store-categories" name="storeCategories" help="Please select 1-3 categories" showInlineError multiple />
                 </Row>
                 <Row>
                   <LongTextField id="signup-vendor-form-hours" name="storeHours" placeholder="e.g. Mon-Fri 2-4pm" />
                 </Row>
+                <h6 className="pt-3">Include Your 3 Best Selling Items!</h6>
+                <ListField name="menuItems" initialCount={3}>
+                  <ListItemField name="$">
+                    <Row>
+                      <Col><TextField id="signup-vendor-form-itemName" name="itemName" placeholder="Item Name" /></Col>
+                      <Col><TextField id="signup-vendor-form-price" name="price" placeholder="Price" /></Col>
+                    </Row>
+                  </ListItemField>
+                </ListField>
                 <SubmitField id="signup-vendor-form-submit" />
                 <ErrorsField />
                 <h6 className="pt-3">Email UHMwhattoeat@hawaii.edu with your image file if you do not have a URL.</h6>
