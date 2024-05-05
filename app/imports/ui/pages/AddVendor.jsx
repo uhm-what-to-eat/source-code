@@ -18,6 +18,16 @@ const formSchema = new SimpleSchema({
   hours: String,
   owner: String,
   menuImage: String,
+  category: {
+    type: Array,
+    minCount: 1,
+    maxCount: 3,
+  },
+  'category.$':
+    {
+      type: String,
+      allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite', 'N/A'],
+    },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -27,9 +37,9 @@ const AddVendor = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, image, location, hours, owner, menuImage } = data;
+    const { name, image, location, hours, owner, menuImage, category } = data;
     Vendors.collection.insert(
-      { name, image, location, hours, owner, menuImage, favorites: [] },
+      { name, image, location, hours, owner, menuImage, favorites: [], category },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -58,6 +68,9 @@ const AddVendor = () => {
                 </Row>
                 <Row>
                   <LongTextField name="hours" />
+                </Row>
+                <Row>
+                  <SelectField name="category" help="Select 1-3 categories." showInlineError multiple />
                 </Row>
                 <Row>
                   <TextField name="menuImage" />

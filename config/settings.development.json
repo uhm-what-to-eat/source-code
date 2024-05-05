@@ -154,7 +154,7 @@
       "menuImage": "../images/Lasoon-Menu.png",
       "category": ["Indian", "Lunch"],
       "favorites": []
-},
+    },
     {
       "name": "Soul Fusion",
       "image": "../images/SoulFusion.jpg",

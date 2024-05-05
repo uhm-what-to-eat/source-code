@@ -30,14 +30,13 @@ class VendorsCollection {
       // Here I'm assuming that there won't be conflicts and all fields are the same
       category: {
         type: Array,
-        optional: false,
         minCount: 1,
         maxCount: 3,
       },
       'category.$':
         {
           type: String,
-          allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite'],
+          allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite', 'N/A'],
         },
 
       favorites: {

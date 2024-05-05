@@ -13,14 +13,13 @@ class VendorCategoriesCollection {
       vendor: String,
       category: {
         type: Array,
-        optional: false,
         minCount: 1,
         maxCount: 3,
       },
       'category.$':
         {
           type: String,
-          allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite'],
+          allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite', 'N/A'],
         },
     });
     // Ensure collection documents obey schema.
