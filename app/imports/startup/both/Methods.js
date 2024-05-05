@@ -6,7 +6,7 @@ const addVendorsMethod = 'Vendors.add';
 
 Meteor.methods({
   'Vendors.add'({ storeName, image, storeLocation, storeHours, owner, storeMenu, storeCategories }) {
-    console.log(storeName, storeHours, image, owner, storeMenu, storeLocation, storeCategories );
+    console.log(storeName, storeHours, image, owner, storeMenu, storeLocation, storeCategories);
     if (Meteor.isServer) {
       try {
         // console.log(this.userId);
