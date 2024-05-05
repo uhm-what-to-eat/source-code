@@ -25,11 +25,22 @@ const SignUpVendor = () => {
       defaultValue: 'Campus Center',
     },
     storeHours: String,
+    storeCategories: {
+      type: Array,
+      optional: false,
+      minCount: 1,
+      maxCount: 3,
+    },
+    'storeCategories.$':
+      {
+        type: String,
+        allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite'],
+      },
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   const submit = (doc) => {
-    const { email, password, storeName, storeImage, storeLocation, storeMenu, storeHours } = doc;
+    const { email, password, storeName, storeImage, storeLocation, storeMenu, storeHours, storeCategories } = doc;
     // console.log(storeHours);
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
@@ -39,7 +50,7 @@ const SignUpVendor = () => {
         setRedirectToRef(true);
       }
     });
-    Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu });
+    Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu, storeCategories });
   };
   if (redirectToReferer) {
     return <Navigate to="/" />;
@@ -64,6 +75,9 @@ const SignUpVendor = () => {
                 <Row>
                   <Col><TextField id="signup-vendor-form-image" name="storeImage" placeholder="Optional" /></Col>
                   <Col><TextField id="signup-vendor-form-menu" name="storeMenu" placeholder="'N/A' for no image" /></Col>
+                </Row>
+                <Row>
+                  <SelectField name="storeCategories" showInlineError multiple />
                 </Row>
                 <Row>
                   <LongTextField id="signup-vendor-form-hours" name="storeHours" placeholder="e.g. Mon-Fri 2-4pm" />
