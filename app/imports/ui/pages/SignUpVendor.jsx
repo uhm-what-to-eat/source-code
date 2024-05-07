@@ -8,6 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField, SelectField, LongTextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { addVendorsMethod } from '../../startup/both/Methods';
+import { MenuItems } from '../../api/menu/MenuItems';
 
 const SignUpVendor = () => {
   const [error, setError] = useState('');
@@ -25,11 +26,22 @@ const SignUpVendor = () => {
       defaultValue: 'Campus Center',
     },
     storeHours: String,
+    storeCategories: {
+      type: Array,
+      minCount: 1,
+      maxCount: 3,
+      defaultValue: 'N/A',
+    },
+    'storeCategories.$':
+      {
+        type: String,
+        allowedValues: ['Drinks', 'Smoothies', 'Tea', 'Lunch', 'Vegan', 'Asian', 'American', 'Hawaiian', 'Coffee', 'Mexican', 'Indian', 'Boba', 'Breakfast', 'Quick Bite', 'N/A'],
+      },
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   const submit = (doc) => {
-    const { email, password, storeName, storeImage, storeLocation, storeMenu, storeHours } = doc;
+    const { email, password, storeName, storeImage, storeLocation, storeMenu, storeHours, storeCategories } = doc;
     // console.log(storeHours);
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
@@ -39,7 +51,8 @@ const SignUpVendor = () => {
         setRedirectToRef(true);
       }
     });
-    Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu });
+    Meteor.call(addVendorsMethod, { storeName, image: storeImage, storeLocation, storeHours, owner: email, storeMenu, storeCategories });
+    MenuItems.collection.insert({ vendorName: storeName, menuItems: [] });
   };
   if (redirectToReferer) {
     return <Navigate to="/" />;
@@ -62,8 +75,11 @@ const SignUpVendor = () => {
                   <Col><SelectField id="signup-vendor-form-location" name="storeLocation" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField id="signup-vendor-form-image" name="storeImage" placeholder="Optional" /></Col>
+                  <Col><TextField id="signup-vendor-form-image" name="storeImage" placeholder="'N/A' for no image" /></Col>
                   <Col><TextField id="signup-vendor-form-menu" name="storeMenu" placeholder="'N/A' for no image" /></Col>
+                </Row>
+                <Row>
+                  <SelectField id="signup-vendor-store-categories" name="storeCategories" help="Please select 1-3 categories" showInlineError multiple />
                 </Row>
                 <Row>
                   <LongTextField id="signup-vendor-form-hours" name="storeHours" placeholder="e.g. Mon-Fri 2-4pm" />
