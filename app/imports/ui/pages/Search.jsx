@@ -73,7 +73,7 @@ const Search = () => {
     return {
       ready: sub.ready(),
       categories: VendorCategories.collection.find().fetch(),
-      vendors: VendorCategories.collection.find().fetch(),
+      vendors: Vendors.collection.find().fetch(),
     };
   });
 
@@ -81,14 +81,22 @@ const Search = () => {
     setCategory(data.category || []);
   };
 
-  const allCategories = _.pluck(categories, 'category');
-  console.log(allCategories);
-  const formSchema = makeSchema(allCategories);
+  const uniqueCategories = _.uniq(_.flatten(_.pluck(categories, 'category')));
+  console.log(uniqueCategories);
+  const formSchema = makeSchema(uniqueCategories);
   const bridge = new SimpleSchema2Bridge(formSchema);
-  const vendorWithCategory = vendors.filter(vend => category.includes(vend.category));
+  console.log(category);
+  const vendorWithCategory = vendors.filter(vend => {
+    let ret = false;
+    vend.category.forEach((cat) => {
+      if (category.includes(cat)) {
+        ret = true;
+      }
+    });
+    return ret;
+  });
   console.log(vendorWithCategory);
-  const vendorName = _.pluck(vendorWithCategory, 'profile');
-  const profileData = _.uniq(vendorName).map(vendor => PlaceToEat(vendor));
+  const vendorData = vendorWithCategory;
 
   return ready ? (
     <Container id={PageIDs.filterPage} style={pageStyle}>
@@ -102,8 +110,8 @@ const Search = () => {
       </AutoForm>
       <Row xs={1} md={2} lg={4} className="g-2" style={{ paddingTop: '10px' }}>
         {/* Render your vendor categories here */}
-        {profileData.map((place) => (
-          <Col key={place._id}><PlaceToEat place={place} /></Col>
+        {vendorData.map((vendor) => (
+          <Col key={vendor._id}><PlaceToEat place={vendor} /></Col>
         ))}
       </Row>
     </Container>
