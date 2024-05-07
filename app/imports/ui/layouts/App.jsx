@@ -40,6 +40,7 @@ import EditMenuItem from '../pages/EditMenuItem';
 import OwnedVendor from '../pages/places/OwnedVendor';
 import Menu from '../pages/Menu';
 import Favorites from '../pages/Favorites';
+import Search from '../pages/Search';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -86,6 +87,7 @@ const App = () => {
           <Route path="/editMenuItem/:_id/:index" element={<ProtectedRoute><EditMenuItem /></ProtectedRoute>} />
           <Route path="/vendorStuff" element={<ProtectedRoute><OwnedVendor /></ProtectedRoute>} />
           <Route path="/favorite" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
+          <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

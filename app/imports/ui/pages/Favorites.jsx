@@ -16,7 +16,6 @@ const Favorites = () => {
     if (user) {
       vendorItems = Vendors.collection.find({ favorites: user.username }).fetch();
     }
-
     return {
       vendor: vendorItems,
       ready: rdy,
