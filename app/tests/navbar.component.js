@@ -31,7 +31,7 @@ class NavBar {
     await testController.expect(loggedInUser).eql(username);
   }
 
-  /** Check that someone is logged in, then click items to logout. */
+  /** Check that someone is logged in, then click StuffItems to logout. */
   async logout(testController) {
     const visible = await Selector('#basic-navbar-nav').visible;
     if (!visible) {

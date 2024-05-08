@@ -3,10 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
+import MenuItem from '../components/StuffItems';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the Stuff documents. Use <StuffItems> to render each row. */
 const ListStuff = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, stuffs } = useTracker(() => {
@@ -40,7 +40,7 @@ const ListStuff = () => {
               </tr>
             </thead>
             <tbody>
-              {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+              {stuffs.map((stuff) => <MenuItem key={stuff._id} stuff={stuff} />)}
             </tbody>
           </Table>
         </Col>

@@ -70,7 +70,7 @@ const Landing = () => {
         return (ready ? (
           <Container className="py-3">
             <Row className="align-middle text-center py-3">
-              <h1>Welcome Back {currentUser.username}!</h1>
+              <h1 className="rainbow-text">Welcome Back {currentUser.username}!</h1>
             </Row>
             <Row className="justify-content-center py-3">
               <Col>
@@ -88,7 +88,7 @@ const Landing = () => {
       return (ready ? (
         <Container className="py-3">
           <Row className="align-middle text-center py-3">
-            <h1>Welcome Back {currentUser.username}!</h1>
+            <h1 className="rainbow-text">Welcome Back {currentUser.username}!</h1>
             <h2>Top Eats For You:</h2>
           </Row>
           <Row xs={1} md={2} lg={3} className="g-4 py-4">
@@ -121,7 +121,9 @@ const Landing = () => {
         <Row className="align-middle text-center">
           <Col xs={4} />
           <Col xs={4}>
-            <h1 id="name">UHM... What To Eat?</h1>
+            <Row>
+              <h1 className="rainbow-text">UHM... What To Eat?</h1>
+            </Row>
             <h2>Manoa&apos;s One Stop Shop For Mouthwatering Munchies!</h2>
           </Col>
         </Row>
