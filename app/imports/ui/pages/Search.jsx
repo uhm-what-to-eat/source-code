@@ -87,14 +87,20 @@ const Search = () => {
   const bridge = new SimpleSchema2Bridge(formSchema);
   console.log(category);
   const vendorWithCategory = vendors.filter(vend => {
-    let ret = false;
-    vend.category.forEach((cat) => {
-      if (category.includes(cat)) {
-        ret = true;
+    // Initialize a variable to keep track of whether all categories are included
+    let allCategoriesIncluded = true;
+
+    // Iterate through each category
+    category.forEach((cat) => {
+      // If any category is not found in vendor's categories, set the flag to false
+      if (!vend.category.includes(cat)) {
+        allCategoriesIncluded = false;
       }
     });
-    return ret;
+    // Return true only if all categories are included
+    return allCategoriesIncluded;
   });
+
   console.log(vendorWithCategory);
   const vendorData = vendorWithCategory;
 
