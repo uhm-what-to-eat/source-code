@@ -45,6 +45,25 @@ const Landing = () => {
     }
   }, [vendor, randomVendors]);
 
+  useEffect(() => {
+    let usersSubscription;
+    if (currentUser && Roles.userIsInRole(currentUser, 'admin')) {
+      usersSubscription = Meteor.subscribe('allUsernames');
+    }
+    return () => {
+      if (usersSubscription) {
+        usersSubscription.stop();
+      }
+    };
+  }, [currentUser]);
+
+  const usersData = useTracker(() => {
+    if (currentUser && Roles.userIsInRole(currentUser, 'admin')) {
+      return Meteor.users.find().fetch();
+    }
+    return [];
+  }, [currentUser]);
+
   const renderContent = () => {
     if (currentUser) {
       if (Roles.userIsInRole(currentUser, 'vendor')) {
@@ -79,6 +98,20 @@ const Landing = () => {
               </Col>
             ))}
           </Row>
+          {Roles.userIsInRole(currentUser, 'admin') && (
+            <Row>
+              <h2>Users:</h2>
+              {usersData.map(user => (
+                <Col key={user._id} xs={6} md={4} lg={3} className="mb-3">
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">{user.username}</h5>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          )}
         </Container>
       ) : <LoadingSpinner />);
 
