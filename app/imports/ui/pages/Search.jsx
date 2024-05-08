@@ -70,10 +70,11 @@ const Search = () => {
   const { ready, categories, vendors } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
     const sub = Meteor.subscribe(VendorCategories.userPublicationName);
+    const subscription = Meteor.subscribe(Vendors.userPublicationName);
     return {
-      ready: sub.ready(),
+      ready: sub.ready() && subscription.ready(),
       categories: VendorCategories.collection.find().fetch(),
-      vendors: Vendors.collection.find().fetch(),
+      vendors: Vendors.collection.find({}).fetch(),
     };
   });
 
@@ -86,6 +87,8 @@ const Search = () => {
   const formSchema = makeSchema(uniqueCategories);
   const bridge = new SimpleSchema2Bridge(formSchema);
   console.log(category);
+  console.log(vendors);
+  console.log(categories);
   const vendorWithCategory = vendors.filter(vend => {
     let ret = false;
     vend.category.forEach((cat) => {
