@@ -29,7 +29,6 @@ const Landing = () => {
   }, [currentUser]);
 
   const [randomVendors, setRandomVendors] = useState([]);
-  const [users, setUsers] = useState([]); // Add this line
 
   useEffect(() => {
     // Initialize random vendors only once when the component mounts
@@ -46,14 +45,23 @@ const Landing = () => {
     }
   }, [vendor, randomVendors]);
 
-  // eslint-disable-next-line consistent-return
   useEffect(() => {
+    let usersSubscription;
     if (currentUser && Roles.userIsInRole(currentUser, 'admin')) {
-      const usersSubscription = Meteor.subscribe('allUsernames');
-      const usersData = Meteor.users.find().fetch();
-      setUsers(usersData);
-      return () => usersSubscription.stop();
+      usersSubscription = Meteor.subscribe('allUsernames');
     }
+    return () => {
+      if (usersSubscription) {
+        usersSubscription.stop();
+      }
+    };
+  }, [currentUser]);
+
+  const usersData = useTracker(() => {
+    if (currentUser && Roles.userIsInRole(currentUser, 'admin')) {
+      return Meteor.users.find().fetch();
+    }
+    return [];
   }, [currentUser]);
 
   const renderContent = () => {
@@ -90,18 +98,20 @@ const Landing = () => {
               </Col>
             ))}
           </Row>
-          <h2>Users:</h2>
-          <Row>
-            {users.map(user => (
-              <Col key={user._id} xs={6} md={4} lg={3} className="mb-3">
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">{user.username}</h5>
+          {Roles.userIsInRole(currentUser, 'admin') && (
+            <Row>
+              <h2>Users:</h2>
+              {usersData.map(user => (
+                <Col key={user._id} xs={6} md={4} lg={3} className="mb-3">
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">{user.username}</h5>
+                    </div>
                   </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
+                </Col>
+              ))}
+            </Row>
+          )}
         </Container>
       ) : <LoadingSpinner />);
 
