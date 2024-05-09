@@ -9,7 +9,7 @@ import { AutoForm, SelectField, SubmitField } from 'uniforms-bootstrap5';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { useStickyState } from '../utilities/StickyState';
 import { pageStyle } from './pageStyles';
-import { ComponentIDs, PageIDs } from '../utilities/ids';
+import { ComponentIDs } from '../utilities/ids';
 import { Vendors } from '../../api/vendor/Vendors';
 import { VendorCategories } from '../../api/vendor/VendorCategories';
 import PlaceToEat from '../components/PlaceToEat';
