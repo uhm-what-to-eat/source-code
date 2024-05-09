@@ -51,7 +51,7 @@
       "location": "Campus Center",
       "hours": "Mon & Fri: 8am-5pm\nTue-Thu: 8am-6pm",
       "owner": "subway@foo.com",
-      "menuImage": "../images/Subway-menu.jpg",
+      "menuImage": "../images/subway-menu.jpeg",
       "category": ["American", "Lunch"],
       "favorites": []
     },
@@ -81,7 +81,7 @@
       "location": "Campus Center",
       "hours": "Mon-Fri: 8am-4pm",
       "owner": "jambajuice@foo.com",
-      "menuImage": "../images/Jamba-menu.jpg",
+      "menuImage": "../images/Jamba-menu.png",
       "category": ["Smoothies", "Drinks"],
       "favorites": []
     },
@@ -91,7 +91,7 @@
       "location": "Campus Center",
       "hours": "Mon-Thu: 6am-10pm\nFri: 6am-5pm",
       "owner": "starbucks@foo.com",
-      "menuImage": "../images/Star-Menu.png",
+      "menuImage": "../images/Starbucks-menu.png",
       "category": ["Coffee", "Drinks", "Breakfast"],
       "favorites": []
     },
@@ -101,7 +101,7 @@
       "location": "Campus Center",
       "hours": "Mon-Thu: 7:30-6pm\nFri: 7:30am-4pm",
       "owner": "thebeancounter@foo.com",
-      "menuImage": "../images/Bean-Menu.png",
+      "menuImage": "../images/Bean-menu.png",
       "category": ["Coffee", "Drinks", "Tea"],
       "favorites": []
     },
@@ -111,7 +111,7 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 10am-4:30pm",
       "owner": "pandaexpress@foo.com",
-      "menuImage": "../images/Panda-Menu.png",
+      "menuImage": "../images/Panda-menu.png",
       "category": ["Asian", "Lunch"],
       "favorites": []
     },
@@ -121,7 +121,7 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 7am-4:30pm",
       "owner": "l&l@foo.com",
-      "menuImage": "../images/LL-Menu.png",
+      "menuImage": "../images/L&L-menu.png",
       "category": ["Hawaiian", "Lunch"],
       "favorites": []
     },
@@ -131,7 +131,7 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 7am-4:30pm",
       "owner": "dunkindonuts@foo.com",
-      "menuImage": "../images/Dunkin-Menu.png",
+      "menuImage": "../images/Dunk-menu.png",
       "category": ["Coffee", "Breakfast", "Quick Bite"],
       "favorites": []
     },
@@ -141,7 +141,7 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 8am-3pm",
       "owner": "holohologrill@foo.com",
-      "menuImage": "../images/Holoholo-Menu.png",
+      "menuImage": "../images/Grill-menu.png",
       "category": ["Lunch", "Coffee", "Quick Bite"],
       "favorites": []
     },
@@ -151,7 +151,7 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri: 10am-4:30pm",
       "owner": "lasoon@foo.com",
-      "menuImage": "../images/Lasoon-Menu.png",
+      "menuImage": "../images/Lasoon-menu.png",
       "category": ["Indian", "Lunch"],
       "favorites": []
     },
@@ -167,11 +167,11 @@
     },
     {
       "name": "Evisuya",
-      "image": "../images/Evisuya-menu.jpg",
+      "image": "../images/LogoEvisuya.jpg",
       "location": "Food Truck Row",
       "hours": "Mon,Tue,Thu,Fri: 10am-2pm",
       "owner": "evisuya@foo.com",
-      "menuImage": "../images/Evisuya-Menu.png",
+      "menuImage": "../images/Evisuya-menu.png",
       "category": ["Asian", "Lunch", "Quick Bite"],
       "favorites": []
     },
@@ -191,7 +191,7 @@
       "location": "Food Truck Row",
       "hours": "Mon: 10am-2pm",
       "owner": "happybellyeatery@foo.com",
-      "menuImage": "../images/Happy-Menu.png",
+      "menuImage": "../images/Happy-menu.png",
       "category": ["Vegan", "Lunch", "Quick Bite"],
       "favorites": []
     },
@@ -201,7 +201,7 @@
       "location": "Food Truck Row",
       "hours": "Wed: 10am-2pm",
       "owner": "holoholobistro@foo.com",
-      "menuImage": "../images/Holo-Bistro-menu.png",
+      "menuImage": "../images/Bistro-menu.png",
       "category": ["Lunch", "Hawaiian", "Quick Bite"],
       "favorites": []
     },
@@ -211,7 +211,7 @@
       "location": "Food Truck Row",
       "hours": "Tue,Wed,Thu: 8am-4pm",
       "owner": "samasama@foo.com",
-      "menuImage": "../images/SamaSama-Menu.png",
+      "menuImage": "../images/Sama-menu.png",
       "category": ["Drinks", "Tea", "Boba"],
       "favorites": []
     },
@@ -231,7 +231,7 @@
       "location": "Food Truck Row",
       "hours": "Mon,Tue: 10am-2pm",
       "owner": "veggiedogs@foo.com",
-      "menuImage": "../images/Vigge-Menu.png",
+      "menuImage": "../images/Veggie-menu.png",
       "category": ["Vegan", "Lunch", "Quick Bite"],
       "favorites": []
     },
@@ -241,7 +241,7 @@
       "location": "Hemenway Hall",
       "hours": "Mon-Thu: 10am-8pm\nFri: 10am-9pm",
       "owner": "bale@foo.com",
-      "menuImage": "../images/Bale-Menu.png",
+      "menuImage": "../images/Bale-menu.png",
       "category": ["Asian", "Lunch", "Drinks"],
       "favorites": []
     },
@@ -251,7 +251,7 @@
       "location": "Residential Dining",
       "hours": "Brunch: Sat & Sun: 10:30-1:30pm\nDinner: Daily 5pm-8pm",
       "owner": "halealohacafe@foo.com",
-      "menuImage": "../images/Hale-Menu.png",
+      "menuImage": "../images/Hale-menu.png",
       "category": ["Breakfast", "Lunch"],
       "favorites": []
     },
@@ -261,7 +261,7 @@
       "location": "Residential Dining",
       "hours": "Breakfast: Mon-Fri 7am-10am\nLunch: Mon-Fri 11am-2pm\nDinner: Mon-Thu 5pm-7:30pm",
       "owner": "gatewaycafe@foo.com",
-      "menuImage": "../images/Gate-Menu.png",
+      "menuImage": "../images/Gateway-menu.png",
       "category": ["Breakfast", "Lunch"],
       "favorites": []
     },
@@ -271,7 +271,7 @@
       "location": "Paradise Palms",
       "hours": "Mon-Fri 8am-3pm",
       "owner": "crepe@foo.com",
-      "menuImage": "../images/Le-Crepe-Menu.png",
+      "menuImage": "../images/le-menu.png",
       "category": ["Breakfast", "Lunch", "Drinks"],
       "favorites": []
     }
@@ -284,55 +284,55 @@
     },
     {
       "vendorName": "Subway",
-      "menuItems": [ {"itemName": "Soda", "price":  "2.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Subway Club", "price":  "5.75" }, {"itemName": "Italian B.M.T", "price":  "5.35"} ]
     },
     {
       "vendorName": "B'RITO BOWL",
-      "menuItems": [ {"itemName": "Soda", "price":  "3.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Black Bean & Cheese Nachos", "price":  "5.50" }, {"itemName": "Bean & Rice Burrito", "price":  "5.50"} ]
     },
     {
       "vendorName": "Ding Tea",
-      "menuItems": [ {"itemName": "Soda", "price":  "4.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Coffee Milk Tea", "price":  "6.50" }, {"itemName": "Monster Boba Latte", "price":  "6.50"} ]
     },
     {
       "vendorName": "Jamba Juice",
-      "menuItems": [ {"itemName": "Soda", "price":  "5.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Acai Tropical", "price":  "9.19" }, {"itemName": "Aloha Pineapple", "price":  "8.49"} ]
     },
     {
       "vendorName": "Starbucks",
-      "menuItems": [ {"itemName": "Soda", "price":  "6.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "White Chocolate Mocha", "price":  "8.45" }, {"itemName": "Caramel Macchiato", "price":  "5.45"} ]
     },
     {
       "vendorName": "The Bean Counter",
-      "menuItems": [ {"itemName": "Soda", "price":  "7.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Club Wrap", "price":  "6.25" }, {"itemName": "Caramel Macchiato", "price":  "4.50"} ]
     },
     {
       "vendorName": "Panda Express",
-      "menuItems": [ {"itemName": "Soda", "price":  "8.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Bowls", "price":  "10.00" }, {"itemName": "6 Eggrolls", "price":  "11.40"} ]
     },
     {
       "vendorName": "L&L Hawaiian Barbecue",
-      "menuItems": [ {"itemName": "Soda", "price":  "9.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Loco Moco", "price":  "15.75" }, {"itemName": "Chicken Katsu", "price":  "16.75"} ]
     },
     {
       "vendorName": "Dunkin' Donuts",
-      "menuItems": [ {"itemName": "Soda", "price":  "10.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Latte", "price":  "5.49" }, {"itemName": "Box O'Joe", "price":  "17.99"} ]
     },
     {
       "vendorName": "Holoholo Grill",
-      "menuItems": [ {"itemName": "Soda", "price":  "11.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Chicken Chipotle Panini", "price":  "unavailable" }, {"itemName": "Pasta Salad", "price":  "unavailable"} ]
     },
     {
       "vendorName": "Lasoon",
-      "menuItems": [ {"itemName": "Soda", "price":  "12.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Chicken Curry", "price":  "8.95" }, {"itemName": "Butter Chicken", "price":  "9.95"} ]
     },
     {
       "vendorName": "Soul Fusion",
-      "menuItems": [ {"itemName": "Soda", "price":  "13.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Catfish Basket", "price":  "unavailable" }, {"itemName": "Korean Soul Bowl", "price":  "unavailable"} ]
     },
     {
       "vendorName": "Evisuya",
-      "menuItems": [ {"itemName": "Soda", "price":  "14.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Pork rice bowl", "price":  "14.99" }, {"itemName": "Cold Noodle", "price":  "2.99"} ]
     },
     {
       "vendorName": "HI Craving",
@@ -340,38 +340,38 @@
     },
     {
       "vendorName": "Happy Belly Eatery",
-      "menuItems": [ {"itemName": "Soda", "price":  "15.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Mix Plate", "price":  "15.99" }, {"itemName": "Jumbo Shrimp Katsu", "price":  "unavailable"} ]
     },
     {
       "vendorName": "HOLOHOLO Bistro",
-      "menuItems": [ {"itemName": "Soda", "price":  "16.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Coffee", "price":  "4.50" }, {"itemName": "Musubis", "price":  "2.00"} ]
     },
     {
       "vendorName": "SAMA SAMA",
-      "menuItems": [ {"itemName": "Soda", "price":  "17.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Avocado", "price":  "6.99" }, {"itemName": "Mango", "price":  "6.99"} ]
     },
     {
       "vendorName": "Krazy Dogs",
-      "menuItems": [ {"itemName": "Soda", "price":  "18.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Reggie", "price":  "10.00" }, {"itemName": "Kimchee", "price":  "9.99"} ]
     },
     {
       "vendorName": "VEGGIE DOGS",
-      "menuItems": [ {"itemName": "Soda", "price":  "19.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Classic", "price":  "14.99" }, {"itemName": "Bacon Wrapped", "price":  "8.99"} ]
     },
     {
       "vendorName": "BA-LE",
-      "menuItems": [ {"itemName": "Soda", "price":  "20.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Combo Plate", "price":  "15.50" }, {"itemName": "BBQ Pork", "price":  "14.50"} ]
     },
     {
       "vendorName": "Hale Aloha Cafe",
-      "menuItems": [ {"itemName": "Soda", "price":  "21.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Cheese Burger", "price":  "unavailable" }, {"itemName": "Cheese Pizza", "price":  "unavailable"} ]
     },{
       "vendorName": "Gateway Cafe",
-      "menuItems": [ {"itemName": "Soda", "price":  "22.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Thick & Zesty Chili", "price":  "unavailable" }, {"itemName": "Rigatoni", "price":  "unavailable"} ]
     },
     {
       "vendorName": "Le Crepe Cafe",
-      "menuItems": [ {"itemName": "Soda", "price":  "23.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Nutella", "price":  "8.50" }, {"itemName": "Crepe Monsieur", "price":  "10.00"} ]
     }
   ],
 
