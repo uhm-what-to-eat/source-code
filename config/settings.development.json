@@ -280,7 +280,7 @@
   "defaultMenuItems": [
     {
       "vendorName": "Campus Center Food Court",
-      "menuItems": [ {"itemName": "Soda", "price":  "1.99" }, {"itemName": "Burger", "price":  "2.99"} ]
+      "menuItems": [ {"itemName": "Soda", "price":  "unavailable" }, {"itemName": "Burger", "price":  "unavailable"} ]
     },
     {
       "vendorName": "Subway",
