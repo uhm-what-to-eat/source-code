@@ -37,7 +37,7 @@ const PlaceToEat = ({ place }) => {
 
   return (
     <Card className="h-100">
-      <Container className="py-1" onClick={handleStarClick}>
+      <Container id="favorite" className="py-1" onClick={handleStarClick}>
         {isFavorited ? <StarFill /> : <Star />}
       </Container>
       <Nav.Link as={NavLink} to={`/menu/${place._id}`}>
