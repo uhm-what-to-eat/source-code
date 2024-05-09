@@ -65,12 +65,12 @@ const Search = () => {
   const vendorData = vendorWithCategory;
 
   return ready ? (
-    <Container id={PageIDs.filterPage} style={pageStyle}>
+    <Container id="search-page" style={pageStyle}>
       <AutoForm schema={bridge} onSubmit={data => submit(data)} model={{ category }}>
         <Card>
           <Card.Body id={ComponentIDs.filterFormInterests}>
-            <SelectField name="category" multiple placeholder="Categories" checkboxes />
-            <SubmitField id={ComponentIDs.filterFormSubmit} value="Submit" />
+            <SelectField id="category-search" name="category" multiple placeholder="Categories" checkboxes />
+            <SubmitField id="search-btn" value="Submit" />
           </Card.Body>
         </Card>
       </AutoForm>

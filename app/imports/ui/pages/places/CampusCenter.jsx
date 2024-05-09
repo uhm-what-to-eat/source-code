@@ -25,7 +25,7 @@ const CampusCenter = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="campus-center-page">
       <Row className="justify-content-center py-3">
         <Col>
           <Col className="text-center">

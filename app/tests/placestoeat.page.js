@@ -21,7 +21,6 @@ class PlacesToEat {
 
   async hemenwayHall(testController) {
     await testController.click('#hemenway-hall');
-
   }
 
   async foodTrucks(testController) {
@@ -30,6 +29,10 @@ class PlacesToEat {
 
   async residentialDining(testController) {
     await testController.click('#residential-dining');
+  }
+
+  async clickFavorite(testController) {
+    await testController.click('#favorite');
   }
 }
 

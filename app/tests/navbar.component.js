@@ -67,9 +67,46 @@ class NavBar {
     await testController.click('#navbar-places-to-eat');
   }
 
+  async gotoHome(testController) {
+    await testController.click('#navbar-home');
+  }
+
   async gotoYourVendors(testController) {
     await testController.click('#navbar-your-vendor');
   }
+
+  async gotoSearchPage(testController) {
+    const visible = await Selector('#navbar-search').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#navbar-search');
+  }
+
+  async gotoFavorites(testController) {
+    const visible = await Selector('#navbar-favorites').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#navbar-favorites');
+  }
+
+  async gotoAddVendor(testController) {
+    const visible = await Selector('#navbar-add-vendor').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#navbar-add-vendor');
+  }
+
+  async gotoEditVendor(testController) {
+    const visible = await Selector('#navbar-edit-vendor').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#navbar-edit-vendor');
+  }
+
 }
 
 export const navBar = new NavBar();
