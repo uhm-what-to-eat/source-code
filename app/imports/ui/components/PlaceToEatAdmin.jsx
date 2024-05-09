@@ -5,9 +5,12 @@ import PropTypes from 'prop-types';
 import { Image, Card, Row, Col, Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { Vendors } from '../../api/vendor/Vendors';
+import { MenuItems } from '../../api/menu/MenuItems';
 
 const removeVendor = (vendor) => {
   Vendors.collection.remove(vendor._id);
+  const menuId = MenuItems.collection.find({ vendorName: vendor.name })._id;
+  MenuItems.collection.remove(menuId);
 };
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const PlaceToEatAdmin = ({ place }) => (
