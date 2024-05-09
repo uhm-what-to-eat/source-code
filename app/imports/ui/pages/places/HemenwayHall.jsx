@@ -7,7 +7,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import PlaceToEat from '../../components/PlaceToEat';
 import { Vendors } from '../../../api/vendor/Vendors';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the Stuff documents. Use <StuffItems> to render each row. */
 const HemenwayHall = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, vendor } = useTracker(() => {

@@ -45,13 +45,32 @@ const Landing = () => {
     }
   }, [vendor, randomVendors]);
 
+  useEffect(() => {
+    let usersSubscription;
+    if (currentUser && Roles.userIsInRole(currentUser, 'admin')) {
+      usersSubscription = Meteor.subscribe('allUsernames');
+    }
+    return () => {
+      if (usersSubscription) {
+        usersSubscription.stop();
+      }
+    };
+  }, [currentUser]);
+
+  const usersData = useTracker(() => {
+    if (currentUser && Roles.userIsInRole(currentUser, 'admin')) {
+      return Meteor.users.find().fetch();
+    }
+    return [];
+  }, [currentUser]);
+
   const renderContent = () => {
     if (currentUser) {
       if (Roles.userIsInRole(currentUser, 'vendor')) {
         return (ready ? (
           <Container className="py-3">
             <Row className="align-middle text-center py-3">
-              <h1>Welcome Back {currentUser.username}!</h1>
+              <h1 className="rainbow-text">Welcome Back {currentUser.username}!</h1>
             </Row>
             <Row className="justify-content-center py-3">
               <Col>
@@ -61,7 +80,7 @@ const Landing = () => {
               </Col>
             </Row>
             <Row xs={1} md={2} lg={3} className="g-4 py-4">
-              {vendor.filter((place) => place.owner === currentUser.username).map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
+              {vendor.filter((place) => place.owner === currentUser.username)?.map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
             </Row>
           </Container>
         ) : <LoadingSpinner />);
@@ -69,16 +88,30 @@ const Landing = () => {
       return (ready ? (
         <Container className="py-3">
           <Row className="align-middle text-center py-3">
-            <h1>Welcome Back {currentUser.username}!</h1>
+            <h1 className="rainbow-text">Welcome Back {currentUser.username}!</h1>
             <h2>Top Eats For You:</h2>
           </Row>
           <Row xs={1} md={2} lg={3} className="g-4 py-4">
-            {randomVendors.map((place) => (
+            {randomVendors?.map((place) => (
               <Col key={place._id}>
                 <PlaceToEat place={place} />
               </Col>
             ))}
           </Row>
+          {Roles.userIsInRole(currentUser, 'admin') && (
+            <Row>
+              <h2>Users:</h2>
+              {usersData?.map(user => (
+                <Col key={user._id} xs={6} md={4} lg={3} className="mb-3">
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">{user.username}</h5>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          )}
         </Container>
       ) : <LoadingSpinner />);
 
@@ -88,7 +121,9 @@ const Landing = () => {
         <Row className="align-middle text-center">
           <Col xs={4} />
           <Col xs={4}>
-            <h1 id="name">UHM... What To Eat?</h1>
+            <Row>
+              <h1 className="rainbow-text">UHM... What To Eat?</h1>
+            </Row>
             <h2>Manoa&apos;s One Stop Shop For Mouthwatering Munchies!</h2>
           </Col>
         </Row>

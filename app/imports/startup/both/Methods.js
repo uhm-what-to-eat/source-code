@@ -67,7 +67,7 @@ Meteor.methods({
         const randomizedVendors = [];
         while (randomizedVendors.length < amount) {
           const randomIndex = Math.floor(Math.random() * vendors.length);
-          if (!randomizedVendors.includes(vendors[randomIndex])) {
+          if (!randomizedVendors?.includes(vendors[randomIndex])) {
             randomizedVendors.push(vendors[randomIndex]);
           }
         }
