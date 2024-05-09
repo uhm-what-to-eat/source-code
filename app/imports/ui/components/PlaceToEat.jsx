@@ -13,7 +13,7 @@ const PlaceToEat = ({ place }) => {
     currentUser: Meteor.user(),
   }), []);
 
-  const [isFavorited, setIsFavorited] = useState(place.favorites.includes(currentUser?.username));
+  const [isFavorited, setIsFavorited] = useState(place.favorites?.includes(currentUser?.username));
 
   const handleStarClick = () => {
     if (!isFavorited) {
@@ -48,10 +48,10 @@ const PlaceToEat = ({ place }) => {
           <Row className="text-center">
             <Card.Title>{place.name}</Card.Title>
             <Card.Subtitle className="py-2">{place.location}</Card.Subtitle>
-            {place.hours.split('\n').map((line, index) => (<Card.Subtitle key={index}>{line}</Card.Subtitle>
+            {place.hours.split('\n')?.map((line, index) => (<Card.Subtitle key={index}>{line}</Card.Subtitle>
             ))}
             <Card.Text>
-              {place.category.map((category, index) => <Badge key={index} bg="success" style={{ marginRight: '5px', marginBottom: '5px' }}>{category}</Badge>)}
+              {place?.category?.map((category, index) => <Badge key={index} bg="success" style={{ marginRight: '5px', marginBottom: '5px' }}>{category}</Badge>)}
             </Card.Text>
           </Row>
         </Card.Body>

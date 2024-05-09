@@ -80,7 +80,7 @@ const Landing = () => {
               </Col>
             </Row>
             <Row xs={1} md={2} lg={3} className="g-4 py-4">
-              {vendor.filter((place) => place.owner === currentUser.username).map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
+              {vendor.filter((place) => place.owner === currentUser.username)?.map((place) => (<Col key={place._id}><PlaceToEatEdit place={place} /></Col>))}
             </Row>
           </Container>
         ) : <LoadingSpinner />);
@@ -92,7 +92,7 @@ const Landing = () => {
             <h2>Top Eats For You:</h2>
           </Row>
           <Row xs={1} md={2} lg={3} className="g-4 py-4">
-            {randomVendors.map((place) => (
+            {randomVendors?.map((place) => (
               <Col key={place._id}>
                 <PlaceToEat place={place} />
               </Col>
@@ -101,7 +101,7 @@ const Landing = () => {
           {Roles.userIsInRole(currentUser, 'admin') && (
             <Row>
               <h2>Users:</h2>
-              {usersData.map(user => (
+              {usersData?.map(user => (
                 <Col key={user._id} xs={6} md={4} lg={3} className="mb-3">
                   <div className="card">
                     <div className="card-body">

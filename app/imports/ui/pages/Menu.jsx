@@ -67,7 +67,7 @@ const Menu = () => {
               </tr>
             </thead>
             <tbody>
-              {menu.menuItems.map((item) => (
+              {menu?.menuItems?.map((item) => (
                 <tr key={item._id}>
                   <td>{item.itemName}</td>
                   <td>{item.price}</td>

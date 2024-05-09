@@ -30,7 +30,7 @@ const Search = () => {
     const subscription = Meteor.subscribe(Vendors.userPublicationName);
     return {
       ready: sub.ready() && subscription.ready(),
-      categories: VendorCategories.collection.find().fetch(),
+      categories: VendorCategories.collection.find({}).fetch(),
       vendors: Vendors.collection.find({}).fetch(),
     };
   });
@@ -53,7 +53,7 @@ const Search = () => {
     // Iterate through each category
     category.forEach((cat) => {
       // If any category is not found in vendor's categories, set the flag to false
-      if (!vend.category.includes(cat)) {
+      if (!vend.category?.includes(cat)) {
         allCategoriesIncluded = false;
       }
     });
@@ -76,7 +76,7 @@ const Search = () => {
       </AutoForm>
       <Row xs={1} md={2} lg={4} className="g-2" style={{ paddingTop: '10px' }}>
         {/* Render your vendor categories here */}
-        {vendorData.map((vendor) => (
+        {vendorData?.map((vendor) => (
           <Col key={vendor._id}><PlaceToEat place={vendor} /></Col>
         ))}
       </Row>
